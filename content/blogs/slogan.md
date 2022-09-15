@@ -7,13 +7,11 @@ template = 'page.html'
 [extra]
 image = 'assets/img/demo/blog5.jpg'
 +++
-Slogan là gì?
+# Slogan là gì?
 Slogan là một câu văn ngắn hay khẩu hiệu thương mại chứa đựng thông điệp mang tính mô tả và thuyết phục về tính chất một thương hiệu giúp thương hiệu kết nối gần hơn với khách hàng. Slogan thường diễn tả một lời hứa, giá trị cốt lõi hay hướng phát triển sản phẩm của công ty. Thông thường, slogan được áp dụng lối chơi chữ – sự điệp âm, các kiểu chơi chữ và những từ ngữ có nghĩa mở rộng –điều gần như là bắt buộc trong các khẩu hiệu quảng cáo.
 
 Slogan là khẩu hiệu thương mại giúp thương hiệu kết nối gần hơn đến khách hàng. Khách hàng có nhớ và ấn tượng đến thương hiệu của bạn hay không một phần không nhỏ nhờ vào những câu khẩu hiệu dễ nhớ và ấn tượng. Những câu slogan về kinh doanh, slogan cho công ty ở trên sẽ giúp bạn có “cảm hứng” sáng tạo cho doanh nghiệp những câu ấn tượng và đầy ẩn ý làm lay động trí tưởng tượng khách hàng.
 
-
-Slogan là gì?
 
 Cũng như tên thương hiệu, slogan mang tính ngắn gọn, súc tích và hiệu quả trong việc tạo dựng giá trị thương hiệu. Nó giúp khách hàng nhanh chóng hiểu được thương hiệu đó là gì và sự khác biệt cạnh tranh so với các đối thủ cạnh tranh. Như vậy đến đây chắc bạn đã phần nào hiểu được slogan là gì rồi đúng không?
 
@@ -27,7 +25,7 @@ Slogan kinh doanh thường gắn liền với các chương trình quảng cáo
 
 Ví dụ: Cuộc cạnh tranh giữa hai “ông lớn” đồ uống giải khát Coca –Cola và Pepsi. Họ đã phải chi hang triệu đô la cho việc sản xuất các câu slogan và quảng cáo cho từng chiến dịch nhằm tạo dựng cho thương hiệu phong cách riêng thống nhất.
 
-Biti’s – nâng niu bàn chân Việt
+# Biti’s – nâng niu bàn chân Việt
 
 Đối với các nhãn hiệu hàng đầu, slogan còn là tuyên bố về tính dẫn đầu, giá trị cốt lõi hoặc vị trí độc đáo của doanh nghiệp. Ví dụ: “Biti’s – nâng niu bàn chân Việt”, “Trung nguyên – khơi nguồn sang tạo”, “Nippon – sơn đâu cũng đẹp”, Trà xanh 0 độ – “Giải nhiệt cuộc sống”, Vinamilk – “Vươn cao Việt Nam”,…
 
@@ -58,6 +56,8 @@ Las Vegas Conventions And Visitor’s Authority – What Happens Here, Stays Her
 Slogan hay về kinh doanh của các công ty lớn Việt Nam
 Dưới đây sẽ là tổng hợp các câu slogan hay về kinh doanh từ những công ty lớn tại Việt Nam.
 
+
+## Slogan
 Slogan hay về kinh doanh của các công ty lớn Việt Nam
 Mãi mãi tinh thần khởi nghiệp – Vin Group
 Hãy nói theo cách của bạn – Tập đoàn viễn thông Viettel

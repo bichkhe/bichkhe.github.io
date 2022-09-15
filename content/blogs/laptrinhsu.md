@@ -10,6 +10,7 @@ categories = ['test']
 [extra]
 image = 'assets/img/demo/3.jpg'
 +++
+
 Vài thế kỷ trước tại Hà thành có chàng trai trẻ tên gọi Tích Gia Văn, là sinh viên năm cuối khoa Công nghệ thông tin Đại học Bách khoa Hà Nội. Văn bình sinh thích viết phần mềm máy tính, rất có kỹ năng lập trình. Không những bạn bè đồng khoá đều khâm phục chàng mà ngay cả các giáo sư uyên bác cũng phải nể vì, coi Văn như một tài năng thuật toán đầy triển vọng. Các đoạn mã Văn viết ra bao giờ cũng sáng sủa, lề chuẩn, đầy đủ comment nhưng lại rất súc tích và tối ưu về giải thuật.
 
 Tốt nghiệp loại xuất sắc nhưng Tích Gia Văn không vội vàng tiếp nhận những lời đề nghị làm việc ở những vị trí then chốt trong các công ty phần mềm lớn. Cái mà chàng cần lúc này là một sự nghiệp lẫy lừng, một danh tiếng vọng toả trong giới lập trình viên toàn thế giới. Văn quyết định tiếp tục con đường học vấn. Chàng tìm sang Ấn Độ làm thạc sĩ khoa học dưới sự hướng dẫn của một vị giáo sư uyên bác người Việt gốc Mỹ, giảng viên một trường đại học lớn ở Bangalore. Sau buổi sát hạch, vị giáo sư bảo Văn: “Cậu có kỹ năng tốt, chỉ còn thiếu kỷ luật”. Văn buồn lắm, nhưng ý chí cầu tiến khiến chàng trong suốt ba năm ròng rã quyết tâm theo thầy mà tự khép mình vào thứ kỷ luật nghiệt ngã của đủ mọi loại qui trình sản xuất và qui trình quản lý chất lượng phần mềm. Sau ba năm Tích Gia Văn đã trở nên một trưởng dự án siêu hạng, có thể phụ trách những project cực lớn với sự tham gia đồng thời của hàng chục ngàn lập trình viên thuộc đủ mọi sắc tộc.
