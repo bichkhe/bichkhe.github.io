@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>[Bài 1] Giới thiệu lập trình Rust | Rust 开源文档网</title>
+
+
+
+<meta property="og:title" content="[Bài 1] Giới thiệu lập trình Rust">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+<meta name="description" content="Ngôn ngữ lập trình Rust">
+<meta property="og:description" content="Ngôn ngữ lập trình Rust">
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/rust/rust-intro-1/">
+<meta property="og:url" content="https://bichkhe.github.io/rust/rust-intro-1/">
+
+
+
+
+
+<meta property="og:image" content="https://bichkhe.github.io/assets/img/demo/1.jpg">
+
+
+
+
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content=" 2022-09-16T00:00:00+00:00">
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"">
+  <meta property=" twitter:image" content="https://bichkhe.github.io/assets/img/demo/1.jpg">
+
+
+
+<meta property="twitter:title" content="[Bài 1] Giới thiệu lập trình Rust">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "Ngôn ngữ lập trình Rust",
+  "url": "https://bichkhe.github.io/rust/rust-intro-1/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "[Bài 1] Giới thiệu lập trình Rust"
+  
+    
+    
+      "datePublished":"2022-09-16T00:00:00+00:00",
+    
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://bichkhe.github.io/rust/rust-intro-1/"
+    },
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+
+            <img class="rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+            <div class="row justify-content-between">
+                <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+                    <p class="text-uppercase font-weight-bold">
+                        <a class="text-danger" href="/">Stories</a>
+                    </p>
+                    <h1 class="display-4 secondfont mb-3 font-weight-bold">[Bài 1] Giới thiệu lập trình Rust</h1>
+                    <p class="mb-3">
+                        Ngôn ngữ lập trình Rust
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle"
+                            src="https://raw.githubusercontent.com/The-DevX-Initiative/RCIG_Coordination_Repo/main/RCIG_Mascot3.png"
+                            width="70">
+                        <small class="ml-2">bichkhe <span class="text-muted d-block">A few hours ago &middot; 5
+                                min. read</span>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0">
+                    
+                    
+                    
+                    <img src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;demo&#x2F;1.jpg">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-2 pr-4 mb-4 col-md-12">
+            <div class="sticky-top text-center">
+                <div class="text-muted">
+                    Share this
+                </div>
+                <div class="share d-inline-block">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <div class="border p-5 bg-lightblue text-dark">
+                <h3 class="font-weight-bold secondfont">Mục lục</h3>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/rust-intro-1/#tai-lieu-tham-khao">Tài liệu tham khảo</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/rust-intro-1/#dac-tinh-noi-bat">Đặc tính nổi bật</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/rust-intro-1/#cai-dat">Cài đặt</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/rust-intro-1/#q-a">Q&amp;A</a>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            <article class="article-post">
+                <p><p>Series này hướng đến mục tiêu là nắm được cơ bản về Rust.</p>
+<h2 id="tai-lieu-tham-khao">Tài liệu tham khảo</h2>
+<ul>
+<li>
+<p>Rust by examples 54: Học Rust kết hợp với thực hành online. Nếu bạn học một mình và cảm thấy khá là chán khi chỉ ngồi đọc docs và (có thể) phải loay hoay với việc cài đặt đủ thứ thì học ở trang này nhanh, gọn, lẹ.</p>
+</li>
+<li>
+<p>The Rust Official Docs – Second Edition 20: Trang chủ của ebook học Rust.</p>
+</li>
+<li>
+<p>The Rust Standard Library 11: Tài liệu cho thư viện chuẩn.</p>
+</li>
+<li>
+<p>Docs.rs 8: Trang tài liệu cho các thư viện (viết bằng Rust) khác.</p>
+</li>
+<li>
+<p>stackoverflow.com: Học cho đã cũng đừng quên chúng ta còn stackoverflow.com nhé :wink:</p>
+</li>
+</ul>
+<p>Những trang khác:</p>
+<ul>
+<li>
+<p>Rust Playground 10: bạn có thể test nhanh code trên trình duyệt.</p>
+</li>
+<li>
+<p>The Rustonomicon 6: Chuyên sâu về Rust (chắc là mình không viết bài về cái này đâu, ai thích thì có thể tham khảo, mình thấy nó cũng không khó hiểu gì lắm đâu).</p>
+</li>
+<li>
+<p>Rust Sụbrédđít 6: the Rust Programming Language subreddit, nơi đây cập nhật tin tức đủ thứ về Rust :crab:</p>
+</li>
+</ul>
+<h2 id="dac-tinh-noi-bat">Đặc tính nổi bật</h2>
+<p>Rust cũng có các điểm thuận lợi và bất lợi. Ngay từ trang chủ, đập vào mắt là Rust:</p>
+<ul>
+<li>Nhanh, Rust là ngôn ngữ biên dịch và không có GC (garbage collector: bộ dọn rác) như các ngôn ngữ thông dịch hay biên dịch (như Go) khác. Tốc độ thực tiệm cận với C/C++. Tham khảo chỉ mang tính tham khảo the benchmarksgame 16.</li>
+<li>Move semantics (không biết dịch sao cho vừa lòng) và Guaranteed Memory Safety (đảm bảo an toàn bộ nhớ): nghĩa là khi một biến gán giá trị cho một biến khác thì cũng sẽ chuyển quyền sở hữu của nó cho biến đó, dĩ nhiên là nó không thể nào đọc/ghi được giá trị nữa. Thực tế: bạn không thể nào có quyển sách đó nếu bạn đã đưa nó cho người khác. Xét 2 ví dụ đơn giản giữa C++ và Rust (xem ở cuối section này).</li>
+<li>Type inference: Rust compiler có khả năng suy luận ra kiểu của biến. Như ví dụ bên dưới: mình hoàn toàn bỏ qua được <code>rust Vec&lt;int&gt;</code> trong let <code>v: Vec&lt;int&gt;</code> ..., Rust compiler vẫn biết được kiểu của v là Vec<int>.
+Prevent data races: Khi bạn sử dụng nhiều threads cùng đọc ghi đồng thời vào một vùng nhớ sẽ dẫn đến data races, Rust không cho phép điều này xảy ra. Ví dụ thực tế, cả lớp (các threads) cùng tự ý ghi vào bảng (vùng nhớ) thì sẽ dẫn đến một mớ hỗn độn, kết quả là dữ liệu bên trong vùng nhớ không còn chính xác nữa (bạn có thể tham khảo với từ khóa data races là gì với Google.
+R- ust hỗ trợ generics, pattern matching (powered by some functional programming languages). Rust code có thể gọi C code, có nghĩa là: bạn vẫn có thể dùng các thư viện có sẵn khác mà không cần phải đợi thư viện đó viết bằng Rust, và cũng như, bạn có thể viết các thư viện cho các ngôn ngữ khác như Python, Java, … với native code.</li>
+<li>Rust đi chung với toolchains rất hiệu quả. Chỉ với lệnh cargo, bạn chỉ cầm thêm tên thư viện vào file Cargo.toml của projet rồi chạy cargo build --release là nó sẽ làm từ A-Z cho bạn: tải thư viện, biên dịch, optimize luôn. Không có khó khăn gì ở đây hết!
+Trình biên dịch của Rust cho ra lỗi rất hữu ích (hầu hết các trường hợp). Hữu ích đến nỗi, bạn có thể nhắm mắt làm theo hướng dẫn của trình biên dịch mà không cần dùng não. (Đùa thôi, bạn phải dùng não, nhưng đó cũng là sự thật của mình lúc mới học Rust).
+Còn nữa … (chừng nào nhớ ra với dịch được thì update tiếp :joy: )</li>
+</ul>
+<pre data-lang="c++" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#608b4e;">// C++
+</span><span style="color:#9b9b9b;">#include </span><span style="color:#d69d85;">&lt;iostream&gt;
+</span><span style="color:#9b9b9b;">#include </span><span style="color:#d69d85;">&lt;vector&gt;
+</span><span style="color:#569cd6;">int </span><span>main() {
+</span><span>    std::vector&lt;</span><span style="color:#569cd6;">int</span><span>&gt; v = {</span><span style="color:#b5cea8;">0</span><span>, </span><span style="color:#b5cea8;">1</span><span>, </span><span style="color:#b5cea8;">2</span><span>, </span><span style="color:#b5cea8;">3</span><span>};
+</span><span>    std::vector&lt;</span><span style="color:#569cd6;">int</span><span>&gt; v2 = v;
+</span><span>    std::cout &lt;&lt; </span><span style="color:#d69d85;">&quot;v[1]: &quot; </span><span>&lt;&lt; v[</span><span style="color:#b5cea8;">1</span><span>] &lt;&lt; std::endl;
+</span><span>    </span><span style="color:#569cd6;">return </span><span style="color:#b5cea8;">0</span><span>;
+</span><span>}
+</span><span>
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> v: Vec&lt;int&gt; = vec![</span><span style="color:#b5cea8;">0</span><span>, </span><span style="color:#b5cea8;">1</span><span>, </span><span style="color:#b5cea8;">2</span><span>, </span><span style="color:#b5cea8;">3</span><span>];
+</span><span>    </span><span style="color:#569cd6;">let</span><span> v2 = v;
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;v[1]: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, v[</span><span style="color:#b5cea8;">1</span><span>]);
+</span><span>}
+</span></code></pre>
+<p>Trong 2 ví dụ trên, C++ hoàn toàn có thể compile và chạy được nhưng Rust không cho phép compile vì sau khi gán, v không còn quyền truy cập tới vùng nhớ đó nữa.
+Đây cũng là một trong các quy tắc nghiêm ngặt của Rust. Cũng vì các quy tắc đó làm cho chương trình của Rust xanh sạch đẹp và không có lỗi runtime.</p>
+<p>Rust cũng có nhiều điểm bất lợi, ý kiến riêng của mình:
+Phức tạp: Rust đã phức tạp và cả phức tạp dần theo thời gian. Team Rust làm việc rất tâm huyết :triumph: ngôn ngữ ngày có nhiều cập nhật và đổi mới, mình nghĩ đây cũng là điểm mạnh và cũng là điểm yếu. Vì thay đổi quá nhiều dẫn đến ngôn ngữ “không ổn định”, các thư viện cũ sẽ gặp nhiều rắc rối nếu không được update thường xuyên (mặc dù đã có các tools. Bạn nên học dần để dễ dàng bắt kịp :3 Mình không cho là Rust khó học, Rust chỉ “hơi” phức tạp một xíu, concepts hơi lạ so với bạn một chút xíu và sẽ mất thời gian hơn một xíu nhưng cũng đáng mà :smiley:
+Mọi thứ cần rõ ràng: vì lý do rustc cũng chỉ là “cái máy” nên nó không thật sự linh hoạt. Code bạn viết ra cần rõ ràng, đôi khi thứ tự khai báo biến cũng là nguyên nhân dẫn đến lỗi.
+Có thể còn nhiều điểm yếu khác nữa mà mình chưa biết …
+Chi tiết và sinh động hơn, các bạn hãy đọc bài của chú thefullsnack tại đây 21 (chú trả tiền cho con vì pr dùm chú đi :stuck_out_tongue: ).</p>
+<h2 id="cai-dat">Cài đặt</h2>
+<p>Đối với các bạn sử dụng *nix thì vẫn có các package riêng lẻ như <code>rustc</code>, <code>cargo</code>, … mình thấy nó sẽ khá rối và update thì phải đợi mirror. Mình muốn đơn giản thì chỉ cần theo hướng dẫn là đủ. Nếu trong quá trình cài đặt xuất hiện lỗi thì bạn có thể reply post này, mình sẽ cố gắng hỗ trợ. (Mình không có lưu ý gì vì mình chưa cài lỗi bao giờ :smile:)</p>
+<h2 id="q-a">Q&amp;A</h2>
+<p>Q: Kinh nghiệm kiểu abc, xyz,… như tui thì có học được không?</p>
+<p>A: Muốn thì được hết. Nhưng có thể sẽ phức tạp hơn các ngôn ngữ bạn từng học nên cần thời gian. Vì phức tạp nên cũng dễ nản, chuyện đương nhiên mà! Nhưng đừng lo, nó sẽ đáng công sức bạn bỏ ra. Lý do?</p>
+<p>Q: Khoảng bao lâu thì tui sẽ nắm vững cơ bản như cú pháp?</p>
+<p>A: Tùy vào mỗi người, một vài tuần gì đấy, mình đoán vậy. Chưa bao gồm thời gian học sử dụng macros (cái này nâng cao rồi :3 )</p>
+<p>Q: Học Rust thì làm được gì?</p>
+<p>A: Ừhm, C/C++ làm được gì thì Rust làm được cái đó! Như: games, browsers, OSes, websites, wasm apps, … và hệ thống nhúng (Rust làm được nhưng chắc chưa bằng C được, mình không rõ mảng này cho lắm).</p>
+<p>Q: So sánh Rust với ngôn ngữ X, Y, Z,… đi?</p>
+<p>A: Bạn có thể tham khảo Google, cũng khá nhiều. Bản thân Rust phức tạp hơn (và phức tạp dần theo thời gian) so với hầu hết các ngôn ngữ phổ biến khác nên sẽ khó khăn cho nhiều người kể cả người có kinh nghiệm lập trình lâu năm. Nếu bạn chưa học lập trình bao giờ, hoàn toàn ổn nếu bạn chọn Rust là ngôn ngữ đầu tiên, nhưng nếu Rust là ngôn ngữ thứ 2 thì có vẻ căng đấy vì những khái niệm của Rust sẽ làm cho bạn rối với ngôn ngữ bạn vừa học (nếu bạn không bị rối thì quá tốt rồi :smiley: ).</p>
+<p>Q: Nói quá trời nói rồi công ty nào xài Rust?</p>
+<p>A:</p>
+<p>Q: Muốn coi thử một chương trình viết bằng Rust thì trông nó như thế nào?</p>
+<p>A:</p>
+</p>
+            </article>
+            <div class="border p-5 bg-lightblue">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 mb-2 mb-md-0">
+                        <h5 class="font-weight-bold secondfont">Become a member</h5>
+                        Get the latest news right in your inbox. We never spam!
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card border-0 mb-4 box-shadow h-xl-300">
+                <div
+                    style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+                </div>
+                <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+                    <h2 class="h4 font-weight-bold">
+                        <a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+                    </h2>
+                    <p class="card-text">
+                        Researchers have found an effective target in the brain for electrical stimulation to
+                        improve mood in people suffering from depression.
+                    </p>
+                    <div>
+                        <small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="flex-md-row mb-4 box-shadow h-xl-300">
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog4.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
+                                of Earth</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog5.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
+                                Titicaca</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog6.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>
