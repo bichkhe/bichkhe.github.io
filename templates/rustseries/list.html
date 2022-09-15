@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<!--------------------------------------
+Main
+--------------------------------------->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="font-weight-bold spanborder"><span>Series Học Rust</span></h5>
+            {% set main_page = terms[0] %}
+            {{main_page}}
+
+            <h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
+            {% for term in terms %}
+            {% if term.pages %}
+            {% for page in term.pages %}
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="{{page.permalink}}"> {{ page.title | safe }}</a>
+                    </h2>
+                    <p>
+                        {{ page.description | safe }}
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        {{config.extra.author}}
+                    </div>
+                    <small class="text-muted">{{page.date | date }}</small>
+                </div>
+                {% set extra = page.extra %}
+                {% for k, v in extra %}
+                {% if k == 'image' %}
+                <img height="120" src="{{config.base_url}}/{{v}}">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+
+            {{ macros::paginator1(paginator=terms)}}
+        </div>
+        <div class="col-md-4 pl-4">
+            <div class="sticky-top">
+                <h5 class="font-weight-bold spanborder"><span>Popular in Science</span></h5>
+                <ol class="list-featured">
+                    {% set_global all_pages = [] %}
+
+                    {% set_global found = 0 %}
+                    {% set categories = get_taxonomy(kind="tags") %}
+                    {% set_global total_pages = 0 %}
+                    {% for k, v in categories %}
+                    {% if k == 'items' %}
+                    {% for term in v %}
+                    {% set len = term.pages | length %}
+                    {% set_global total_pages = total_pages + len %}
+
+                    {% if total_pages > 0 %}
+
+                    {% for page in term.pages %}
+                    {% for p in all_pages %}
+                    {% if p.permalink == page.permalink %}
+                    {% set_global found = 1 %}
+                    {%endif%}
+
+                    {% endfor %}
+                    {% if found == 0 %}
+                    {% set_global all_pages = all_pages | concat(with=page) %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                    {% for page in all_pages %}
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="./article.html" class="text-dark">{{page.title}}</a>
+                            </h6>
+                            <p class="text-muted">
+                                bichkhe - {{page.date | date}}
+                            </p>
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <div class="border p-5 bg-lightblue">
+        <div class="row justify-content-between">
+            <div class="col-md-6">
+                <h5 class="font-weight-bold secondfont">Become a member</h5>
+                Get the latest news right in your inbox. It's free and you can unsubscribe at any time. We hate spam
+                as much as we do, so we never spam!
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+{% endblock content %}

@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
 Allow: /
-Sitemap: https://bichkhe.github.io/sitemap.xml
+
+Sitemap: {{config.base_url}}/sitemap.xml

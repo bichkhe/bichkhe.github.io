@@ -1,0 +1,57 @@
+# The URL the site will be built for
+base_url = "https://bichkhe.github.io"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+
+# When set to "true", a feed is automatically generated.
+generate_feed = true
+
+# The taxonomies to be rendered for the site and their configuration.
+taxonomies = [
+  {name = "categories", paginate_by = 10, feed = true},
+  {name = "tags", feed = true, paginate_by = 10}, # each tag will have its own feed
+  {name = "popular", feed = true, paginate_by = 10}, # each tag will have its own feed
+  {name = "rustlang", feed = true, paginate_by = 10}, # each tag will have its own feed
+  {name = "rustseries", feed = true, paginate_by = 10}, # each tag will have its own feed
+]
+
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "visual-studio-dark"
+
+[extra]
+# Put all your custom variables here
+author = "bichkhe"
+
+language_code = "vi-VN"
+copy = "&copy; 2016-2022 https://rust-tieng-viet.com"
+
+[[extra.menu]]
+# Put all your custom variables here
+name = "Intro"
+path = "/"
+
+[[extra.menu]]
+name = "Rust"
+path = "/rust/"
+
+[[extra.menu]]
+name = "Blogs"
+path = "/blogs/"
+
+
+[[extra.menu]]
+name = "Collections"
+path = "/collections/"
+
+[[extra.menu]]
+name = "Me"
+path = "/me/"

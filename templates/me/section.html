@@ -1,0 +1,165 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-12 pt-6 pb-6 pr-6 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+						<a class="text-danger" href="#">Templates</a>
+					</p>
+					<h1 class="display-4 secondfont mb-3 font-weight-bold">Rust Tiếng Việt - Người đưa tin</h1>
+					<p class="mb-3">
+					<div>
+						Tham gia <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a> để cập
+						nhật
+						những thống tin mới
+					</div>
+					</p>
+					<div class="d-flex align-items-center">
+						<a target="_blank" href="https://www.buymeacoffee.com/"><img class="rounded-circle"
+								src="https://raw.githubusercontent.com/The-DevX-Initiative/RCIG_Coordination_Repo/main/RCIG_Mascot3.png"
+								width="70"></a>
+						<small class="ml-2"><a target="_blank" href="https://www.buymeacoffee.com/">tuanphung</a>
+							<span class="text-muted d-block">A few hours ago &middot; 5 min. read</span>
+						</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-2 pr-4 mb-4 col-md-12 text-center">
+			<div class="sticky-top text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			<article class="article-post">
+				<p>
+					Hi vọng bạn có những trải nghiệm tốt với Rust Tiếng Việt. Tiện thể, Mình là <a target="_blank"
+						href="https://www.facebook.com/jk.fsm/">Tuấn
+						Phùng</a>
+				</p>
+
+
+			</article>
+			<div class="border p-5 bg-lightblue mt-5">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-md-8 mb-2 mb-md-0">
+						<h5 class="font-weight-bold mb-3">About the author of Rust Tiếng Việt</h5>
+						Hi, I'm Tuan Phung, the author of the website you're currently previewing. I am passion with
+						Rust language, I like sharing knowldege about Rust Programing with everyone.
+						If you'd like to support my work,
+						donations are highly appreciated! You can remove the credit links after donation. Thank you!
+					</div>
+					<div class="col-md-4">
+						<a target="_blank" href="https://www.buymeacoffee.com" class="btn btn-warning btn-block"><i
+								class="fa fa-coffee"></i> Buy me a coffee</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% set_global all_pages = [] %}
+
+{% set_global found = 0 %}
+{% set categories = get_taxonomy(kind="tags") %}
+{% set_global total_pages = 0 %}
+{% for k, v in categories %}
+{% if k == 'items' %}
+{% for term in v %}
+{% set len = term.pages | length %}
+{% set_global total_pages = total_pages + len %}
+
+{% if total_pages > 0 %}
+
+{% for page in term.pages %}
+{% for p in all_pages %}
+{% if p.permalink == page.permalink %}
+{% set_global found = 1 %}
+{% endif %}
+
+{% endfor %}
+{% if found == 0 %}
+{% set_global all_pages = all_pages | concat(with=page) %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+
+<div class="container pt-4 pb-4">
+	<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card border-0 mb-4 box-shadow h-xl-300">
+				<div
+					style="background-image: url({{config.base_url}}/assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+				</div>
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h4 font-weight-bold">
+						<a class="text-dark" href="#"> Rust Tiếng Việt - Lập trình Rust</a>
+					</h2>
+					<p class="card-text">
+						Rust is a multi-paradigm, general-purpose programming language. Rust emphasizes performance,
+						type safety, and concurrency.
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted" href="{{config.base_url}}">tuanphung</a></small>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+
+				{% for page in all_pages %}
+				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="{{config.base_url}}/{{page.extra.image}}">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+							<a class="text-dark" href="{{page.permalink}}">{{page.title}}</a>
+						</h2>
+						<div class="card-text text-muted small">
+							bichkhe
+						</div>
+						<small class="text-muted">Dec 12 · 5 min read</small>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Main -->
+
+{% endblock content %}

@@ -1,0 +1,213 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+<div class="container">
+	<div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
+		<div class="pl-4 pr-0 h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 align-self-center">
+					<h1 class="secondfont mb-3 font-weight-bold">Lập Trình Rust Trong 24 ngày<img class="rounded-circle"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+							width="70"> </h1>
+
+					<p class="mb-3">
+						Cách tốt nhất để học một ngôn ngữ mới là viết trong nó
+					</p>
+					<a href="/rust" class="btn btn-dark">Read more</a>
+				</div>
+				<div class="col-md-6 d-none d-md-block pr-0"
+					style="background-size:cover;background-image:url(./assets/img/demo/home.jpg);">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Header -->
+
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+{% set_global all_pages1 = [] %}
+{% set_global found = 0 %}
+{% set categories = get_taxonomy(kind="rustseries") %}
+{% set_global total_pages = 0 %}
+{% for k, v in categories %}
+{% if k == 'items' %}
+{% for term in v %}
+{% set len = term.pages | length %}
+{% set_global total_pages = total_pages + len %}
+
+{% if total_pages > 0 %}
+
+{% for page in term.pages %}
+{% for p in all_pages1 %}
+{% if p.permalink == page.permalink %}
+{% set_global found = 1 %}
+{%endif%}
+
+{% endfor %}
+{% if found == 0 %}
+{% set_global all_pages1 = all_pages1 | concat(with=page) %}
+{%endif%}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{%endif%}
+{% endfor %}
+
+{% set main_page = all_pages1[0] %}
+<div class="container pt-4 pb-4">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card border-0 mb-4 box-shadow h-xl-300">
+				<div
+					style="background-image: url(https://artoferickuns.files.wordpress.com/2017/03/17-artist-and-model.jpg?w=999); height: 150px;    background-size: cover;    background-repeat: no-repeat;">
+				</div>
+				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+					<h2 class="h4 font-weight-bold">
+						<a class="text-dark" href="{{config.base_url}}/rust">HỌC LẬP TRÌNH RUST </a>
+					</h2>
+					<p class="card-text">
+						Series lập trình rust này sẽ giúp bạn khám phá vẻ đẹp của ngôn ngữ Rust.
+						Chúng ta đi qua nhiều phần cũng như các khía cạnh khác nhau. Từ cách sử dụng cargo, cài đặt thư
+						viện cũng
+						như lập trình server http, cấu hình log, metric, thao tác database .. Tất tần
+						tật sẽ có series
+						này
+					</p>
+					<div>
+						<small class="d-block"><a class="text-muted" href="/">tuan phung</a></small>
+						<small class="text-muted">Dec 12 &middot; 5 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="flex-md-row mb-4 box-shadow h-xl-300">
+
+
+				{% for page in all_pages1 %}
+				{% if loop.index < 4 %} <div class="mb-3 d-flex align-items-center">
+					<img height="80" src="{{config.base_url}}/{{macros::image_url(page=page)}}">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+							<a class="text-dark" href="{{page.permalink}}">{{page.title}}</a>
+						</h2>
+						<div class="card-text text-muted small">
+							bichkhe
+						</div>
+						<small class="text-muted">{{page.date | date }} &middot; 5 min read</small>
+					</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-md-8">
+			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
+			{% set_global all_pages = [] %}
+			{% set_global found = 0 %}
+			{% set categories = get_taxonomy(kind="rustlang") %}
+			{% set_global total_pages = 0 %}
+			{% for k, v in categories %}
+			{% if k == 'items' %}
+			{% for term in v %}
+			{% set len = term.pages | length %}
+			{% set_global total_pages = total_pages + len %}
+
+			{% if total_pages > 0 %}
+
+			{% for page in term.pages %}
+			{% for p in all_pages %}
+			{% if p.permalink == page.permalink %}
+			{% set_global found = 1 %}
+			{%endif%}
+
+			{% endfor %}
+			{% if found == 0 %}
+			{% set_global all_pages = all_pages | concat(with=page) %}
+			{%endif%}
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
+			{%endif%}
+			{% endfor %}
+
+			{% for page in all_pages %}
+			<div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+						<a class="text-dark" href="{{page.permalink}}">{{page.title}}</a>
+					</h2>
+					<p>
+						{{page.description}}
+					</p>
+					<div class="card-text text-muted small">
+						{{page.slug}}
+					</div>
+					<small class="text-muted">{{page.date | date }} &middot; 5 min read</small>
+				</div>
+				<img height="120" src="{{macros::image_url(page=page)}}">
+			</div>
+			{% endfor %}
+
+		</div>
+		<div class="col-md-4 pl-4">
+			<h5 class="font-weight-bold spanborder"><span>Popular</span></h5>
+			<ol class="list-featured">
+				{% set_global all_pages = [] %}
+				{% set_global found = 0 %}
+				{% set categories = get_taxonomy(kind="tags") %}
+				{% set_global total_pages = 0 %}
+				{% for k, v in categories %}
+				{% if k == 'items' %}
+				{% for term in v %}
+				{% set len = term.pages | length %}
+				{% set_global total_pages = total_pages + len %}
+
+				{% if total_pages > 0 %}
+
+				{% for page in term.pages %}
+				{% for p in all_pages %}
+				{% if p.permalink == page.permalink %}
+				{% set_global found = 1 %}
+				{%endif%}
+
+				{% endfor %}
+				{% if found == 0 %}
+				{% set_global all_pages = all_pages | concat(with=page) %}
+				{%endif%}
+				{% endfor %}
+				{% endif %}
+				{% endfor %}
+				{%endif%}
+				{% endfor %}
+
+				<!--Rende HTML-->
+				{% for page in all_pages %}
+				<li>
+					<span>
+						<h6 class="font-weight-bold">
+							<a href="{{page.permalink}}" class="text-dark">{{page.title}}</a>
+						</h6>
+						<p class="text-muted">
+							tuanphung
+						</p>
+					</span>
+				</li>
+				{%endfor %}
+
+			</ol>
+		</div>
+	</div>
+</div>
+{% endblock content %}

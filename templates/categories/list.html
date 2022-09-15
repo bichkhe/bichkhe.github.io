@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<!--------------------------------------
+Main
+--------------------------------------->
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-8">
+			<h5 class="font-weight-bold spanborder"><span>Categories</span></h5>
+			{% set main_page = terms[0] %}
+			{{main_page}}
+
+			<h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
+			{% for term in terms %}
+			{% if term.pages -%}
+			{% for page in term.pages %}
+			<div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+						<a class="text-dark" href="{{page.permalink}}"> {{ page.title | safe }}</a>
+					</h2>
+					<p>
+						{{ page.description | safe }}
+						<!-- There are more coral species lurking in the deep ocean that previously thought. -->
+					</p>
+					<div class="card-text text-muted small">
+						{{config.extra.author}}
+					</div>
+					<small class="text-muted">{{page.date | date }}</small>
+				</div>
+				{% set extra = page.extra %}
+				{% for k, v in extra %}
+				<img height="120" src="{{config.base_url}}/{{v}}">
+				{% endfor %}
+
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
+
+			{{ macros::paginator1(paginator=terms)}}
+		</div>
+		<div class="col-md-4 pl-4">
+			<div class="sticky-top">
+				<h5 class="font-weight-bold spanborder"><span>Popular in Science</span></h5>
+				<ol class="list-featured">
+					<li>
+						<span>
+							<h6 class="font-weight-bold">
+								<a href="./article.html" class="text-dark">Did Supernovae Kill Off Large Ocean
+									Animals?</a>
+							</h6>
+							<p class="text-muted">
+								Jake Bittle in SCIENCE
+							</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h6 class="font-weight-bold">
+								<a href="./article.html" class="text-dark">Humans Reversing Climate Clock: 50
+									Million Years</a>
+							</h6>
+							<p class="text-muted">
+								Jake Bittle in SCIENCE
+							</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h6 class="font-weight-bold">
+								<a href="./article.html" class="text-dark">Unprecedented Views of the Birth of
+									Planets</a>
+							</h6>
+							<p class="text-muted">
+								Jake Bittle in SCIENCE
+							</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h6 class="font-weight-bold">
+								<a href="./article.html" class="text-dark">Effective New Target for Mood-Boosting
+									Brain Stimulation Found</a>
+							</h6>
+							<p class="text-muted">
+								Jake Bittle in SCIENCE
+							</p>
+						</span>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container pt-4 pb-4">
+	<div class="border p-5 bg-lightblue">
+		<div class="row justify-content-between">
+			<div class="col-md-6">
+				<h5 class="font-weight-bold secondfont">Become a member</h5>
+				Get the latest news right in your inbox. It's free and you can unsubscribe at any time. We hate spam
+				as much as we do, so we never spam!
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" class="form-control" placeholder="First name">
+					</div>
+					<div class="col-md-6">
+						<input type="text" class="form-control" placeholder="Last name">
+					</div>
+					<div class="col-md-12 mt-3">
+						<button type="submit" class="btn btn-success btn-block">Subscribe</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Main -->
+{% endblock content %}
