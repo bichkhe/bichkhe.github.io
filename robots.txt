@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://bichkhe.github.io/rust-tieng-viet.github.io/sitemap.xml
+Sitemap: https://bichkhe.github.io/sitemap.xml

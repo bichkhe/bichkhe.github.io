@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title> - Bàn tải cân</title>
-	<link href="https://bichkhe.github.io/rust-tieng-viet.github.io/tags/ban-tai-can/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://bichkhe.github.io/rust-tieng-viet.github.io"/>
+	<link href="https://bichkhe.github.io/tags/ban-tai-can/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2022-09-20T00:00:00+00:00</updated>
-	<id>https://bichkhe.github.io/rust-tieng-viet.github.io/tags/ban-tai-can/atom.xml</id>
+	<id>https://bichkhe.github.io/tags/ban-tai-can/atom.xml</id>
 	<entry xml:lang="en">
 		<title>Trinh Tùng Truyện </title>
 		<published>2022-09-20T00:00:00+00:00</published>
 		<updated>2022-09-20T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tinhtrungtruyen/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tinhtrungtruyen/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/tinhtrungtruyen/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/tinhtrungtruyen/</id>
 		<content type="html">&lt;p&gt;Trích từ Bàn Tải Cân
 Lời tựa &lt;&#x2F;p&gt;
 &lt;p&gt;Đầu năm Giáp Sửu bản ngã nhân chuyến công du thượng nguồn sông Canh La có tranh thủ dạo gót vào rừng lấy chút khí xuân. Tiết trời mát mẻ, gió hây hây, lác đác khắp một vùng đồi núi sơn cước là những tiếng thú tìm đàn, tiếng chim gọi bầy. Những thảm cỏ xanh rờn nằm dài trong nắng, thân ngọn đẫm sương run run căng tràn nhựa sống. Những cây liễu tha thướt như những ngón tay gầy xoè ra mà mơn trớn và ve vuốt bầu trời [1]. Phong cảnh thật chẳng khác gì chốn thần tiên, vừa hữu tình vừa vô ý.&lt;&#x2F;p&gt;

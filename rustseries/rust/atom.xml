@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title> - Rust</title>
-	<link href="https://bichkhe.github.io/rust-tieng-viet.github.io/rustseries/rust/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://bichkhe.github.io/rust-tieng-viet.github.io"/>
+	<link href="https://bichkhe.github.io/rustseries/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2022-09-16T00:00:00+00:00</updated>
-	<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rustseries/rust/atom.xml</id>
+	<id>https://bichkhe.github.io/rustseries/rust/atom.xml</id>
 	<entry xml:lang="en">
 		<title>[Bài 2] Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-cargo-2/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-cargo-2/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-cargo-2/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-cargo-2/</id>
 		<content type="html">&lt;p&gt;Ngày hôm nay, chúng ta sẽ học:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cấu trúc một chương trình “Hello world!” trên Rust.&lt;&#x2F;li&gt;
@@ -118,8 +118,8 @@ Mình lưu ý thế này để khi các bạn dùng Sublime Text (+ Rust enhance
 		<title>[Bài 1] Giới thiệu lập trình Rust</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro-1/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro-1/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro-1/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro-1/</id>
 		<content type="html">&lt;p&gt;Series này hướng đến mục tiêu là nắm được cơ bản về Rust.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;tai-lieu-tham-khao&quot;&gt;Tài liệu tham khảo&lt;&#x2F;h2&gt;
 &lt;ul&gt;

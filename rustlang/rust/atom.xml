@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title> - Rust</title>
-	<link href="https://bichkhe.github.io/rust-tieng-viet.github.io/rustlang/rust/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://bichkhe.github.io/rust-tieng-viet.github.io"/>
+	<link href="https://bichkhe.github.io/rustlang/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2022-09-16T00:00:00+00:00</updated>
-	<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rustlang/rust/atom.xml</id>
+	<id>https://bichkhe.github.io/rustlang/rust/atom.xml</id>
 	<entry xml:lang="en">
 		<title>Rust là gì?</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro/</id>
 		<content type="html">&lt;p&gt;Và tại sao Rust lại được yêu thích đến thế không? Ok, trước tiên, hãy cùng mình tìm hiểu về…&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;rust-la-gi&quot;&gt;Rust là gì?&lt;&#x2F;h1&gt;
 &lt;p&gt;Trước hết, Rust là một ngôn ngữ lập trình rất mạnh mẽ, nó hỗ trợ các lập trình viên viết mã để tương tác trực tiếp với hệ thống, bên cạnh đó nó còn có tốc độ rất nhanh, sự ổn định và không bao giờ bị crash. Ngôn ngữ lập trình này do Mozilla Foundation phát triển.&lt;&#x2F;p&gt;
@@ -43,8 +43,8 @@ Bên cạnh nghiên cứu tài liệu thì bạn cũng nên tham gia hoạt đ�
 		<title>Macro function - Công cụ hấp dẫn</title>
 		<published>2019-11-28T00:00:00+00:00</published>
 		<updated>2019-11-28T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/macro-function/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/macro-function/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/macro-function/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/macro-function/</id>
 		<content type="html"></content>
 	</entry>
 </feed>

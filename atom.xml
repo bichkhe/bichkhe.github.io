@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title></title>
-	<link href="https://bichkhe.github.io/rust-tieng-viet.github.io/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://bichkhe.github.io/rust-tieng-viet.github.io"/>
+	<link href="https://bichkhe.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2022-09-20T00:00:00+00:00</updated>
-	<id>https://bichkhe.github.io/rust-tieng-viet.github.io/atom.xml</id>
+	<id>https://bichkhe.github.io/atom.xml</id>
 	<entry xml:lang="en">
 		<title>Trinh Tùng Truyện </title>
 		<published>2022-09-20T00:00:00+00:00</published>
 		<updated>2022-09-20T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tinhtrungtruyen/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tinhtrungtruyen/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/tinhtrungtruyen/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/tinhtrungtruyen/</id>
 		<content type="html">&lt;p&gt;Trích từ Bàn Tải Cân
 Lời tựa &lt;&#x2F;p&gt;
 &lt;p&gt;Đầu năm Giáp Sửu bản ngã nhân chuyến công du thượng nguồn sông Canh La có tranh thủ dạo gót vào rừng lấy chút khí xuân. Tiết trời mát mẻ, gió hây hây, lác đác khắp một vùng đồi núi sơn cước là những tiếng thú tìm đàn, tiếng chim gọi bầy. Những thảm cỏ xanh rờn nằm dài trong nắng, thân ngọn đẫm sương run run căng tràn nhựa sống. Những cây liễu tha thướt như những ngón tay gầy xoè ra mà mơn trớn và ve vuốt bầu trời [1]. Phong cảnh thật chẳng khác gì chốn thần tiên, vừa hữu tình vừa vô ý.&lt;&#x2F;p&gt;
@@ -199,8 +199,8 @@ Lời tựa &lt;&#x2F;p&gt;
 		<title>Slogan Hay</title>
 		<published>2022-09-17T00:00:00+00:00</published>
 		<updated>2022-09-17T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/slogan/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/slogan/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/slogan/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/slogan/</id>
 		<content type="html">&lt;p&gt;Slogan là gì?
 Slogan là một câu văn ngắn hay khẩu hiệu thương mại chứa đựng thông điệp mang tính mô tả và thuyết phục về tính chất một thương hiệu giúp thương hiệu kết nối gần hơn với khách hàng. Slogan thường diễn tả một lời hứa, giá trị cốt lõi hay hướng phát triển sản phẩm của công ty. Thông thường, slogan được áp dụng lối chơi chữ – sự điệp âm, các kiểu chơi chữ và những từ ngữ có nghĩa mở rộng –điều gần như là bắt buộc trong các khẩu hiệu quảng cáo.&lt;&#x2F;p&gt;
 &lt;p&gt;Slogan là khẩu hiệu thương mại giúp thương hiệu kết nối gần hơn đến khách hàng. Khách hàng có nhớ và ấn tượng đến thương hiệu của bạn hay không một phần không nhỏ nhờ vào những câu khẩu hiệu dễ nhớ và ấn tượng. Những câu slogan về kinh doanh, slogan cho công ty ở trên sẽ giúp bạn có “cảm hứng” sáng tạo cho doanh nghiệp những câu ấn tượng và đầy ẩn ý làm lay động trí tưởng tượng khách hàng.&lt;&#x2F;p&gt;
@@ -545,8 +545,8 @@ Như vậy trên đây là bài viết chia sẻ giúp bạn hiểu được v�
 		<title>Lập Trình Sư</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/laptrinhsu/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/laptrinhsu/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/laptrinhsu/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/laptrinhsu/</id>
 		<content type="html">&lt;p&gt;Vài thế kỷ trước tại Hà thành có chàng trai trẻ tên gọi Tích Gia Văn, là sinh viên năm cuối khoa Công nghệ thông tin Đại học Bách khoa Hà Nội. Văn bình sinh thích viết phần mềm máy tính, rất có kỹ năng lập trình. Không những bạn bè đồng khoá đều khâm phục chàng mà ngay cả các giáo sư uyên bác cũng phải nể vì, coi Văn như một tài năng thuật toán đầy triển vọng. Các đoạn mã Văn viết ra bao giờ cũng sáng sủa, lề chuẩn, đầy đủ comment nhưng lại rất súc tích và tối ưu về giải thuật.&lt;&#x2F;p&gt;
 &lt;p&gt;Tốt nghiệp loại xuất sắc nhưng Tích Gia Văn không vội vàng tiếp nhận những lời đề nghị làm việc ở những vị trí then chốt trong các công ty phần mềm lớn. Cái mà chàng cần lúc này là một sự nghiệp lẫy lừng, một danh tiếng vọng toả trong giới lập trình viên toàn thế giới. Văn quyết định tiếp tục con đường học vấn. Chàng tìm sang Ấn Độ làm thạc sĩ khoa học dưới sự hướng dẫn của một vị giáo sư uyên bác người Việt gốc Mỹ, giảng viên một trường đại học lớn ở Bangalore. Sau buổi sát hạch, vị giáo sư bảo Văn: “Cậu có kỹ năng tốt, chỉ còn thiếu kỷ luật”. Văn buồn lắm, nhưng ý chí cầu tiến khiến chàng trong suốt ba năm ròng rã quyết tâm theo thầy mà tự khép mình vào thứ kỷ luật nghiệt ngã của đủ mọi loại qui trình sản xuất và qui trình quản lý chất lượng phần mềm. Sau ba năm Tích Gia Văn đã trở nên một trưởng dự án siêu hạng, có thể phụ trách những project cực lớn với sự tham gia đồng thời của hàng chục ngàn lập trình viên thuộc đủ mọi sắc tộc.&lt;&#x2F;p&gt;
 &lt;p&gt;Xong luận án thạc sĩ ở Ấn độ, Văn xin được học bổng sang Hoa Kỳ làm tiến sĩ ở Silicon Valley, tiếp tục con đường phát triển sự nghiệp của mình. Ông thầy tiếp theo của Văn là một học giả lớn gốc Campuchia, người chuyên viết các khảo cứu về chất lượng mã nguồn cho các công ty phần mềm đạt tiêu chuẩn CMM5 trở lên. Sau khi tiếp xúc, ông bảo Văn: “Cậu có kỹ năng và kỷ luật tốt, chỉ còn thiếu sáng tạo”. Cảm thấy hổ thẹn về lời nhận xét quá chính xác, Văn cật lực theo ông thầy lăn vào những cuộc luyện tập sáng tạo vô bờ. Kết quả của công cuộc đó là những phần mềm tuy nhỏ, nhưng kỳ diệu đến mức có sản phẩm đã được đề cử Probel - một giải thưởng dành cho những phần mềm sáng tạo xuất chúng, tương đương với giải Nobel trong khoa học. Ba năm sau, vào năm Giáp Dậu, trong buổi lễ nhận văn bằng tiến sĩ, ông thầy gọi Văn đến mà bảo rằng: &amp;quot;Trình độ của ta nay cũng không bén gót cậu được nữa, giờ là lúc cậu tung hoành rồi&amp;quot;. Nói đoạn cho Văn xuất môn.&lt;&#x2F;p&gt;
@@ -565,8 +565,8 @@ Như vậy trên đây là bài viết chia sẻ giúp bạn hiểu được v�
 		<title>Làm sao kể một câu chuyện hay</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tellstory/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/tellstory/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/tellstory/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/tellstory/</id>
 		<content type="html">&lt;p&gt;Làm thế nào để viết hay? Nói hay? Làm thế nào để có một-câu-chuyện-được-ghi-nhớ-suốt-đời? Làm thế nào để khi bạn kể người ta biết đó là câu chuyện của bạn, do bạn kể, được kể với thật nhiều chân tình và thương mến bên trong?
 Hồi đi làm mình hay quan sát phòng Marketing và Human Resources. Có thể vì các chị váy ngắn mông cong, nhưng lí do chính là cách họ nói chuyện và thuyết phục người khác. Kiểu kiểu thế này:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -627,8 +627,8 @@ Hồi đi làm mình hay quan sát phòng Marketing và Human Resources. Có th�
 		<title>Miếng ngon Hà Nội - Món thịt chó</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vubangthitcho/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vubangthitcho/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/vubangthitcho/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/vubangthitcho/</id>
 		<content type="html">&lt;p&gt;&amp;quot;Miếng ngon Hà Nội&amp;quot;, miếng nào Vũ Bằng viết đọc cũng bắt thèm, nhưng gây... xao xuyến nhất có lẽ là bài viết về thịt chó.&lt;&#x2F;p&gt;
 &lt;p&gt;Thịt mộc tồn rõ ràng có duyên nợ sao đó với văn chương, hay ít nhất với văn giới. Trong bài từ Hành lạc, Nguyễn Du khuyên &amp;quot;Có chó cứ làm thịt&amp;quot;. Tô Hoài chuyện cũ khi nhớ thịt chó Hà Ðông khi tưởng thứ thịt chó bán trong ruột những cây rơm ven đường Cầu Khâu. Ðâu đó trong các hồi ký ai đấy đã vẽ hình ảnh một Nguyên Hồng ôm kè kè chiếc cặp có gói cẩu nhục. Ai đấy nữa khi họa chân dung đời thường của Xuân Diệu đã sáng kiến thêm một nét nhỏ, cho chúng ta biết thi sĩ của tình yêu mỗi tuần mỗi đi chợ mua thịt chó sống về tự nấu nướng để bồi dưỡng cho... thơ.&lt;&#x2F;p&gt;
 &lt;p&gt;Ôn qua sách vở là chỉ cốt nhắc trước rằng thịt chó đã từ lâu chinh phục cái lưỡi Việt, còn cứ thưởng thức kỹ bài tùy bút độc đáo dưới đây của Vũ Bằng sẽ được nghe đầy đủ các lý luận hùng hồn bênh vực chủ trương &amp;quot;hạ cờ tây&amp;quot;.&lt;&#x2F;p&gt;
@@ -724,8 +724,8 @@ Biết ăn thịt chó, xem nôm Thúy Kiều.&lt;&#x2F;p&gt;
 		<title>Virsual Artts</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/collections/visualarts/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/collections/visualarts/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/collections/visualarts/" type="text/html"/>
+		<id>https://bichkhe.github.io/collections/visualarts/</id>
 		<content type="html">&lt;p&gt;Visual Art hiện hữu trong mọi bài chia sẻ thiết kế nâng cao nhưng đôi khi chúng ta lại không hề ý thức được điều đó. Vậy Visual Art là gì? Hãy cùng nhau tìm hiểu nhé!&lt;&#x2F;p&gt;
 &lt;p&gt;Visual Art là gì?
 Visual Art (nghệ thuật thị giác hay nghệ thuật trực quan) là một hình thức nghệ thuật tạo ra các sản phẩm tác động chủ yếu vào thị giác. Visual Art bao quát đến một trường rất rộng những ngành nghệ thuật khác nhau: từ Fine Arts đến Applied Arts.&lt;&#x2F;p&gt;
@@ -776,8 +776,8 @@ Có thể thấy, Visual Art hiển hiện trong mọi ngóc ngách cuộc sốn
 		<title>[Bài 2] Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-cargo-2/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-cargo-2/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-cargo-2/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-cargo-2/</id>
 		<content type="html">&lt;p&gt;Ngày hôm nay, chúng ta sẽ học:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cấu trúc một chương trình “Hello world!” trên Rust.&lt;&#x2F;li&gt;
@@ -884,8 +884,8 @@ Mình lưu ý thế này để khi các bạn dùng Sublime Text (+ Rust enhance
 		<title>[Bài 1] Giới thiệu lập trình Rust</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro-1/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro-1/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro-1/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro-1/</id>
 		<content type="html">&lt;p&gt;Series này hướng đến mục tiêu là nắm được cơ bản về Rust.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;tai-lieu-tham-khao&quot;&gt;Tài liệu tham khảo&lt;&#x2F;h2&gt;
 &lt;ul&gt;
@@ -974,8 +974,8 @@ Chi tiết và sinh động hơn, các bạn hãy đọc bài của chú thefull
 		<title>Rust là gì?</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/rust-intro/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro/</id>
 		<content type="html">&lt;p&gt;Và tại sao Rust lại được yêu thích đến thế không? Ok, trước tiên, hãy cùng mình tìm hiểu về…&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;rust-la-gi&quot;&gt;Rust là gì?&lt;&#x2F;h1&gt;
 &lt;p&gt;Trước hết, Rust là một ngôn ngữ lập trình rất mạnh mẽ, nó hỗ trợ các lập trình viên viết mã để tương tác trực tiếp với hệ thống, bên cạnh đó nó còn có tốc độ rất nhanh, sự ổn định và không bao giờ bị crash. Ngôn ngữ lập trình này do Mozilla Foundation phát triển.&lt;&#x2F;p&gt;
@@ -1007,8 +1007,8 @@ Bên cạnh nghiên cứu tài liệu thì bạn cũng nên tham gia hoạt đ�
 		<title>Tương tác với khách hàng là gì? Cách nào để tăng tương tác?</title>
 		<published>2022-05-08T00:00:00+00:00</published>
 		<updated>2022-05-08T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/socialmedia/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/socialmedia/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/socialmedia/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/socialmedia/</id>
 		<content type="html">&lt;p&gt;Tương tác với khách hàng là các hành động giao tiếp giữa doanh nghiệp, nhân viên bán hàng, nhân viên chăm sóc khách hàng với người mua nhằm để đạt được các mục tiêu khác nhau.&lt;&#x2F;p&gt;
 &lt;p&gt;Doanh nghiệp cần ưu tiên hoạt động tương tác với khách hàng bởi đây chính là công cụ để doanh nghiệp thấu hiểu người tiêu dùng nhiều hơn, tiếp cận với họ nhiều hơn và biết cách để cải thiện sản phẩm, dịch vụ ngày một hoàn thiện. Bên cạnh đó, tương tác sẽ giúp doanh nghiệp giữ chân được khách hàng, có thêm nhiều khách hàng trung thành và hình thành nhiều khách hàng tiềm năng thông qua sự giới thiệu của các khách hàng cũ. Thống kê cũng cho thấy, tương tác với khách hàng hiện tại không những mang lại một nguồn doanh thu đáng kể mà còn tiêu tốn ít chi phí hơn so với việc chuyển đổi qua khách hàng mới. Để hoạt động này có thể mang lại kết quả cao, chúng ta nên sử dụng một số công cụ nhằm quản lý và tương tác với mọi người dễ dàng hơn. Dưới đây là một số cách để sử dụng các công cụ tương tác với khách hàng phổ biến.&lt;&#x2F;p&gt;
 &lt;p&gt;Cách tương tác với khách hàng trên Facebook
@@ -1112,8 +1112,8 @@ Với số lượng người dùng khổng lồ, các trang mạng xã hội nh�
 		<title>Ẩm thực Việt Nam</title>
 		<published>2019-11-28T00:00:00+00:00</published>
 		<updated>2019-11-28T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vietnam-cusine/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vietnam-cusine/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/vietnam-cusine/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/vietnam-cusine/</id>
 		<content type="html">&lt;p&gt;Ẩm thực Việt Nam là cách gọi của phương thức chế biến món ăn, nguyên lý pha trộn gia vị và những thói quen ăn uống nói chung của cộng đồng người Việt và các dân tộc thuộc Việt Nam trên đất nước Việt Nam. Tuy có ít nhiều sự khác biệt, ẩm thực Việt Nam vẫn bao hàm ý nghĩa khái quát nhất để chỉ tất cả những món ăn phổ biến trong cộng đồng các dân tộc thiểu số nhưng đã tương đối phổ thông trong cộng đồng người Việt.&lt;&#x2F;p&gt;
 &lt;p&gt;Trong văn hóa Việt Nam, ăn uống là cả một nghệ thuật, nó không chỉ nhằm đáp ứng yêu cầu cơ bản của con người mà còn có mối quan hệ mật thiết đến lối sống, truyền thống dân tộc, được thể hiện rất rõ qua những dụng cụ được dùng trong bữa ăn, cách ứng xử với mọi người trong khi ăn. Vì thế việc ăn uống còn minh chứng cho lịch sử và sự hình thành nền văn hoá của Việt Nam. Các món ăn qua từng giai đoạn nói lên được cuộc sống, con người của giai đoạn đó và của vùng đất – nơi đã sản sinh ra mỗi món ăn.&lt;&#x2F;p&gt;
 </content>
@@ -1122,16 +1122,16 @@ Với số lượng người dùng khổng lồ, các trang mạng xã hội nh�
 		<title>Macro function - Công cụ hấp dẫn</title>
 		<published>2019-11-28T00:00:00+00:00</published>
 		<updated>2019-11-28T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/rust/macro-function/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/rust/macro-function/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/macro-function/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/macro-function/</id>
 		<content type="html"></content>
 	</entry>
 	<entry xml:lang="en">
 		<title>Thiên đường Việt Nam</title>
 		<published>2019-11-27T00:00:00+00:00</published>
 		<updated>2019-11-27T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vietnam/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/vietnam/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/vietnam/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/vietnam/</id>
 		<content type="html">&lt;h1&gt;Việt Nam - Vẻ đẹp tiềm ẩm &lt;&#x2F;h1&gt;
 Việt Nam, tên gọi đầy đủ là Cộng hòa Xã hội chủ nghĩa Việt Nam, là một quốc gia nằm ở cực Đông của bán đảo Đông Dương thuộc khu vực Đông Nam Á, giáp với Lào, Campuchia, Trung Quốc, biển Đông và vịnh Thái Lan.
 &lt;p&gt;Lãnh thổ Việt Nam xuất hiện con người sinh sống từ thời đại đồ đá cũ. Lịch sử Việt Nam cổ đại bắt đầu với các nhà nước Văn Lang, Âu Lạc. Âu Lạc bị nhà Triệu từ phương Bắc thôn tính vào đầu thế kỷ thứ 2 TCN sau đó là thời kỳ Bắc thuộc kéo dài hơn một thiên niên kỷ. Chế độ quân chủ độc lập được tái lập sau chiến thắng của Ngô Quyền trước nhà Nam Hán. Sự kiện này mở đường cho các triều đại độc lập kế tiếp và trong giai đoạn lịch sử trung đại, quốc gia này tiếp tục chiến thắng trước các cuộc chiến tranh xâm lược từ phương Bắc và dần mở rộng về phía nam. Thời kỳ Bắc thuộc cuối cùng kết thúc sau chiến thắng trước nhà Minh của nghĩa quân Lam Sơn.&lt;&#x2F;p&gt;

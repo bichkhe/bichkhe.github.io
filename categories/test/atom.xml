@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title> - test</title>
-	<link href="https://bichkhe.github.io/rust-tieng-viet.github.io/categories/test/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://bichkhe.github.io/rust-tieng-viet.github.io"/>
+	<link href="https://bichkhe.github.io/categories/test/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2022-09-16T00:00:00+00:00</updated>
-	<id>https://bichkhe.github.io/rust-tieng-viet.github.io/categories/test/atom.xml</id>
+	<id>https://bichkhe.github.io/categories/test/atom.xml</id>
 	<entry xml:lang="en">
 		<title>Lập Trình Sư</title>
 		<published>2022-09-16T00:00:00+00:00</published>
 		<updated>2022-09-16T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/laptrinhsu/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/laptrinhsu/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/laptrinhsu/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/laptrinhsu/</id>
 		<content type="html">&lt;p&gt;Vài thế kỷ trước tại Hà thành có chàng trai trẻ tên gọi Tích Gia Văn, là sinh viên năm cuối khoa Công nghệ thông tin Đại học Bách khoa Hà Nội. Văn bình sinh thích viết phần mềm máy tính, rất có kỹ năng lập trình. Không những bạn bè đồng khoá đều khâm phục chàng mà ngay cả các giáo sư uyên bác cũng phải nể vì, coi Văn như một tài năng thuật toán đầy triển vọng. Các đoạn mã Văn viết ra bao giờ cũng sáng sủa, lề chuẩn, đầy đủ comment nhưng lại rất súc tích và tối ưu về giải thuật.&lt;&#x2F;p&gt;
 &lt;p&gt;Tốt nghiệp loại xuất sắc nhưng Tích Gia Văn không vội vàng tiếp nhận những lời đề nghị làm việc ở những vị trí then chốt trong các công ty phần mềm lớn. Cái mà chàng cần lúc này là một sự nghiệp lẫy lừng, một danh tiếng vọng toả trong giới lập trình viên toàn thế giới. Văn quyết định tiếp tục con đường học vấn. Chàng tìm sang Ấn Độ làm thạc sĩ khoa học dưới sự hướng dẫn của một vị giáo sư uyên bác người Việt gốc Mỹ, giảng viên một trường đại học lớn ở Bangalore. Sau buổi sát hạch, vị giáo sư bảo Văn: “Cậu có kỹ năng tốt, chỉ còn thiếu kỷ luật”. Văn buồn lắm, nhưng ý chí cầu tiến khiến chàng trong suốt ba năm ròng rã quyết tâm theo thầy mà tự khép mình vào thứ kỷ luật nghiệt ngã của đủ mọi loại qui trình sản xuất và qui trình quản lý chất lượng phần mềm. Sau ba năm Tích Gia Văn đã trở nên một trưởng dự án siêu hạng, có thể phụ trách những project cực lớn với sự tham gia đồng thời của hàng chục ngàn lập trình viên thuộc đủ mọi sắc tộc.&lt;&#x2F;p&gt;
 &lt;p&gt;Xong luận án thạc sĩ ở Ấn độ, Văn xin được học bổng sang Hoa Kỳ làm tiến sĩ ở Silicon Valley, tiếp tục con đường phát triển sự nghiệp của mình. Ông thầy tiếp theo của Văn là một học giả lớn gốc Campuchia, người chuyên viết các khảo cứu về chất lượng mã nguồn cho các công ty phần mềm đạt tiêu chuẩn CMM5 trở lên. Sau khi tiếp xúc, ông bảo Văn: “Cậu có kỹ năng và kỷ luật tốt, chỉ còn thiếu sáng tạo”. Cảm thấy hổ thẹn về lời nhận xét quá chính xác, Văn cật lực theo ông thầy lăn vào những cuộc luyện tập sáng tạo vô bờ. Kết quả của công cuộc đó là những phần mềm tuy nhỏ, nhưng kỳ diệu đến mức có sản phẩm đã được đề cử Probel - một giải thưởng dành cho những phần mềm sáng tạo xuất chúng, tương đương với giải Nobel trong khoa học. Ba năm sau, vào năm Giáp Dậu, trong buổi lễ nhận văn bằng tiến sĩ, ông thầy gọi Văn đến mà bảo rằng: &amp;quot;Trình độ của ta nay cũng không bén gót cậu được nữa, giờ là lúc cậu tung hoành rồi&amp;quot;. Nói đoạn cho Văn xuất môn.&lt;&#x2F;p&gt;
@@ -30,8 +30,8 @@
 		<title>Tương tác với khách hàng là gì? Cách nào để tăng tương tác?</title>
 		<published>2022-05-08T00:00:00+00:00</published>
 		<updated>2022-05-08T00:00:00+00:00</updated>
-		<link rel="alternate" href="https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/socialmedia/" type="text/html"/>
-		<id>https://bichkhe.github.io/rust-tieng-viet.github.io/blogs/socialmedia/</id>
+		<link rel="alternate" href="https://bichkhe.github.io/blogs/socialmedia/" type="text/html"/>
+		<id>https://bichkhe.github.io/blogs/socialmedia/</id>
 		<content type="html">&lt;p&gt;Tương tác với khách hàng là các hành động giao tiếp giữa doanh nghiệp, nhân viên bán hàng, nhân viên chăm sóc khách hàng với người mua nhằm để đạt được các mục tiêu khác nhau.&lt;&#x2F;p&gt;
 &lt;p&gt;Doanh nghiệp cần ưu tiên hoạt động tương tác với khách hàng bởi đây chính là công cụ để doanh nghiệp thấu hiểu người tiêu dùng nhiều hơn, tiếp cận với họ nhiều hơn và biết cách để cải thiện sản phẩm, dịch vụ ngày một hoàn thiện. Bên cạnh đó, tương tác sẽ giúp doanh nghiệp giữ chân được khách hàng, có thêm nhiều khách hàng trung thành và hình thành nhiều khách hàng tiềm năng thông qua sự giới thiệu của các khách hàng cũ. Thống kê cũng cho thấy, tương tác với khách hàng hiện tại không những mang lại một nguồn doanh thu đáng kể mà còn tiêu tốn ít chi phí hơn so với việc chuyển đổi qua khách hàng mới. Để hoạt động này có thể mang lại kết quả cao, chúng ta nên sử dụng một số công cụ nhằm quản lý và tương tác với mọi người dễ dàng hơn. Dưới đây là một số cách để sử dụng các công cụ tương tác với khách hàng phổ biến.&lt;&#x2F;p&gt;
 &lt;p&gt;Cách tương tác với khách hàng trên Facebook
