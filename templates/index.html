@@ -166,7 +166,7 @@ MAIN
 			<ol class="list-featured">
 				{% set_global all_pages = [] %}
 				{% set_global found = 0 %}
-				{% set categories = get_taxonomy(kind="tags") %}
+				{% set categories = get_taxonomy(kind="popular") %}
 				{% set_global total_pages = 0 %}
 				{% for k, v in categories %}
 				{% if k == 'items' %}

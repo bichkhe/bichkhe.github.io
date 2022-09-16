@@ -7,7 +7,7 @@ template = 'page.html'
 [taxonomies]
 rustseries = ['Rust']
 [extra]
-image = 'assets/img/demo/1.jpg'
+image = 'assets/img/demo/3.jpg'
 +++
 
 Ngày hôm nay, chúng ta sẽ học:
