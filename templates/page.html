@@ -113,6 +113,12 @@ MAIN
 
 <div class="container pt-4 pb-4">
     <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    {{config}}
+    {% for k in config.taxonomies %}
+    {{k.name}}
+
+    {% endfor %}
+
     <div class="row">
         <div class="col-lg-6">
             <div class="card border-0 mb-4 box-shadow h-xl-300">

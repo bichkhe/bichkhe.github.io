@@ -31,6 +31,108 @@ HEADER
 <!--------------------------------------
 MAIN
 --------------------------------------->
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-md-8">
+			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
+			{% set_global all_pages = [] %}
+			{% set_global found = 0 %}
+			{% set categories = get_taxonomy(kind="popular") %}
+			{% set_global total_pages = 0 %}
+			{% for k, v in categories %}
+			{% if k == 'items' %}
+			{% for term in v %}
+			{% set len = term.pages | length %}
+			{% set_global total_pages = total_pages + len %}
+
+			{% if total_pages > 0 %}
+
+			{% for page in term.pages %}
+			{% for p in all_pages %}
+			{% if p.permalink == page.permalink %}
+			{% set_global found = 1 %}
+			{%endif%}
+
+			{% endfor %}
+			{% if found == 0 %}
+			{% set_global all_pages = all_pages | concat(with=page) %}
+			{%endif%}
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
+			{%endif%}
+			{% endfor %}
+
+			{% for page in all_pages %}
+			{% if loop.index < 5 %} <div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+						<a class="text-dark" href="{{page.permalink}}">{{page.title}}</a>
+					</h2>
+					<p>
+						{{page.description}}
+					</p>
+					<div class="card-text text-muted small">
+						{{page.slug}}
+					</div>
+					<small class="text-muted">{{page.date | date }} &middot; 5 min read</small>
+				</div>
+				<img height="120" src="{{macros::image_url(page=page)}}">
+		</div>
+		{% endif %}
+		{% endfor %}
+
+	</div>
+	<div class="col-md-4 pl-4">
+		<h5 class="font-weight-bold spanborder"><span>Popular</span></h5>
+		<ol class="list-featured">
+			{% set_global all_pages = [] %}
+			{% set_global found = 0 %}
+			{% set categories = get_taxonomy(kind="rustlang") %}
+			{% set_global total_pages = 0 %}
+			{% for k, v in categories %}
+			{% if k == 'items' %}
+			{% for term in v %}
+			{% set len = term.pages | length %}
+			{% set_global total_pages = total_pages + len %}
+
+			{% if total_pages > 0 %}
+
+			{% for page in term.pages %}
+			{% for p in all_pages %}
+			{% if p.permalink == page.permalink %}
+			{% set_global found = 1 %}
+			{%endif%}
+
+			{% endfor %}
+			{% if found == 0 %}
+			{% set_global all_pages = all_pages | concat(with=page) %}
+			{%endif%}
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
+			{%endif%}
+			{% endfor %}
+
+			<!--Rende HTML-->
+			{% for page in all_pages %}
+			<li>
+				<span>
+					<h6 class="font-weight-bold">
+						<a href="{{page.permalink}}" class="text-dark">{{page.title}}</a>
+					</h6>
+					<p class="text-muted">
+						bichkhe
+					</p>
+				</span>
+			</li>
+			{%endfor %}
+
+		</ol>
+	</div>
+</div>
+</div>
+
 {% set_global all_pages1 = [] %}
 {% set_global found = 0 %}
 {% set categories = get_taxonomy(kind="rustseries") %}
@@ -60,6 +162,7 @@ MAIN
 {% endfor %}
 
 {% set main_page = all_pages1[0] %}
+
 <div class="container pt-4 pb-4">
 	<div class="row">
 		<div class="col-lg-6">
@@ -88,8 +191,6 @@ MAIN
 		</div>
 		<div class="col-lg-6">
 			<div class="flex-md-row mb-4 box-shadow h-xl-300">
-
-
 				{% for page in all_pages1 %}
 				{% if loop.index < 4 %} <div class="mb-3 d-flex align-items-center">
 					<img height="80" src="{{config.base_url}}/{{macros::image_url(page=page)}}">
@@ -108,106 +209,30 @@ MAIN
 		</div>
 	</div>
 </div>
-</div>
 
 <div class="container">
-	<div class="row justify-content-between">
-		<div class="col-md-8">
-			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
-			{% set_global all_pages = [] %}
-			{% set_global found = 0 %}
-			{% set categories = get_taxonomy(kind="rustlang") %}
-			{% set_global total_pages = 0 %}
-			{% for k, v in categories %}
-			{% if k == 'items' %}
-			{% for term in v %}
-			{% set len = term.pages | length %}
-			{% set_global total_pages = total_pages + len %}
-
-			{% if total_pages > 0 %}
-
-			{% for page in term.pages %}
-			{% for p in all_pages %}
-			{% if p.permalink == page.permalink %}
-			{% set_global found = 1 %}
-			{%endif%}
-
-			{% endfor %}
-			{% if found == 0 %}
-			{% set_global all_pages = all_pages | concat(with=page) %}
-			{%endif%}
-			{% endfor %}
-			{% endif %}
-			{% endfor %}
-			{%endif%}
-			{% endfor %}
-
-			{% for page in all_pages %}
-			<div class="mb-3 d-flex justify-content-between">
-				<div class="pr-3">
-					<h2 class="mb-1 h4 font-weight-bold">
-						<a class="text-dark" href="{{page.permalink}}">{{page.title}}</a>
-					</h2>
-					<p>
-						{{page.description}}
-					</p>
-					<div class="card-text text-muted small">
-						{{page.slug}}
-					</div>
-					<small class="text-muted">{{page.date | date }} &middot; 5 min read</small>
-				</div>
-				<img height="120" src="{{macros::image_url(page=page)}}">
-			</div>
-			{% endfor %}
-
+	<div class="row">
+		<h5 class="font-weight-bold spanborder"><span>Nhóm</span></h5>
+		<div class="col-lg-12">
+			{% for k in config.taxonomies %}
+			<a class="mr-2" href={{config.base_url}}/{{k.name}}>{{k.name}}</a>
+			{% endfor%}
 		</div>
-		<div class="col-md-4 pl-4">
-			<h5 class="font-weight-bold spanborder"><span>Popular</span></h5>
-			<ol class="list-featured">
-				{% set_global all_pages = [] %}
-				{% set_global found = 0 %}
-				{% set categories = get_taxonomy(kind="popular") %}
-				{% set_global total_pages = 0 %}
-				{% for k, v in categories %}
-				{% if k == 'items' %}
-				{% for term in v %}
-				{% set len = term.pages | length %}
-				{% set_global total_pages = total_pages + len %}
+	</div>
 
-				{% if total_pages > 0 %}
-
-				{% for page in term.pages %}
-				{% for p in all_pages %}
-				{% if p.permalink == page.permalink %}
-				{% set_global found = 1 %}
-				{%endif%}
-
-				{% endfor %}
-				{% if found == 0 %}
-				{% set_global all_pages = all_pages | concat(with=page) %}
-				{%endif%}
-				{% endfor %}
-				{% endif %}
-				{% endfor %}
-				{%endif%}
-				{% endfor %}
-
-				<!--Rende HTML-->
-				{% for page in all_pages %}
-				<li>
-					<span>
-						<h6 class="font-weight-bold">
-							<a href="{{page.permalink}}" class="text-dark">{{page.title}}</a>
-						</h6>
-						<p class="text-muted">
-							tuanphung
-						</p>
-					</span>
-				</li>
-				{%endfor %}
-
-			</ol>
+	<div class="row">
+		<h5 class="font-weight-bold spanborder "><span>Tags</span></h5>
+		<div class="col-lg-12">
+			{% set_global all_pages1 = [] %}
+			{% set_global found = 0 %}
+			{% set categories = get_taxonomy(kind="tags") %}
+			{% set_global total_pages = 0 %}
+			{% for k in categories.items %}
+			<a class="ml-2" href={{k.permalink}}>{{k.name}}</a>
+			{% endfor %}
 		</div>
 	</div>
 </div>
+
+
 {% endblock content %}
