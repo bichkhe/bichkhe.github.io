@@ -50,6 +50,10 @@ path = "/blogs/"
 
 
 [[extra.menu]]
+name = "Technology"
+path = "/technology/"
+
+[[extra.menu]]
 name = "Collections"
 path = "/collections/"
 
