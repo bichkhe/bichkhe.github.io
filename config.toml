@@ -18,6 +18,7 @@ taxonomies = [
   {name = "popular", feed = true, paginate_by = 10}, # each tag will have its own feed
   {name = "rustlang", feed = true, paginate_by = 10}, # each tag will have its own feed
   {name = "rustseries", feed = true, paginate_by = 10}, # each tag will have its own feed
+  {name = "studyenglish", feed = true, paginate_by = 10}, # each tag will have its own feed
 ]
 
 

@@ -13,7 +13,7 @@ image = 'assets/demo/blog5.jpg'
 Bài hôm nay chúng ta sẽ tìm hiểu về Rust - Một ngôn ngữ lập trình được cộng đồng lập trình yêu thích nhất 6 năm gần đây
 
 ```rust
-let str1 = String::from("Rust Tiếng Việt");
+let str1 = String::from("Lập trình Rust");
 ```
 
 <h1>Macro là gì?</h1>
