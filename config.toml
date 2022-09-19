@@ -33,7 +33,7 @@ highlight_theme = "visual-studio-dark"
 author = "bichkhe"
 
 language_code = "vi-VN"
-copy = "&copy; 2016-2022 https://rust-tieng-viet.com"
+copy = "&copy; 2016-2022 https://bichkhe.github.io"
 
 [[extra.menu]]
 # Put all your custom variables here
@@ -48,6 +48,10 @@ path = "/rust/"
 name = "Blogs"
 path = "/blogs/"
 
+
+[[extra.menu]]
+name = "Technology"
+path = "/technology/"
 
 [[extra.menu]]
 name = "Collections"
