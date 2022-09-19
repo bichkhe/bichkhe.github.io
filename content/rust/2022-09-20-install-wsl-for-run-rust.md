@@ -1,14 +1,14 @@
 +++
 title = "[Rust Series] Cài đặt môi trường WSL để lập trình Rust"
 date = 2022-09-20
-description = 'Sự khác nhau giữa String vs &str trong ngôn ngữ lập trình Rust. Cách hiểu chính xác'
+description = 'Chúng ta nên sử dụng Linux để có thể lập trình Rust. Bạn đang dùng windows mà muốn có môi trường linux nhưng lại không muốn cài đặt máy ảo'
 template = 'page.html'
 
 [taxonomies]
 rustlang = ['Rust']
 
 [extra]
-image = 'assets/img/intro/rust.png'
+image = 'assets/img/demo/5.jpg'
 +++
 
 Chúng ta nên sử dụng Linux để có thể lập trình Rust. Bạn đang dùng windows mà muốn có môi trường linux nhưng lại không muốn cài đặt máy ảo
@@ -17,7 +17,7 @@ WSL là thứ mà bạn cần
 
 # WSL là gì?
 
-Windows Subsytem Linux
+Windows Subsytem Linux: Hiểu đơn giản là Linux trên nền windows
 
 WSL (Windows Subsystem for Linux) là một tính năng có trên Windows x64 (từ Windows 10, bản 1607 và trên Windows Server 2019), nó cho phép chạy hệ điều hành Linux (GNU/Linux) trên Windows. Với WSL bạn có thể chạy các lệnh, các ứng dụng trực tiếp từ dòng lệnh Windows mà không phải bận tâm về việc tạo / quản lý máy ảo như trước đây. Cụ thể, một số lưu ý mà Microsoft liệt kê có thể làm với WSL:
 
