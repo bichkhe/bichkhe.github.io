@@ -38,8 +38,16 @@ Dòng `let str2 = &str1;` con trỏ str2 sẽ trỏ đến vùng heap giống nh
 nhưng cái khác là str1 kiểu &String còn kiểu str2 là &str. &String nó sẽ có truy vấn đến 1 số trường như `capacity` vs `length`, trong khi `str2` thì không thể
 
 # Nhìn vào bộ nhớ
-In Progress
+<img src="/assets/img/rust/rust-string-vs-str-in-rust3.png">
 
+Chúng ta có thể thấy String thực chất là một vector có địa chỉ
+`$4 = (*mut alloc::string::String) 0x7fffffffd3c0`
+và có con trỏ trở tới địa chỉ `0x5555555a9ad0 "hello world\000"`
+
+Thử in ra giá trị tại ô nhớ này
+<img src="/assets/img/rust/rust-string-vs-str-in-rust4.png">
+
+Kết quả là: `Hello world`
 
 # Biến đổi từ String tới &str và ngược lại
 
