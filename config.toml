@@ -54,6 +54,10 @@ name = "Technology"
 path = "/technology/"
 
 [[extra.menu]]
+name = "Blockchain"
+path = "/blockchain/"
+
+[[extra.menu]]
 name = "Collections"
 path = "/collections/"
 
