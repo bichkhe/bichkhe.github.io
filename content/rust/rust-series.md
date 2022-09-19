@@ -1,6 +1,6 @@
 +++
-title = "[Lập Trình Rust] Chuỗi bài học về lập trình Rust"
-date = 2022-09-20
+title = "[Rust Series] Chuỗi bài học về lập trình Rust"
+date = 2022-09-19
 description = 'Rust lập trình'
 template = 'page.html'
 

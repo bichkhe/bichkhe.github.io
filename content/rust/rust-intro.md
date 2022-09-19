@@ -1,5 +1,5 @@
 +++
-title = "Rust là gì?"
+title = "[Rust] Rust là gì?"
 date = 2022-09-16
 description = 'Ngôn ngữ lập trình Rust'
 template = 'page.html'
