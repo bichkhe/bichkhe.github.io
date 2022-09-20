@@ -18,10 +18,10 @@ Hôm nay chúng ta sẽ phân biệt kiểu dữ liệu String và kiểu dữ l
 - String: Kiểu dữ liệu cấu trúc dữ liệu dạng String
 - &str: Kiểu dữ liệu một con trỏ đến một chuỗi
 
-
 # Giải thích
 
 Giả sử chúng ta có đoạn
+
 ```rust
 fn main() {
     let str1 = String::from("Lập trình sư: Rót Gia Văn");
@@ -32,12 +32,15 @@ fn main() {
 
 Kiểu dữ liệu String luôn tạo dữ liệu trên vùng nhớ heap và sử dụng str1 để trỏ dữ liệu đến vùng này
 
-Dòng `let str3 = "Rót Gia Văn";` thì `"Rót Gia Văn"` sẽ được tạo trong vùng nhớ stack và con trỏ `str3` kiểu &str sẽ trỏ đến nó
+Dòng `let str3 = "Rót Gia Văn";` thì `"Rót Gia Văn"` sẽ được tạo trong vùng nhớ global và con trỏ `str3` kiểu &str sẽ trỏ đến nó
 
-Dòng `let str2 = &str1;` con trỏ str2 sẽ trỏ đến vùng heap giống như str1
+Dòng `let str2 = &str1;` con trỏ str2 lưu giữ địa chỉ của str1
 nhưng cái khác là str1 kiểu &String còn kiểu str2 là &str. &String nó sẽ có truy vấn đến 1 số trường như `capacity` vs `length`, trong khi `str2` thì không thể
 
+<img src="/assets/img/rust/rust-string-vs-str-in-rust5.png">
+
 # Nhìn vào bộ nhớ
+
 <img src="/assets/img/rust/rust-string-vs-str-in-rust3.png">
 
 Chúng ta có thể thấy String thực chất là một vector có địa chỉ
@@ -53,7 +56,7 @@ Kết quả là: `Hello world`
 
 ## Từ String tới &str
 
-Chúng ta sử dụng ```as_str()``` hoặc ```as_mut_str()```
+Chúng ta sử dụng `as_str()` hoặc `as_mut_str()`
 <img src="/assets/img/rust/rust-string-vs-str-in-rust2.png">
 
 ```rust
@@ -65,6 +68,7 @@ fn main(){
 
 
 ```
+
 ## Từ &str tới String
 
 ```rust
@@ -89,4 +93,3 @@ Sự khác nhau là to_string() là hàm biến đổi tất cả các kiểu th
 - String luôn cấp phát trong vùng heap bộ nhớ
 - &str cấp phá trên stack và có thể trỏ đến heap hoặc stack
 - Các hàm để biến đổi qua nhau
-
