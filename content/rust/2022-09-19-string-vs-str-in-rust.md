@@ -35,7 +35,8 @@ Kiểu dữ liệu String luôn tạo dữ liệu trên vùng nhớ heap và s�
 Dòng `let str3 = "Rót Gia Văn";` thì `"Rót Gia Văn"` sẽ được tạo trong vùng nhớ global và con trỏ `str3` kiểu &str sẽ trỏ đến nó
 
 Dòng `let str2 = &str1;` con trỏ str2 lưu giữ địa chỉ của str1
-nhưng cái khác là str1 kiểu &String còn kiểu str2 là &str. &String nó sẽ có truy vấn đến 1 số trường như `capacity` vs `length`, trong khi `str2` thì không thể
+nhưng cái khác là str1 kiểu &String còn kiểu str2 là &str
+Nếu bạn in ra \*str2 và str1 đều như nhau
 
 <img src="/assets/img/rust/rust-string-vs-str-in-rust5.png">
 
