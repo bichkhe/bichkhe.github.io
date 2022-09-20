@@ -4,8 +4,37 @@
 <!--------------------------------------
 HEADER
 --------------------------------------->
+{% set_global all_pages = [] %}
+{% set_global found = 0 %}
+{% set categories = get_taxonomy(kind="rustlang") %}
+{% set_global total_pages = 0 %}
+{% for k, v in categories %}
+{% if k == 'items' %}
+{% for term in v %}
+{% set len = term.pages | length %}
+{% set_global total_pages = total_pages + len %}
+
+{% if total_pages > 0 %}
+
+{% for page in term.pages %}
+{% for p in all_pages %}
+{% if p.permalink == page.permalink %}
+{% set_global found = 1 %}
+{%endif%}
+
+{% endfor %}
+{% if found == 0 %}
+{% set_global all_pages = all_pages | concat(with=page) %}
+{%endif%}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{%endif%}
+{% endfor %}
+
+{% set main_page1 = all_pages[0] %}
 <div class="container">
-	<div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
+	<!-- <div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
 		<div class="pl-4 pr-0 h-100 tofront">
 			<div class="row justify-content-between">
 				<div class="col-md-6 pt-6 pb-6 align-self-center">
@@ -23,6 +52,24 @@ HEADER
 				</div>
 			</div>
 		</div>
+	</div> -->
+	<div class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
+		<div class="pl-4 pr-0 h-100 tofront">
+			<div class="row justify-content-between">
+				<div class="col-md-6 pt-6 pb-6 align-self-center">
+					<h1 class="secondfont mb-3 font-weight-bold">{{main_page1.title}}<img class="rounded-circle" src=""
+							width="70"> </h1>
+
+					<p class="mb-3">
+						Cách tốt nhất để học một ngôn ngữ mới là viết trong nó
+					</p>
+					<a href="{{main_page1.permalink}}" class="btn btn-dark">Read more</a>
+				</div>
+				<div class="col-md-6 d-none d-md-block pr-0"
+					style="background-size:cover;background-image:url({{main_page1.extra.image}});">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- End Header -->
@@ -35,34 +82,6 @@ MAIN
 	<div class="row justify-content-between">
 		<div class="col-md-8">
 			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
-			{% set_global all_pages = [] %}
-			{% set_global found = 0 %}
-			{% set categories = get_taxonomy(kind="popular") %}
-			{% set_global total_pages = 0 %}
-			{% for k, v in categories %}
-			{% if k == 'items' %}
-			{% for term in v %}
-			{% set len = term.pages | length %}
-			{% set_global total_pages = total_pages + len %}
-
-			{% if total_pages > 0 %}
-
-			{% for page in term.pages %}
-			{% for p in all_pages %}
-			{% if p.permalink == page.permalink %}
-			{% set_global found = 1 %}
-			{%endif%}
-
-			{% endfor %}
-			{% if found == 0 %}
-			{% set_global all_pages = all_pages | concat(with=page) %}
-			{%endif%}
-			{% endfor %}
-			{% endif %}
-			{% endfor %}
-			{%endif%}
-			{% endfor %}
-
 			{% for page in all_pages %}
 			{% if loop.index < 5 %} <div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
@@ -88,7 +107,7 @@ MAIN
 		<ol class="list-featured">
 			{% set_global all_pages = [] %}
 			{% set_global found = 0 %}
-			{% set categories = get_taxonomy(kind="rustlang") %}
+			{% set categories = get_taxonomy(kind="popular") %}
 			{% set_global total_pages = 0 %}
 			{% for k, v in categories %}
 			{% if k == 'items' %}
