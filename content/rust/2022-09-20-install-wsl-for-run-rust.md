@@ -1,5 +1,5 @@
 +++
-title = "[Rust Series] Cài đặt môi trường WSL để lập trình Rust"
+title = "[Rust Series][Bài 1] Cài đặt môi trường WSL để lập trình Rust"
 date = 2022-09-20
 description = 'Chúng ta nên sử dụng Linux để có thể lập trình Rust. Bạn đang dùng windows mà muốn có môi trường linux nhưng lại không muốn cài đặt máy ảo'
 template = 'page.html'
