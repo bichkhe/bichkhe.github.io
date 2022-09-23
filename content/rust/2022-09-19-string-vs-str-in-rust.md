@@ -32,11 +32,11 @@ fn main() {
 
 Kiểu dữ liệu String luôn tạo dữ liệu trên vùng nhớ heap và sử dụng str1 để trỏ dữ liệu đến vùng này
 
-Dòng `let str3 = "Rót Gia Văn";` thì `"Rót Gia Văn"` sẽ được tạo trong vùng nhớ global và con trỏ `str3` kiểu &str sẽ trỏ đến nó
+Dòng `let str3 = "Rót Gia Văn";` thì `"Rót Gia Văn"` sẽ được tạo trong vùng nhớ global (lưu trữ biến tĩnh trong bộ nhớ - giống kiểu mấy biến static bên C++) và con trỏ `str3` kiểu &str sẽ trỏ đến nó
 
-Dòng `let str2 = &str1;` con trỏ str2 lưu giữ địa chỉ của str1
-nhưng cái khác là str1 kiểu &String còn kiểu str2 là &str
-Nếu bạn in ra \*str2 và str1 đều như nhau
+Dòng `let str2 = &str1;` con trỏ str2 lưu giữ địa chỉ của str1.
+Kiểu dữ liệu là &String
+Việc in ra \*str2 với str1 là như nhau
 
 <img src="/assets/img/rust/rust-string-vs-str-in-rust5.png">
 
