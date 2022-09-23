@@ -1,5 +1,5 @@
 +++
-title = "[Rust Series] [Bài 5] Phần 1.  A tour of rust - Kiểu dữ liệu "
+title = "[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu"
 date = 2022-09-23
 description = 'Trong bài này mình sẽ điểm nhanh một vòng cú pháp'
 template = 'page.html'
