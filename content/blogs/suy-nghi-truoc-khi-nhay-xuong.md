@@ -1,6 +1,6 @@
 +++
 
-title = "Suy nghĩa trước khi nhảy xuống"
+title = "Suy nghĩ trước khi nhảy xuống"
 date = 2022-09-24
 description = 'Tôi đứng trên sân thượng tòa chung cư 9 tầng. Gió lồng lộng thổi vào mặt, rét cắt da.'
 template = 'page.html'
