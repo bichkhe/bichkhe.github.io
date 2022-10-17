@@ -6,7 +6,7 @@ template = 'page.html'
 draft = false
 [taxonomies]
 
-[extra5
+[extra]
 image =  'assets/img/demo/5.jpg'
 +++
 
