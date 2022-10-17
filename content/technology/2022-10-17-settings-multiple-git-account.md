@@ -1,7 +1,7 @@
 +++
 title = "Thiết lập nhiều git account trên 1 máy tính"
 date = 2022-10-17
-description = 'Chúng ta hay gặp 2 interface rất đơn giản nhưng chỉ có 1 hàm nhưng lại gây bao nhiêu khó hiểu'
+description = 'Nhiều khi chúng ta có nhiều tải khoản git và cùng 1 lúc lại làm việc trên nhiều project với mỗi tài khoản khác nhau.'
 template = 'page.html'
 draft = false
 [taxonomies]
@@ -12,7 +12,7 @@ image =  'assets/img/demo/5.jpg'
 
 # Đặt vấn đề
 
-Nhiều khi chúng ta có nhiều tải khoản git và cùng 1 lúc lại làm việc trên nhiều project với mỗi tài khoản khác nhau. Cách nào để có thể khi ở project này thì chúng ta pus
+Nhiều khi chúng ta có nhiều tải khoản git và cùng 1 lúc lại làm việc trên nhiều project với mỗi tài khoản khác nhau. Cách nào để có thể  sử dụng nhiều hơn 1 tài khoản git cùng trên 1 máy
 
 
 Giả sử có 2 projects
