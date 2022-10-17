@@ -1,7 +1,7 @@
 +++
 title = "[Rust] Chuyển đổi giữ String, Vec<u8> và &str"
-date = 2022-09-20
-description = 'Sự khác nhau giữa String vs &str trong ngôn ngữ lập trình Rust. Cách hiểu chính xác'
+date = 2022-10-18
+description = 'Hôm nay chúng ta sẽ học cách biến đổi qua lại giữa các kiểu String, Vec<u8>, Vec<char> và &str'
 template = 'page.html'
 
 [taxonomies]
