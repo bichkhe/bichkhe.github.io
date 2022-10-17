@@ -62,7 +62,7 @@ sshCommand = ssh -i ~/.ssh/id_rsa_bichkhe2
 ```
 
 
-### Cấu hình tròn file .gitconfig thư mục ~/.gitconfig
+### Cấu hình trong file .gitconfig thư mục ~/.gitconfig
 
 ```yaml
 [includeIf "gitdir:~/project1/"]
@@ -70,7 +70,8 @@ sshCommand = ssh -i ~/.ssh/id_rsa_bichkhe2
 [includeIf "gitdir:~/project2/"]
     path = ~/project2/.gitconfig-bichkhe2
 ```
-Cầu hình trên nghĩa là khi vào thư mục ~/project1/ thì chúng ta ăn cấu hình theo path như chỉ dẫn
+Cầu hình trên nghĩa là khi vào thư mục ~/project1/ thì theo cấu hình `~/project1/.gitconfig-bichkhe1` và 
+trong thư mục ~/project2/ thì ăn theo cấu hình `~/project2/.gitconfig-bichkhe2`
 
 ### Kiểm tra
 Vào thư mục ~/project1 và gọi 
@@ -90,19 +91,27 @@ Kì vọng chúng ta sẽ ra bichkhe2
 # Một số command hữu dụng
 
 ## Liệt kê danh sách cấu hình
+
+```bash
 git config --list 
+```
 
 ## Debug khi không thể lấy pull hoặc push  từ remote 
-
+```bash
 ssh -vT git@github.com:bichkhe/<project_name>.git
-
+```
 ## Sử dụng ssh thay vì dùng https
 
 Ở chế độ này bạn mới có thể dùng key được, nên command này rất cần thiết
-```shell
+```bash
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 ```
 
+## Tạo cặp key
+
+```bash
+ssh-keygen 
+```
 
 
 Hi vọng bạn đã có thể thiết lập cho bản thân mình
