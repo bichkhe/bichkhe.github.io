@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MD4C4XX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>Rust | Lập Trình Rust - Rust là gì - Ngôn ngữ Lập Trình Rust - Chia sẻ kiến
+thức về ngôn ngữ lập trình Rust</title>
+
+
+
+<meta property="og:title" content="Rust">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+<meta name="description" content="Nhật ký Rust">
+<meta property="og:description" content="Nhật ký Rust">
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/rust/">
+<meta property="og:url" content="https://bichkhe.github.io/rust/">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="next" href="https://bichkhe.github.io/rust/page/2/">
+
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+<meta property="twitter:title" content="Rust">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "Nhật ký Rust",
+  "url": "https://bichkhe.github.io/rust/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "Rust"
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZSRX2E9ZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZSRX2E9ZJ');
+</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD4C4XX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/technology">Technology <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blockchain">Blockchain <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <img class="navbar-rust-logo rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-4 pl-4">
+            <div class="sticky-top">
+                <h5 class="font-weight-bold spanborder"><span>Bài viết nổi bật</span></h5>
+
+                <ol class="list-featured">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;convert-between-string-vector-str&#x2F;" class="text-dark">[Rust] Chuyển đổi giữ String, Vec&lt;u8&gt; và &amp;str</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-10-18
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;a-tour-of-rust&#x2F;" class="text-dark">[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-23
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;use-goland-rust-plugin-and-fix-error-link-not-found-windows&#x2F;" class="text-dark">[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-21
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;install-vs-code-editor-code-rust&#x2F;" class="text-dark">[Rust Series][Bài 3] Cài đặt VSCode Editor lập trình Rust và các plugin cơ bản</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-20
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;install-wsl-for-run-rust&#x2F;" class="text-dark">[Rust Series][Bài 1] Cài đặt môi trường WSL để lập trình Rust</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-20
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;string-vs-str-in-rust&#x2F;" class="text-dark">[Rust] Sự khác nhau giữa String vs &amp;str trong ngôn ngữ lập trình Rust</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-20
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;rust-series&#x2F;" class="text-dark">[Rust Series][Bài 0] Chuỗi bài học về lập trình Rust</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-19
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;rust-intro&#x2F;" class="text-dark">[Rust] Rust là gì?</a>
+                            </h6>
+                            <p class="text-muted">
+                                2022-09-16
+                            </p>
+                        </span>
+                    </li>
+                    
+                    <li>
+                        <span>
+                            <h6 class="font-weight-bold">
+                                <a href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;macro-function&#x2F;" class="text-dark">[Rust] Macro function - Công cụ hấp dẫn</a>
+                            </h6>
+                            <p class="text-muted">
+                                2019-11-28
+                            </p>
+                        </span>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h5 class="font-weight-bold spanborder"><span>Featured</span></h5>
+            
+            
+            <div class="card border-0 mb-5 box-shadow">
+                
+                
+                
+                <div
+                    style="background-image: url(https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;intro&#x2F;rust.png); height: 350px; background-size: cover; background-repeat: no-repeat;">
+                </div>
+                
+                
+                <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+                    <h2 class="h2 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;convert-between-string-vector-str&#x2F;">[Rust] Chuyển đổi giữ String, Vec&lt;u8&gt; và &amp;str</a>
+                    </h2>
+                    <p class="card-text">
+                        Hôm nay chúng ta sẽ học cách biến đổi qua lại giữa các kiểu String, Vec&lt;u8&gt;, Vec&lt;char&gt; và &amp;str
+                    </p>
+                    <div>
+                        <small class="d-block"><a class="text-muted" href="./author.html">bichkhe in Rust Tiếng
+                                Việt</a></small>
+                        <small class="text-muted">2022-10-18 · 5 min read</small>
+                    </div>
+                </div>
+            </div>
+            
+            <h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;convert-between-string-vector-str&#x2F;"> [Rust] Chuyển đổi giữ String, Vec<u8> và &str</a>
+                    </h2>
+                    <p>
+                        Hôm nay chúng ta sẽ học cách biến đổi qua lại giữa các kiểu String, Vec<u8>, Vec<char> và &str
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        bichkhe
+                    </div>
+                    <small class="text-muted">2022-10-18</small>
+                </div>
+                
+                
+                <img height="120" src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;intro&#x2F;rust.png">
+                
+
+            </div>
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;a-tour-of-rust&#x2F;"> [Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu</a>
+                    </h2>
+                    <p>
+                        Trong bài này mình sẽ điểm nhanh một vòng cú pháp
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        bichkhe
+                    </div>
+                    <small class="text-muted">2022-09-23</small>
+                </div>
+                
+                
+                <img height="120" src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;rust&#x2F;tour-of-rust.png">
+                
+
+            </div>
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;rust-cargo-2&#x2F;"> [Rust Series][Bài 4] Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust</a>
+                    </h2>
+                    <p>
+                        Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        bichkhe
+                    </div>
+                    <small class="text-muted">2022-09-21</small>
+                </div>
+                
+                
+                <img height="120" src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;demo&#x2F;3.jpg">
+                
+
+            </div>
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;use-goland-rust-plugin-and-fix-error-link-not-found-windows&#x2F;"> [Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe</a>
+                    </h2>
+                    <p>
+                        Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows - Khắc phục lỗi not found linke.exe khi dùng toolchain msvc
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        bichkhe
+                    </div>
+                    <small class="text-muted">2022-09-21</small>
+                </div>
+                
+                
+                <img height="120" src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window.png">
+                
+
+            </div>
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="pr-3">
+                    <h2 class="mb-1 h4 font-weight-bold">
+                        <a class="text-dark" href="https:&#x2F;&#x2F;bichkhe.github.io&#x2F;rust&#x2F;install-vs-code-editor-code-rust&#x2F;"> [Rust Series][Bài 3] Cài đặt VSCode Editor lập trình Rust và các plugin cơ bản</a>
+                    </h2>
+                    <p>
+                        Cài đặt công cụ để lập trình Rust -Editor: Inteliji Rust, VsCode, Vim, Emacs, Notepad++, Atom
+                        <!-- There are more coral species lurking in the deep ocean that previously thought. -->
+                    </p>
+                    <div class="card-text text-muted small">
+                        bichkhe
+                    </div>
+                    <small class="text-muted">2022-09-20</small>
+                </div>
+                
+                
+                <img height="120" src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;rust&#x2F;vscode.jpg">
+                
+
+            </div>
+            
+
+            
+<section>
+  <nav class="pagination pager align-center">
+    <hr>
+    <ul>
+      
+
+      <li><a href="" class="button round small outline">Page 1 of 3</a></li>
+
+      <li class="next"><a href="https://bichkhe.github.io/rust/page/2/">Next</a></li>
+    </ul>
+  </nav>
+</section>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <div class="border p-5 bg-lightblue">
+        <div class="row justify-content-between">
+            <div class="col-md-6">
+                <h5 class="font-weight-bold secondfont">Become a member</h5>
+                Get the latest news right in your inbox. It's free and you can unsubscribe at any time. We hate spam
+                as much as we do, so we never spam!
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

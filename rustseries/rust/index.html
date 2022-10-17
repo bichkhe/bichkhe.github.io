@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MD4C4XX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>Rust | Lập Trình Rust - Rust là gì - Ngôn ngữ Lập Trình Rust - Chia sẻ kiến
+thức về ngôn ngữ lập trình Rust</title>
+
+
+
+<meta property="og:title" content="Rust">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/rustseries/rust/">
+<meta property="og:url" content="https://bichkhe.github.io/rustseries/rust/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+<meta property="twitter:title" content="Rust">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "",
+  "url": "https://bichkhe.github.io/rustseries/rust/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "Rust"
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZSRX2E9ZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZSRX2E9ZJ');
+</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD4C4XX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/technology">Technology <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blockchain">Blockchain <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <img class="navbar-rust-logo rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+
+
+
+
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+
+            <div class="row justify-content-between">
+                <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+                    <p class="text-uppercase font-weight-bold">
+                        <a class="text-danger" href="./category.html">Stories</a>
+                    </p>
+
+                    <h1 class="display-4 secondfont mb-3 font-weight-bold">[Rust Series][Bài 4] Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust</h1>
+                    <p class="mb-3">
+                        Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="assets/img/demo/avatar2.jpg" width="70">
+                        <small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5
+                                min. read</span>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0">
+                    <img src="./assets/img/demo/intro.jpg">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 pr-4 mb-4 col-md-12">
+            <div class="sticky-top text-center">
+                <div class="text-muted">
+                    Share this
+                </div>
+                <div class="share d-inline-block">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <article class="article-post">
+                <p><p>Ngày hôm nay, chúng ta sẽ học:</p>
+<ul>
+<li>Cấu trúc một chương trình “Hello world!” trên Rust.</li>
+<li>Làm quen với dòng lệnh: trình biên dịch rustc và công cụ quản lý dự án và thư viện <code>cargo</code>.</li>
+</ul>
+<p>Yêu cầu:</p>
+<ul>
+<li>Biết sử dụng dòng lệnh cơ bản: <code>bash</code> hoặc <code>cmd</code> (như setup biến môi trường, sử dụng lệnh <code>cd</code>, … vì sẽ rất mất thời gian nếu mình phải đào tạo cách sử dụng).</li>
+<li>Đã cài đặt thành công Rust (stable) 1.28 trên máy. Kiểm tra bằng cách gõ rustc --version vào cửa sổ dòng lệnh.</li>
+</ul>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>bichkhe@LAPTOP-P79QMGMA:~/2022/workspace/rust-a-z$ rustc --version
+</span><span>rustc 1.64.0-nightly (830880640 2022-06-28)
+</span></code></pre>
+<h2 id="hello-world-bang-rust">“Hello world!” bằng Rust?</h2>
+<p>Một file mã nguồn của Rust có phần mở rộng là .rs. Gõ lại đoạn mã sau là lưu lại với tên bất kỳ cùng với .rs (helloworld.rs chẳng hạn). Rust có hỗ trợ trên vim, Sublime Text, VS Code,… Nếu bạn muốn mình chọn dùm, mình chọn Sublime Text với package Rust Enhanced (giúp bạn kiểm tra code khi save).
+Nếu bạn chưa cài đặt Rust vào máy thì bạn cũng có thể truy cập play.rust-lang.org 9 gõ lại đoạn mã sau vào.</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#608b4e;">// Đây là dòng comment
+</span><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Hello world!&quot;</span><span>);
+</span><span>}
+</span></code></pre>
+<p>Nếu bạn sử dụng Rust Playground thì chỉ cần nhấn Run thì chương trình sẽ được compile online và in dòng “Hello world!” ra màn hình. Rất đơn giản phải không nào?</p>
+<p>Nếu bạn muốn compile offline (sẽ nói chi tiết hơn ở mục sau), mở cửa sổ dòng lệnh, hãy chắc ăn là thư mục làm việc hiện hành (current working directory) đang chứa file cần compile, rồi gõ rustc helloworld.rs (nếu bạn đã đặt tên nó là helloworld.rs). Sau đó chạy ./helloworld (Linux) hoặc .\helloworld.exe (Windows). Kết quả cũng tương tự với cách trên.</p>
+<p>Ta xét từng chi tiết của chương trình trên:</p>
+<h3 id="comment">Comment</h3>
+<p>Với comment, không còn gì rõ ràng hơn:
+Các cú pháp comment có dạng /// hay //! sẽ có thêm chức năng: dùng nội dung comments để tạo ra tài liệu cho thư viện/ứng dụng đó.</p>
+<h3 id="chuong-trinh-thuc-thi">Chương trình thực thi</h3>
+<p>Một chương trình thực thi viết bằng Rust sẽ phải có hàm main (nếu là thư viện, hàm main là không cần thiết). Trong hàm main này:</p>
+<ul>
+<li>
+<p><code>fn</code>: là từ khóa bắt buộc (viết tắt: “function”).</p>
+</li>
+<li>
+<p><code>main</code>: là định danh, trường hợp này, cụ thể là tên hàm, được phép dùng các ký tự từ: a—z, A—Z, 0—9, <em>. Nhưng: không được bắt đầu bằng số, không sử dụng các ký tự non—ascii (không thuộc bảng mã ASCII, vì Rust chưa hỗ trợ hoàn thiện) hay chỉ dùng ‘</em>’ (đây được gọi là định danh đặc biệt (‘reserved identifier’). Những trường hợp định danh khác (tên biến,…) cũng tuân theo quy luật này.</p>
+</li>
+</ul>
+<p>Tên hợp lệ: SmileSweet, _sister_sadistic, sUrPrIsE69,…</p>
+<p>Tên không hợp lệ: 0service, _, skrâtâ…</p>
+<ul>
+<li>
+<p><code>()</code>: sau khi khai báo tên hàm, phần trong cặp ngoặc này sẽ chứa tên biến truyền vào. Hàm main luôn không có bất kỳ biến nào. Sau cặp ngoặc này sẽ khai báo kiểu trả về của hàm (chúng ta sẽ đi sâu vào ở các ngày tiếp theo).
+Kiểu trả về: Nếu không chỉ định kiểu trả về, Rust mặc định trả về kiểu Unit () (không giống void trong C/C++). Hàm main có thể trả về kiểu khác: Result&lt;()&gt; nhưng chúng ta chưa đề cập phần này ở đây.</p>
+</li>
+<li>
+<p><code>{}</code>: khối lệnh sẽ được đặt trong cặp ngoặc nhọn. Các biến được khởi tạo phạm vi (scope) này sẽ được tự động hủy khi ra khỏi scope.
+;: ký tự đánh dấu kết thúc lệnh. Lưu ý: trường hợp duy nhất không dùng ; là khi rút ngắn cho lệnh return (sẽ đề cập sau).</p>
+</li>
+<li>
+<p><code>println!</code>: là một macro (vì theo sau là dấu !), không nên nhầm lẫn với hàm (không được kết thúc với !). Hệ thống macro trong Rust cực kỳ mạnh mẽ và cũng khá khó (hơn nhiều so với C/C++), nên mình sẽ hướng dẫn sử dụng chứ không hướng dẫn cách viết macros.</p>
+</li>
+<li>
+<p><code>&quot;...&quot;</code>: Rust sử dụng dấu ngoặc kép để đánh dấu chuỗi. Một chuỗi trong Rust luôn luôn là một chuỗi Unicode hợp lệ. Nâng cao: vì lẽ đó, Rust không cho phép bạn đánh chỉ số của chuỗi như các ngôn ngữ lập trình phổ biến khác! Nhưng sẽ có cách khác để làm việc này. Sẽ đề cập sau :stuck_out_tongue:</p>
+</li>
+</ul>
+<p>Kết luận: Viết nhiều như thế nhưng có lẽ đa số các bạn đều đã biết hết rồi (vì phần này cũng không khác C/C++ gì cho lắm).</p>
+<p><strong><em>Lập trình</em></strong> : Hãy thử thay chuỗi “Hello world!” bằng một chuỗi khác xem. Chẳng hạn một chuỗi “trái tim lấp lánh :sparkling_heart:” chẳng hạn?</p>
+<h2 id="lam-viec-voi-giao-dien-dong-lenh">Làm việc với giao diện dòng lệnh</h2>
+<p>Như yêu cầu của mình ở trên, các bạn cần phải biết một số thao tác cơ bản với dòng lệnh để có thể dễ dàng theo dõi hướng dẫn này. Nếu còn băn khoăn, đừng ngần ngại dùng Google nhé!</p>
+<h2 id="trinh-bien-dich-rust">Trình biên dịch Rust</h2>
+<p>Nếu bạn đã cài đặt Rust thành công, thì:</p>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>$ rustc --version
+</span><span>rustc 1.64.0-nightly (830880640 2022-06-28)
+</span></code></pre>
+<p>Lệnh rustc cũng sẽ có options khác, gõ rustc --help để biết thêm thông tin chi tiết :D. Để compile 1 file .rs, chúng ta gõ (giả sử chúng ta đang compile một file helloworld.rs như ở trên)</p>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>$ rustc helloworld.rs
+</span></code></pre>
+<p>Rust không hiện thông báo lỗi nào tức là compile thành công. Ta chạy thử chương trình này bằng cách gõ:</p>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>$ ./helloworld
+</span><span>Hello world!
+</span></code></pre>
+<p>Chương trình đã thực thi thành công và in ra màn hình dòng “Hello world!” (như chúng ta mong muốn). Đối với Windows, đổi <code>./helloword</code> thành <code>.\helloworld</code>.
+Ngoài ra, rustc còn có cách chế độ optimize khác nhau, nhưng mình sẽ không đề cập ở đây. Các bạn có thể tự tìm hiểu thêm thông qua Google hoặc <code>rustc --help</code>. Vì chúng ta sẽ sử dụng một công cụ thay chúng ta làm các việc này.
+Đối với một chương trình lớn, nhiều thư viện ngoài, compile bằng cách này không hay và mất thời gian. Mình sẽ hướng dẫn các bạn dùng CMake để tạo ra <code>Makefile</code> rồi dùng <code>Makefilesss</code> này compile cả dự án của bạn. Nói chứ đùa thôi, <code>Rust toolchains</code> đi kèm công cụ tên <code>Cargo</code> (như phần mở đầu có đề cập), giúp quản lý dự án của bạn khá hiệu quả.</p>
+<p>Cargo là công cụ rất hiệu quả, giúp tiết kiệm công sức của bạn. Cargo cuả Rust tương tự như nodejs có <code>npm</code> … vậy.
+Phiên bản cargo mình dùng trong bài viết này là: rustc 1.64.0-nightly
+Cargo có các subcommands (lệnh nhỏ hơn):</p>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>$ cargo --help
+</span><span>Rust&#39;s package manager
+</span><span>
+</span><span>USAGE:
+</span><span>cargo [OPTIONS] [SUBCOMMAND]
+</span><span>
+</span><span>See &#39;cargo help &lt;command&gt;&#39; for more information on a specific command.
+</span></code></pre>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>$ cargo help run
+</span><span>cargo—build
+</span><span>Compile a local package and all of its dependencies
+</span><span>
+</span><span>USAGE:
+</span><span>cargo build [OPTIONS]
+</span><span>
+</span><span>OPTIONS:
+</span><span>
+</span></code></pre>
+<p>Các subcommands mà các bạn mới học sẽ hay dùng:
+new: dùng để tạo 1 project mới. Có 2 options cơ bản:</p>
+<ul>
+<li><code>--bin</code>: tạo project là 1 ứng dụng thực thi (mặc định nếu bạn không dùng options nào cả). File src/main.rs là file chính chứa hàm main, Cargo.toml là dùng để thêm các thư viện cần thiết, thay đổi version, thêm các options dành cho việc build, … (Xem hình [1])</li>
+<li><code>--lib</code>: tạo project là 1 thư viện, file chính là lib.rs thay vì main.rs như ví dụ trên, hàm main không bắt buộc. Thư viện tạo ra có thể là thư viện Rust (.rlib) hay .dll/.so, …
+Ngoài ra, cargo còn ‘init’ git dùm mình. Nếu bạn không dùng git thì có thể bỏ qua.
+build: dùng để … build project. Mặc định Rust sẽ build ở mode debug và không optimize. Mode này hữu ích với bạn khi cần debug nhưng nó sẽ không nhanh.</li>
+<li>--release: để optimize.</li>
+<li><code>-v hoặc --verbose</code>: có thể trong lúc build, cargo bị sản, hãy dùng option này để xem cargo đang làm gì project của mình khi build (nói chính xác là option này chỉ định cargo hiện ra chi tiết tiến trình làm việc).</li>
+</ul>
+<p>Sau khi build, một thư mục tên là target sẽ được tạo, tùy vào bạn có sử dụng <code>--release</code> hay không mà sẽ có thư mục debug hay release tương ứng.</p>
+<ul>
+<li><code>check</code>: như build (cũng có <code>--release</code> và <code>--verbose</code>) nhưng chỉ check lỗi trong project, không tạo ra bất kỳ file nào (nhưng cargo vẫn sẽ tải và ‘compile’ các thư viện còn thiếu). Lệnh hày hữu ích khi bạn chỉ muốn xem trong project còn lỗi cú pháp nào hay không (vì thời gian compile của rustc là hơi lâu).</li>
+<li><code>run</code>: như build (cũng có <code>--release</code> và <code>--verbose</code>) nhưng sau khi build, cargo sẽ gọi luôn file thực thi. Xem hình [2]</li>
+</ul>
+<p>Trong cây thư mục này, hãy quan tâm đến <code>./target/debug/d1rs</code> (./target/release/d1rs nếu đã bật option --release), những phần còn lại là những files cần thiết của cargo-rustc.
+Trên đây là các lệnh cơ bản. Hãy dùng option --help và subcommand help để tìm hiểu thêm.</p>
+<p>Một file <code>Cargo.lock</code> sẽ tạo sau lần check, build, run lần đầu tiên. Nó có nhiệm vụ cho phép duy nhất 1 tiến trình cargo làm việc trong 1 project, vì vậy bạn không thể 3 commandline rồi dùng 3 lệnh check, build, run cùng 1 lúc trên 1 project. Các tiến trình khác sẽ đợi tiến trình phía trước làm việc xong rồi mới thực thi.</p>
+</p>
+            </article>
+            <div class="border p-5 bg-lightblue">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 mb-2 mb-md-0">
+                        <h5 class="font-weight-bold secondfont">Become a member</h5>
+                        Get the latest news right in your inbox. We never spam!
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card border-0 mb-4 box-shadow h-xl-300">
+                <div
+                    style="background-image: url(./assets/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+                </div>
+                <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+                    <h2 class="h4 font-weight-bold">
+                        <a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+                    </h2>
+                    <p class="card-text">
+                        Researchers have found an effective target in the brain for electrical stimulation to
+                        improve mood in people suffering from depression.
+                    </p>
+                    <div>
+                        <small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="flex-md-row mb-4 box-shadow h-xl-300">
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog4.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
+                                of Earth</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog5.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
+                                Titicaca</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex align-items-center">
+                    <img height="80" src="./assets/img/demo/blog6.jpg">
+                    <div class="pl-3">
+                        <h2 class="mb-2 h6 font-weight-bold">
+                            <a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
+                        </h2>
+                        <div class="card-text text-muted small">
+                            Jake Bittle in LOVE/HATE
+                        </div>
+                        <small class="text-muted">Dec 12 · 5 min read</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MD4C4XX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu | Lập Trình Rust - Rust là gì - Ngôn ngữ Lập Trình Rust - Chia sẻ kiến
+thức về ngôn ngữ lập trình Rust</title>
+
+
+
+<meta property="og:title" content="[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+<meta name="description" content="Trong bài này mình sẽ điểm nhanh một vòng cú pháp">
+<meta property="og:description" content="Trong bài này mình sẽ điểm nhanh một vòng cú pháp">
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/rust/a-tour-of-rust/">
+<meta property="og:url" content="https://bichkhe.github.io/rust/a-tour-of-rust/">
+
+
+
+
+
+<meta property="og:image" content="https://bichkhe.github.io/assets/img/rust/tour-of-rust.png">
+
+
+
+
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content=" 2022-09-23T00:00:00+00:00">
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"">
+  <meta property=" twitter:image" content="https://bichkhe.github.io/assets/img/rust/tour-of-rust.png">
+
+
+
+<meta property="twitter:title" content="[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "Trong bài này mình sẽ điểm nhanh một vòng cú pháp",
+  "url": "https://bichkhe.github.io/rust/a-tour-of-rust/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu"
+  
+    
+    
+      "datePublished":"2022-09-23T00:00:00+00:00",
+    
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://bichkhe.github.io/rust/a-tour-of-rust/"
+    },
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZSRX2E9ZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZSRX2E9ZJ');
+</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD4C4XX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/technology">Technology <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blockchain">Blockchain <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <img class="navbar-rust-logo rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+            <div class="row justify-content-between">
+                <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+                    <p class="text-uppercase font-weight-bold">
+                        <a class="text-danger" href="/">Stories</a>
+                    </p>
+                    <h1 class="display-4 secondfont mb-3 font-weight-bold">[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu</h1>
+                    <p class="mb-3">
+                        Trong bài này mình sẽ điểm nhanh một vòng cú pháp
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle"
+                            src="https://raw.githubusercontent.com/The-DevX-Initiative/RCIG_Coordination_Repo/main/RCIG_Mascot3.png"
+                            width="70">
+                        <small class="ml-2">bichkhe <span class="text-muted d-block">A few hours ago &middot; 5
+                                min. read</span>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0">
+                    
+                    
+                    
+                    <img src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;rust&#x2F;tour-of-rust.png">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-2 pr-4 mb-4 col-md-12">
+            <div class="sticky-top text-center">
+                <div class="text-muted">
+                    Share this
+                </div>
+                <div class="share d-inline-block">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <div class="border p-5 bg-lightblue text-dark">
+                <h3 class="font-weight-bold secondfont">Mục lục</h3>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-du-lieu">Kiểu dữ liệu</a>
+                        
+                        <ul>
+                            
+                            <li>
+                                
+                                <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-du-lieu-nguyen-thuy-primitives-data-types">Kiểu dữ liệu nguyên thủy - Primitives Data Types</a>
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-so-nguyen">Kiểu số nguyên</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-so-float">Kiểu số float</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-bool">Kiểu bool</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-slice-string-string">Kiểu slice string, String</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-tupple">Kiểu tupple</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kieu-mut-gia-tri-co-the-thay-doi-duoc">Kiểu mut - Giá trị có thể thay đổi được</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#tom-tat">Tóm tắt</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#kiem-du-lieu-phuc-hop-compound">Kiểm dữ liệu phức hợp - Compound</a>
+                                <ul>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#strings">Strings</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#structs">Structs</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#struct-voi-phuong-thuc">Struct với phương thức</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#struct-dang-tupple">Struct dạng tupple</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#enums">Enums</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#enums-voi-du-lieu">Enums với dữ liệu</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#enums-voi-phuong-thuc">Enums với phương thức</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="https://bichkhe.github.io/rust/a-tour-of-rust/#closures">Closures</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            <article class="article-post">
+                <p><h1 id="kieu-du-lieu">Kiểu dữ liệu</h1>
+<h2 id="kieu-du-lieu-nguyen-thuy-primitives-data-types">Kiểu dữ liệu nguyên thủy - Primitives Data Types</h2>
+<p>Xem xét đoạn code khi khai báo kiểu dữ liệu thông thường: interger, float, bool, pointer</p>
+<h3 id="kieu-so-nguyen">Kiểu số nguyên</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#569cd6;">let</span><span> i1 = </span><span style="color:#b5cea8;">23</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i2: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">1024</span><span>; </span><span style="color:#608b4e;">// Có dấu 32 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i3 = </span><span style="color:#b5cea8;">10</span><span style="color:#569cd6;">u32</span><span>; </span><span style="color:#608b4e;">// số  10 kiểu không dấu 32 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i4: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">0x11</span><span>; </span><span style="color:#608b4e;">//hexa 16 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i5: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">0o12</span><span>; </span><span style="color:#608b4e;">// dạng octa
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i6: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">0b101011</span><span>; </span><span style="color:#608b4e;">// dạng binary chỉ toàn số 0 1
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i7: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">1_000_000</span><span>; </span><span style="color:#608b4e;">// 1 triệu
+</span></code></pre>
+<h3 id="kieu-so-float">Kiểu số float</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#569cd6;">let</span><span> f1 = </span><span style="color:#b5cea8;">191.32</span><span>; </span><span style="color:#608b4e;">//float32
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f2: </span><span style="color:#569cd6;">f32 </span><span>= </span><span style="color:#b5cea8;">102.13</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f3: </span><span style="color:#569cd6;">f32 </span><span>= </span><span style="color:#b5cea8;">102.13</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f4 = </span><span style="color:#b5cea8;">0.000_001</span><span>; </span><span style="color:#608b4e;">// 0.0000001
+</span></code></pre>
+<h3 id="kieu-bool">Kiểu bool</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#569cd6;">let</span><span> b1 = </span><span style="color:#569cd6;">true</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> b2 = </span><span style="color:#569cd6;">false</span><span>;
+</span></code></pre>
+<h3 id="kieu-slice-string-string">Kiểu slice string, String</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>     </span><span style="color:#608b4e;">// Kiểu &amp;str: Tham chiếu đến String
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str1 = </span><span style="color:#d69d85;">&quot;hello world&quot;</span><span>;
+</span><span>    </span><span style="color:#608b4e;">// Kiểu std::String
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str2 = </span><span style="color:#d69d85;">&quot;hello world&quot;</span><span>.to_string();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str3 = </span><span style="color:#d69d85;">&quot;hello world2&quot;</span><span>.to_owned();
+</span><span>
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str4 =  String::from(</span><span style="color:#d69d85;">&quot;test&quot;</span><span>);
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str5 = </span><span style="color:#569cd6;">&amp;</span><span>str4; </span><span style="color:#608b4e;">//Kiểu &amp;String
+</span></code></pre>
+<h3 id="kieu-tupple">Kiểu tupple</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#608b4e;">// Tupple
+</span><span>    </span><span style="color:#569cd6;">let</span><span> empty_tupple = ();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> long_tuple = (
+</span><span>        </span><span style="color:#b5cea8;">1</span><span style="color:#569cd6;">u8</span><span>, </span><span style="color:#b5cea8;">2</span><span style="color:#569cd6;">u16</span><span>, </span><span style="color:#b5cea8;">3</span><span style="color:#569cd6;">u32</span><span>, </span><span style="color:#b5cea8;">4</span><span style="color:#569cd6;">u64</span><span>, -</span><span style="color:#b5cea8;">1</span><span style="color:#569cd6;">i8</span><span>, -</span><span style="color:#b5cea8;">2</span><span style="color:#569cd6;">i16</span><span>, -</span><span style="color:#b5cea8;">3</span><span style="color:#569cd6;">i32</span><span>, -</span><span style="color:#b5cea8;">4</span><span style="color:#569cd6;">i64</span><span>, </span><span style="color:#b5cea8;">0.1</span><span style="color:#569cd6;">f32</span><span>, </span><span style="color:#b5cea8;">0.2</span><span style="color:#569cd6;">f64</span><span>, </span><span style="color:#d69d85;">&#39;a&#39;</span><span>, </span><span style="color:#569cd6;">true</span><span>,
+</span><span>    );
+</span></code></pre>
+<h3 id="kieu-mut-gia-tri-co-the-thay-doi-duoc">Kiểu mut - Giá trị có thể thay đổi được</h3>
+<p>Kiểu này bao trùm mọi dữ liệu. Cứ đặt <code>mut</code> trước các kiểu báo hiệu là mình có thể thay đổi giá trị của nó</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span> </span><span style="color:#608b4e;">// Kiểu mut có thể thay đổi giá trị được
+</span><span>    </span><span style="color:#569cd6;">let mut</span><span> i1_mut: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">1_000_000</span><span>; </span><span style="color:#608b4e;">// 1 triệu
+</span><span>    i1_mut = </span><span style="color:#b5cea8;">2_000_000</span><span>; </span><span style="color:#608b4e;">// Gán lại được
+</span><span>                        </span><span style="color:#608b4e;">// i1 trên không thể gán lại : i1 = 2_000_000 là không được , báo lỗi
+</span></code></pre>
+<h3 id="tom-tat">Tóm tắt</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#608b4e;">//  Primitive types
+</span><span>    </span><span style="color:#608b4e;">// Kiểu integer có thể biểu thị dạng 0x, 0o, 0b
+</span><span>    </span><span style="color:#608b4e;">// Có thể dùng _ để biểu thị
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i1 = </span><span style="color:#b5cea8;">23</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i2: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">1024</span><span>; </span><span style="color:#608b4e;">// Có dấu 32 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i3 = </span><span style="color:#b5cea8;">10</span><span style="color:#569cd6;">u32</span><span>; </span><span style="color:#608b4e;">// số  10 kiểu không dấu 32 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i4: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">0x11</span><span>; </span><span style="color:#608b4e;">//hexa 16 bit
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i5: </span><span style="color:#569cd6;">i32 </span><span>= </span><span style="color:#b5cea8;">0o12</span><span>; </span><span style="color:#608b4e;">// dạng octa
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i6: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">0b101011</span><span>; </span><span style="color:#608b4e;">// dạng binary chỉ toàn số 0 1
+</span><span>    </span><span style="color:#569cd6;">let</span><span> i7: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">1_000_000</span><span>; </span><span style="color:#608b4e;">// 1 triệu
+</span><span>
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f1 = </span><span style="color:#b5cea8;">191.32</span><span>; </span><span style="color:#608b4e;">//float32
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f2: </span><span style="color:#569cd6;">f32 </span><span>= </span><span style="color:#b5cea8;">102.13</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f3: </span><span style="color:#569cd6;">f32 </span><span>= </span><span style="color:#b5cea8;">102.13</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> f4 = </span><span style="color:#b5cea8;">0.000_001</span><span>; </span><span style="color:#608b4e;">// 0.0000001
+</span><span>
+</span><span>    </span><span style="color:#569cd6;">let</span><span> b1 = </span><span style="color:#569cd6;">true</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> b2 = </span><span style="color:#569cd6;">false</span><span>;
+</span><span>
+</span><span>    </span><span style="color:#608b4e;">// Kiểu &amp;str: Tham chiếu đến String
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str1 = </span><span style="color:#d69d85;">&quot;hello world&quot;</span><span>;
+</span><span>    </span><span style="color:#608b4e;">// Kiểu std::String
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str2 = </span><span style="color:#d69d85;">&quot;hello world&quot;</span><span>.to_string();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str3 = </span><span style="color:#d69d85;">&quot;hello world2&quot;</span><span>.to_owned();
+</span><span>
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str4 =  String::from(</span><span style="color:#d69d85;">&quot;test&quot;</span><span>);
+</span><span>    </span><span style="color:#569cd6;">let</span><span> str5 = </span><span style="color:#569cd6;">&amp;</span><span>str4; </span><span style="color:#608b4e;">//Kiểu &amp;String
+</span><span>
+</span><span>    </span><span style="color:#608b4e;">// Tupple
+</span><span>    </span><span style="color:#569cd6;">let</span><span> empty_tupple = ();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> long_tuple = (
+</span><span>        </span><span style="color:#b5cea8;">1</span><span style="color:#569cd6;">u8</span><span>, </span><span style="color:#b5cea8;">2</span><span style="color:#569cd6;">u16</span><span>, </span><span style="color:#b5cea8;">3</span><span style="color:#569cd6;">u32</span><span>, </span><span style="color:#b5cea8;">4</span><span style="color:#569cd6;">u64</span><span>, -</span><span style="color:#b5cea8;">1</span><span style="color:#569cd6;">i8</span><span>, -</span><span style="color:#b5cea8;">2</span><span style="color:#569cd6;">i16</span><span>, -</span><span style="color:#b5cea8;">3</span><span style="color:#569cd6;">i32</span><span>, -</span><span style="color:#b5cea8;">4</span><span style="color:#569cd6;">i64</span><span>, </span><span style="color:#b5cea8;">0.1</span><span style="color:#569cd6;">f32</span><span>, </span><span style="color:#b5cea8;">0.2</span><span style="color:#569cd6;">f64</span><span>, </span><span style="color:#d69d85;">&#39;a&#39;</span><span>, </span><span style="color:#569cd6;">true</span><span>,
+</span><span>    );
+</span><span>
+</span><span>    </span><span style="color:#608b4e;">// Kiểu mut có thể thay đổi giá trị được
+</span><span>    </span><span style="color:#569cd6;">let mut</span><span> i1_mut: </span><span style="color:#569cd6;">i64 </span><span>= </span><span style="color:#b5cea8;">1_000_000</span><span>; </span><span style="color:#608b4e;">// 1 triệu
+</span><span>    i1_mut = </span><span style="color:#b5cea8;">2_000_000</span><span>; </span><span style="color:#608b4e;">// Gán lại được
+</span><span>                        </span><span style="color:#608b4e;">// i1 trên không thể gán lại : i1 = 2_000_000 là không được , báo lỗi
+</span><span>}
+</span></code></pre>
+<p>Vài điểm chú ý:</p>
+<ul>
+<li>Các kiểu số: i32, i64, u32,u64, bool, f32, f64</li>
+<li>kiểu dữ liệu slice string: &amp;str</li>
+<li>Mặc định là biến này không thể thay đổi giá trị. Nếu muốn thay đổi giá trị khai báo thêm <code>mut</code>.</li>
+<li>Hiểu <code>mut i32</code>, <code>mut &amp;str</code>... nó là một kiểu dữ liệu và nó khác với <code>i32</code>, <code>i64</code> cho nhẹ đầu.</li>
+</ul>
+<h2 id="kiem-du-lieu-phuc-hop-compound">Kiểm dữ liệu phức hợp - Compound</h2>
+<h3 id="strings">Strings</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> question = </span><span style="color:#d69d85;">&quot;How are you ?&quot;</span><span>; </span><span style="color:#608b4e;">// a &amp;str type
+</span><span>    </span><span style="color:#569cd6;">let</span><span> person: String = </span><span style="color:#d69d85;">&quot;Bob&quot;</span><span>.to_string();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> namaste = String::from(</span><span style="color:#d69d85;">&quot;नमते&quot;</span><span>); </span><span style="color:#608b4e;">// unicodes yay!
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;</span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">! </span><span style="color:#b4cea8;">{} {}</span><span style="color:#d69d85;">&quot;</span><span>, namaste, question, person);
+</span><span>}
+</span></code></pre>
+<p>Kiểu <code>String</code> này cũng khá đặc biệt. Nó có thể chứa giá trị unicode được. Chúng ta hay thao tác với String và với số rất nhiều.
+Cũng cần 1 bài để mô tả kỹ và cách dùng nó với unicode.
+Dòng <code>println!(&quot;{}! {} {}&quot;, namaste, question, person);</code> để in ra các biến. Nó không phải là hàm mà được gọi là <code>macro function</code>
+Tất cả các hàm mà có cái đuôi <code>!</code> ở cuối là như vậy. Khi nghiên cứu macro sẽ nói về vấn đề này kỹ, còn hiện tại thì cứ hiểu để in ra mấy biến kia.</p>
+<p>PS:Rust có mỗi cái in ra biến mà không có cái hàm nào tử tế mà lại đi dùng macro function loằng nhoằng nhỉ. Nhưng có vẻ những người tạo ra ngôn ngữ này có triết lý riêng.</p>
+<h3 id="structs">Structs</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>
+</span><span style="color:#569cd6;">struct </span><span>Player {
+</span><span>    name: String,
+</span><span>    iq: </span><span style="color:#569cd6;">u8</span><span>,
+</span><span>    friends: </span><span style="color:#569cd6;">u8</span><span>,
+</span><span>    score: </span><span style="color:#569cd6;">u16</span><span>,
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>bump_player_score(</span><span style="color:#569cd6;">mut </span><span>player: Player, score: </span><span style="color:#569cd6;">u16</span><span>) {
+</span><span>    player.score += </span><span style="color:#b5cea8;">120</span><span>;
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Updated player stats:&quot;</span><span>);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Name: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, player.name);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;IQ: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, player.iq);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Friends: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, player.friends);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Score: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, player.score);
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> name = </span><span style="color:#d69d85;">&quot;Alice&quot;</span><span>.to_string();
+</span><span>    </span><span style="color:#569cd6;">let</span><span> player = Player {
+</span><span>        name,
+</span><span>        iq: </span><span style="color:#b5cea8;">171</span><span>,
+</span><span>        friends: </span><span style="color:#b5cea8;">134</span><span>,
+</span><span>        score: </span><span style="color:#b5cea8;">1129</span><span>,
+</span><span>    };
+</span><span>    bump_player_score(player, </span><span style="color:#b5cea8;">120</span><span>);
+</span><span>}
+</span><span>
+</span></code></pre>
+<h3 id="struct-voi-phuong-thuc">Struct với phương thức</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">struct </span><span>Player {
+</span><span>    name: String,
+</span><span>    iq: </span><span style="color:#569cd6;">u8</span><span>,
+</span><span>    friends: </span><span style="color:#569cd6;">u8</span><span>,
+</span><span>}
+</span><span style="color:#569cd6;">impl </span><span>Player {
+</span><span>    </span><span style="color:#569cd6;">fn </span><span>with_name(name: </span><span style="color:#569cd6;">&amp;str</span><span>) -&gt; Player {
+</span><span>        Player {
+</span><span>            name: name.to_string(),
+</span><span>            iq: </span><span style="color:#b5cea8;">100</span><span>,
+</span><span>            friends: </span><span style="color:#b5cea8;">100</span><span>,
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#569cd6;">fn </span><span>get_friends(</span><span style="color:#569cd6;">&amp;</span><span>self) -&gt; </span><span style="color:#569cd6;">u8 </span><span>{
+</span><span>        self.friends
+</span><span>    }
+</span><span>    </span><span style="color:#569cd6;">fn </span><span>set_friends(</span><span style="color:#569cd6;">&amp;mut </span><span>self, count: </span><span style="color:#569cd6;">u8</span><span>) {
+</span><span>        self.friends = count;
+</span><span>    }
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let mut</span><span> player = Player::with_name(</span><span style="color:#d69d85;">&quot;Dave&quot;</span><span>);
+</span><span>    player.set_friends(</span><span style="color:#b5cea8;">23</span><span>);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;</span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&#39;s friends count: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, player.name, player.get_friends());
+</span><span>    </span><span style="color:#608b4e;">// another way to call instance methods.
+</span><span>    </span><span style="color:#569cd6;">let _ </span><span>= Player::get_friends(</span><span style="color:#569cd6;">&amp;</span><span>player);
+</span><span>}
+</span><span>
+</span></code></pre>
+<p>Các phương thức này luôn có trường đầu tiên khai báo là <code>&amp;self</code>, hoặc <code>self</code> hoặc <code>&amp;mut self</code>
+thể hiển chính instance của struct đang thao tác(nghĩa là 1 đối tượng tạo ra). Có hơi hướng giống python khi các hàm thuộc struct đều có trường <code>self</code>.</p>
+<p>Đối với hàm không có <code>self</code> thì nó thuộc struct nghĩa là dùng struct để gọi. Bạn hay gặp hàm <code>new</code> mà trở về chính đối tượng.
+Trong <code>Go</code> thì nó cũng có <code>pattern</code> như này, gọi là <code>contructor</code> giả.
+Dùng toán tử(?) <code>::</code> để truy xuất đến hàm nhé</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>Player::with_name(</span><span style="color:#d69d85;">&quot;Dave&quot;</span><span>);
+</span></code></pre>
+<h3 id="struct-dang-tupple">Struct dạng tupple</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">struct </span><span>Color(</span><span style="color:#569cd6;">u8</span><span>, </span><span style="color:#569cd6;">u8</span><span>, </span><span style="color:#569cd6;">u8</span><span>);
+</span></code></pre>
+<p>Cách sử dụng có vẻ đơn giản.
+Truy xuất đến phần tử theo dạng <code>.0</code>, <code>.1</code></p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> white = Color(</span><span style="color:#b5cea8;">251</span><span>, </span><span style="color:#b5cea8;">250</span><span>, </span><span style="color:#b5cea8;">255</span><span>);
+</span><span>    </span><span style="color:#569cd6;">let</span><span> red = white.</span><span style="color:#b5cea8;">0</span><span>; </span><span style="color:#608b4e;">// truy xuất đến 251
+</span><span>    </span><span style="color:#569cd6;">let</span><span> green = white.</span><span style="color:#b5cea8;">1</span><span>; </span><span style="color:#608b4e;">//250
+</span><span>    </span><span style="color:#569cd6;">let</span><span> blue = white.</span><span style="color:#b5cea8;">2</span><span>; </span><span style="color:#608b4e;">//255
+</span><span>}
+</span><span>
+</span></code></pre>
+<p>Destructure giống cha nọi javascript</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#569cd6;">let</span><span> orange = Color(</span><span style="color:#b5cea8;">255</span><span>, </span><span style="color:#b5cea8;">165</span><span>, </span><span style="color:#b5cea8;">0</span><span>);
+</span><span>    </span><span style="color:#569cd6;">let</span><span> Color(r, g, b) = orange; </span><span style="color:#608b4e;">//desctrutor
+</span></code></pre>
+<p>Ví dụ đầy đủ</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> white = Color(</span><span style="color:#b5cea8;">255</span><span>, </span><span style="color:#b5cea8;">255</span><span>, </span><span style="color:#b5cea8;">255</span><span>);
+</span><span>    </span><span style="color:#608b4e;">// You can pull them out by index
+</span><span>    </span><span style="color:#569cd6;">let</span><span> red = white.</span><span style="color:#b5cea8;">0</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> green = white.</span><span style="color:#b5cea8;">1</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> blue = white.</span><span style="color:#b5cea8;">2</span><span>;
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Red value: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, red);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Green value: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, green);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Blue value: </span><span style="color:#b4cea8;">{}</span><span style="color:#e3bbab;">\n</span><span style="color:#d69d85;">&quot;</span><span>, blue);
+</span><span>    </span><span style="color:#569cd6;">let</span><span> orange = Color(</span><span style="color:#b5cea8;">255</span><span>, </span><span style="color:#b5cea8;">165</span><span>, </span><span style="color:#b5cea8;">0</span><span>);
+</span><span>    </span><span style="color:#608b4e;">// You can also destructure the fields directly
+</span><span>    </span><span style="color:#569cd6;">let</span><span> Color(r, g, b) = orange;
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;R: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">, G: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">, B: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;"> (orange)&quot;</span><span>, r, g, b);
+</span><span>    </span><span style="color:#608b4e;">// Can also ignore fields while destructuring
+</span><span>    </span><span style="color:#569cd6;">let</span><span> Color(r, </span><span style="color:#569cd6;">_</span><span>, b) = orange;
+</span><span>}
+</span><span>
+</span></code></pre>
+<h3 id="enums">Enums</h3>
+<p>Enums trong Rust đặc biệt hơn các ngôn ngữ khác vì nó có thể chứa struct</p>
+<h3 id="enums-voi-du-lieu">Enums với dữ liệu</h3>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>
+</span><span style="color:#569cd6;">enum </span><span>Direction {
+</span><span>    N,
+</span><span>    E,
+</span><span>    S,
+</span><span>    W,
+</span><span>}
+</span><span style="color:#569cd6;">enum </span><span>PlayerAction {
+</span><span>    Move { direction: Direction, speed: </span><span style="color:#569cd6;">u8 </span><span>},
+</span><span>    Wait,
+</span><span>    Attack(Direction),
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> simulated_player_action = PlayerAction::Move {
+</span><span>        direction: Direction::N,
+</span><span>        speed: </span><span style="color:#b5cea8;">2</span><span>,
+</span><span>    };
+</span><span>    </span><span style="color:#569cd6;">match</span><span> simulated_player_action {
+</span><span>        PlayerAction::Wait </span><span style="color:#569cd6;">=&gt; </span><span>println!(</span><span style="color:#d69d85;">&quot;Player wants to wait&quot;</span><span>),
+</span><span>        PlayerAction::Move { direction, speed } </span><span style="color:#569cd6;">=&gt; </span><span>{
+</span><span>            println!(
+</span><span>                </span><span style="color:#d69d85;">&quot;Player wants to move in direction </span><span style="color:#b4cea8;">{:?}</span><span style="color:#d69d85;"> with speed </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>,
+</span><span>                direction, speed
+</span><span>            )
+</span><span>        }
+</span><span>        PlayerAction::Attack(direction) </span><span style="color:#569cd6;">=&gt; </span><span>{
+</span><span>            println!(</span><span style="color:#d69d85;">&quot;Player wants to attack direction </span><span style="color:#b4cea8;">{:?}</span><span style="color:#d69d85;">&quot;</span><span>, direction)
+</span><span>        }
+</span><span>    };
+</span><span>}
+</span><span>
+</span></code></pre>
+<p>Ví dụ <code>Move { direction: Direction, speed: u8 }</code> có thể bao gồm cả <code>enum</code> với <code>speed</code> dang u8</p>
+<p>Kỳ diệu thật
+<code>Move{N, 2}</code>, <code>Move{E,4}</code>... Là những giá trị của nó</p>
+<p>Enums sẽ cần được nghiên cứu kỹ ở bài sau. Trong Rust thì dùng điều này rất nhiều và nó còn giúp cả tăng tốc chương trình nữa</p>
+<h3 id="enums-voi-phuong-thuc">Enums với phương thức</h3>
+<p>Ngoài ra <code>Enum</code> có thể tạo hàm.
+Hàm <code>fn pay(&amp;self, amount: u64)</code> dưới đây. self đại diện cho chính giá trị của nó.</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">enum </span><span>PaymentMode {
+</span><span>    Debit,
+</span><span>    Credit,
+</span><span>    Paypal,
+</span><span>}
+</span><span style="color:#608b4e;">// Bunch of dummy payment handlers
+</span><span style="color:#569cd6;">fn </span><span>pay_by_credit(amt: </span><span style="color:#569cd6;">u64</span><span>) {
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Processing credit payment of </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, amt);
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>pay_by_debit(amt: </span><span style="color:#569cd6;">u64</span><span>) {
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Processing debit payment of </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, amt);
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>paypal_redirect(amt: </span><span style="color:#569cd6;">u64</span><span>) {
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Redirecting to paypal for amount: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, amt);
+</span><span>}
+</span><span style="color:#569cd6;">impl </span><span>PaymentMode {
+</span><span>    </span><span style="color:#569cd6;">fn </span><span>pay(</span><span style="color:#569cd6;">&amp;</span><span>self, amount: </span><span style="color:#569cd6;">u64</span><span>) {
+</span><span>        </span><span style="color:#569cd6;">match </span><span>self {
+</span><span>            PaymentMode::Debit </span><span style="color:#569cd6;">=&gt; </span><span>pay_by_debit(amount),
+</span><span>            PaymentMode::Credit </span><span style="color:#569cd6;">=&gt; </span><span>pay_by_credit(amount),
+</span><span>            PaymentMode::Paypal </span><span style="color:#569cd6;">=&gt; </span><span>paypal_redirect(amount),
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>get_saved_payment_mode() -&gt; PaymentMode {
+</span><span>    PaymentMode::Debit
+</span><span>}
+</span><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let</span><span> payment_mode = get_saved_payment_mode();
+</span><span>    payment_mode.pay(</span><span style="color:#b5cea8;">512</span><span>);
+</span><span>}
+</span><span>
+</span></code></pre>
+<h3 id="closures">Closures</h3>
+<pre style="background-color:#1e1e1e;color:#dcdcdc;"><code><span> let doubler = |x| x * 2;
+</span></code></pre>
+<p>Một số ngôn ngữ thì gọi là lambda.</p>
+<p>Cú pháp <code>|các-biến| { câu lệnh}</code> hoặc <code>|các-biến| câu lệnh</code> (nếu có 1 dòng lệnh)</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">let </span><span>doubler </span><span style="color:#569cd6;">= </span><span>|x| x * </span><span style="color:#b5cea8;">2</span><span>;
+</span><span style="color:#569cd6;">let </span><span>big_closure </span><span style="color:#569cd6;">= </span><span>|b, c| {
+</span><span>        </span><span style="color:#569cd6;">let</span><span> z = b + c;
+</span><span>        z * twice
+</span><span>      };
+</span><span>
+</span></code></pre>
+<p>Khai báo xong nó giống một hàm. Cứ gọi thôi</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#608b4e;">//Goi closure 1
+</span><span style="color:#569cd6;">let</span><span> value = </span><span style="color:#b5cea8;">5</span><span>;
+</span><span style="color:#569cd6;">let</span><span> twice = doubler(value);
+</span><span>
+</span><span style="color:#608b4e;">// Gọi closure 2
+</span><span> </span><span style="color:#569cd6;">let</span><span> some_number = big_closure(</span><span style="color:#b5cea8;">1</span><span>, </span><span style="color:#b5cea8;">2</span><span>);
+</span><span>
+</span></code></pre>
+<p>Ví dụ đầy đủ ỏ đây</p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#569cd6;">fn </span><span>main() {
+</span><span>    </span><span style="color:#569cd6;">let </span><span>doubler </span><span style="color:#569cd6;">= </span><span>|x| x * </span><span style="color:#b5cea8;">2</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> value = </span><span style="color:#b5cea8;">5</span><span>;
+</span><span>    </span><span style="color:#569cd6;">let</span><span> twice = doubler(value);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;</span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;"> doubled is </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, value, twice);
+</span><span>    </span><span style="color:#569cd6;">let </span><span>big_closure </span><span style="color:#569cd6;">= </span><span>|b, c| {
+</span><span>        </span><span style="color:#569cd6;">let</span><span> z = b + c;
+</span><span>        z * twice
+</span><span>    };
+</span><span>    </span><span style="color:#569cd6;">let</span><span> some_number = big_closure(</span><span style="color:#b5cea8;">1</span><span>, </span><span style="color:#b5cea8;">2</span><span>);
+</span><span>    println!(</span><span style="color:#d69d85;">&quot;Result from closure: </span><span style="color:#b4cea8;">{}</span><span style="color:#d69d85;">&quot;</span><span>, some_number);
+</span><span>}
+</span><span>
+</span></code></pre>
+<p>Chúng ta đã điểm qua tương đối đầy đủ các cú kiểu dữ liệu. Bạn hoàn toàn có thể đọc được 1 số lượng code Rust rồi.
+Còn 1 số vấn đề phức tạp của Struct, Enums, sẽ viết 1 bài riêng khi có lifetimes đi cùng khiến cho code trở nên rối.
+Nhưng giữ đầu óc của bạn clear đi đã.</p>
+<p>Bài tiếp theo chúng ta điểm qua về các cú pháp điều khiển. Như <code>if, loop, for, match...</code></p>
+<p>Hẹn gặp lại.</p>
+</p>
+            </article>
+            <div class="border p-5 bg-lightblue">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 mb-2 mb-md-0">
+                        <h5 class="font-weight-bold secondfont">Become a member</h5>
+                        Get the latest news right in your inbox. We never spam!
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    <div class="col-lg-12">
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/categories>categories</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/tags>tags</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/popular>popular</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustlang>rustlang</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustseries>rustseries</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/studyenglish>studyenglish</a>
+        
+    </div>
+    <div class="col-lg-12">
+        
+        
+        
+        
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;ban-tai-can&#x2F;>Bàn tải cân</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;mieng-ngon-ha-noi&#x2F;>Miếng Ngon Hà nội</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;thit-cho&#x2F;>Thịt chó</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;viet-nam&#x2F;>Việt Nam</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;vu-bang&#x2F;>Vũ Bằng</a>
+        
+    </div>
+</div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

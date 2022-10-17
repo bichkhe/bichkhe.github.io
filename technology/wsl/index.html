@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MD4C4XX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>WSL là gì và sự khác biệt giữa WSL và WSL2 là gì? – Linux trong Windows? | Lập Trình Rust - Rust là gì - Ngôn ngữ Lập Trình Rust - Chia sẻ kiến
+thức về ngôn ngữ lập trình Rust</title>
+
+
+
+<meta property="og:title" content="WSL là gì và sự khác biệt giữa WSL và WSL2 là gì? – Linux trong Windows?">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+<meta name="description" content="Windows cho Linux đã trở nên phổ biến trong một vài bản cập nhật Windows 10 gần đây nhất. ">
+<meta property="og:description" content="Windows cho Linux đã trở nên phổ biến trong một vài bản cập nhật Windows 10 gần đây nhất. ">
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/technology/wsl/">
+<meta property="og:url" content="https://bichkhe.github.io/technology/wsl/">
+
+
+
+
+
+<meta property="og:image" content="https://bichkhe.github.io/assets/img/demo/5.jpg">
+
+
+
+
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content=" 2022-09-16T00:00:00+00:00">
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"">
+  <meta property=" twitter:image" content="https://bichkhe.github.io/assets/img/demo/5.jpg">
+
+
+
+<meta property="twitter:title" content="WSL là gì và sự khác biệt giữa WSL và WSL2 là gì? – Linux trong Windows?">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "Windows cho Linux đã trở nên phổ biến trong một vài bản cập nhật Windows 10 gần đây nhất. ",
+  "url": "https://bichkhe.github.io/technology/wsl/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "WSL là gì và sự khác biệt giữa WSL và WSL2 là gì? – Linux trong Windows?"
+  
+    
+    
+      "datePublished":"2022-09-16T00:00:00+00:00",
+    
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://bichkhe.github.io/technology/wsl/"
+    },
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZSRX2E9ZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZSRX2E9ZJ');
+</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD4C4XX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/technology">Technology <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blockchain">Blockchain <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <img class="navbar-rust-logo rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+            <div class="row justify-content-between">
+                <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+                    <p class="text-uppercase font-weight-bold">
+                        <a class="text-danger" href="/">Stories</a>
+                    </p>
+                    <h1 class="display-4 secondfont mb-3 font-weight-bold">WSL là gì và sự khác biệt giữa WSL và WSL2 là gì? – Linux trong Windows?</h1>
+                    <p class="mb-3">
+                        Windows cho Linux đã trở nên phổ biến trong một vài bản cập nhật Windows 10 gần đây nhất. 
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle"
+                            src="https://raw.githubusercontent.com/The-DevX-Initiative/RCIG_Coordination_Repo/main/RCIG_Mascot3.png"
+                            width="70">
+                        <small class="ml-2">bichkhe <span class="text-muted d-block">A few hours ago &middot; 5
+                                min. read</span>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0">
+                    
+                    
+                    
+                    <img src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;demo&#x2F;5.jpg">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-2 pr-4 mb-4 col-md-12">
+            <div class="sticky-top text-center">
+                <div class="text-muted">
+                    Share this
+                </div>
+                <div class="share d-inline-block">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <div class="border p-5 bg-lightblue text-dark">
+                <h3 class="font-weight-bold secondfont">Mục lục</h3>
+                
+            </div>
+            <article class="article-post">
+                <p><p>Windows cho Linux đã trở nên phổ biến trong một vài bản cập nhật Windows 10 gần đây nhất. Trong số hàng loạt các tính năng và bổ sung, WSL nổi bật như một sự thay đổi vượt trội. Trong khi hầu hết chúng ta phụ thuộc vào Máy ảo để hoàn thành công việc, WSL dường như là một giải pháp thay thế nhẹ hơn đáng kể để xử lý các tác vụ cần thiết. Sự bổ sung mới nhất là WSL2 được cải tiến.</p>
+<p>Vậy WSL là gì? Hãy xem WSL là gì. Ngoài ra, hãy kiểm tra sự khác biệt giữa WSL và WSL2. Ngoài ra, chúng tôi sẽ so sánh từng loại trong số chúng với Máy ảo, để chúng tôi có thể hiểu rõ hơn về các trường hợp sử dụng.</p>
+<p>Nội Dung Bài Viết
+WSL (Hệ thống con của Windows cho Linux) là gì?
+WSL hoạt động như thế nào?
+Tại sao sử dụng WSL?
+Tại sao không sử dụng WSL?
+WSL2: Kiến trúc khác với WSL1 như thế nào?
+WSL2 so với WSL1: WSL2 tốt hơn như thế nào?
+WSL/WSL2 so với VirtualBox/Máy ảo?
+Bạn nên sử dụng cái nào?
+Tại sao nên chọn Máy ảo?
+Khi nào thì chọn WSL/WSL2?
+WSL (Hệ thống con của Windows cho Linux) là gì?
+WSL là bản phát hành đầu tiên được thêm vào bản cập nhật Windows 10 phiên bản 1607. WSL là một tính năng tùy chọn trong Windows 10 cung cấp cho người dùng Môi trường bảng điều khiển Linux nhẹ trong Hệ điều hành Windows. Hệ thống con của Windows dành cho Linux thêm một lớp tương thích, cho phép bạn chạy các tệp nhị phân Linux sang HĐH Windows 10 gốc — do đó loại bỏ nhu cầu cài đặt Máy ảo để chạy hầu hết các tác vụ dòng lệnh.</p>
+<p>Kiến trúc WSL 1</p>
+<p>WSL hoạt động như thế nào?
+Chà, WSL dịch các lệnh gọi hệ thống Linux do tiến trình trả về sang các lệnh gọi hạt nhân Windows trong khi một Distro Linux nằm trên cùng. Do đó, loại bỏ sự cần thiết của nhân Linux trong quá trình này. Về cơ bản, nó là Linux bên trong Windows.</p>
+<p>Tính năng này phù hợp với tham vọng của Microsoft là mang lại Trải nghiệm Linux lên Windows 10. Một trong những lý do tại sao hệ điều hành Linux rất phổ biến là do môi trường phát triển vượt trội của nó. Với việc triển khai hệ thống con Windows dành cho Linux, gã khổng lồ Redmond có kế hoạch mang lại những gì tốt nhất của cả hai thế giới cho các Nhà phát triển.</p>
+<p>Tại sao sử dụng WSL?
+Công cụ dòng lệnh Linux
+Quyền truy cập hệ thống tệp Windows 10
+Không cần máy ảo
+Hệ thống con của Windows dành cho Linux cho phép các nhà phát triển và quản trị viên hệ thống sử dụng lõi công cụ dòng lệnh. Nhưng quan trọng nhất, bash shell.</p>
+<p>Ngoài ra, hệ thống tập tin củaWindows 10 và các ổ đĩa có thể được truy cập và xử lý trong chính giao diện bảng điều khiển WSL. Các phân vùng ổ đĩa được gắn khi khởi chạy trong đường dẫn/mnt/. Ví dụ, ổ đĩa logic C: mount at/mnt/c.</p>
+<p>Nói về giao diện trong WSL, chúng tôi chỉ giới hạn ở giao diện dòng lệnh. GUI (Giao diện người dùng đồ họa) không tồn tại. Mặc dù chúng tôi có thể chạy một số lượng tối thiểu các ứng dụng GUI với sự trợ giúp của các chỉnh sửa nhỏ, nhưng bảng điều khiển đầu cuối là tất cả những gì chúng tôi sẽ làm việc.</p>
+<p>Hơn nữa, danh sách của phân phối có sẵn là đủ. Mặc dù Ubuntu là bản phân phối duy nhất có sẵn ban đầu, danh sách này vẫn tiếp tục phát triển. Ngoài ra, chúng tôi có thể cài đặt thêm các bản phân phối không có sẵn trong danh sách với việc sử dụng một số giải pháp thay thế.</p>
+<p>Tại sao không sử dụng WSL?
+Trước hết, có một vấn đề rõ ràng về khả năng mở rộng. Là có không hỗ trợ hạt nhân Linux gốc, các quy trình và nhiệm vụ toàn diện còn hạn chế.</p>
+<p>Các dịch vụ như Docker không được hỗ trợ trong bản phát hành thế hệ đầu tiên của Hệ thống con Windows dành cho Linux do không có hỗ trợ cấp hạt nhân cho vùng chứa Linux.</p>
+<p>Giao tiếp mạng (mặc dù có thể) yêu cầu nhiều lớp đi qua, làm cho WSL không lý tưởng cho mạng cấp thấp các quy trình.</p>
+<p>Đối với các tác vụ yêu cầu nhiều quyền truy cập ngoại vi hơn như đồ họa, âm thanh và I/O tệp tốc độ cao, WSL có thể không phải là lựa chọn tốt nhất.</p>
+<p>WSL2: Kiến trúc khác với WSL1 như thế nào?
+Kiến trúc WSL 2</p>
+<p>WSL2 mới và cải tiến là sự kế thừa rõ ràng của WSL, có sẵn từ phiên bản Windows 10 2004. Kiến trúc WSL2 hoàn toàn khác với WSL1. Không giống như WSL1, chạy như một lớp dịch, hệ thống con của Windows dành cho Linux 2 có máy ảo một Nhân Linux thực tế có thể phản ứng ngay lập tức với các lệnh gọi hệ thống. Một kiến ​​trúc như vậy cho phép Cuộc gọi toàn hệ thống các khả năng.</p>
+<p>Ngoài ra, Nhân Linux được sử dụng trong kiến ​​trúc WSL 2, do Microsoft phát triển mã nguồn mở Linux Kernal. Cùng với một cuộc đại tu đáng kể từ người tiền nhiệm của nó, WSL2 đã có những thay đổi đáng kể giúp giảm bớt một số nhược điểm của phiên bản gốc. Hãy xem lại những cải tiến này một chút nữa –</p>
+<p>WSL2 so với WSL1: WSL2 tốt hơn như thế nào?
+Một nhân Linux thực tế
+Khả năng cuộc gọi toàn hệ thống
+Hiệu suất Socket/Mạng
+Hiệu suất hệ thống tệp
+Như chúng tôi đã nói trước đây, toàn bộ kiến ​​trúc đã thay đổi đáng kể với bản phát hành Windows Subsystem for Linux 2 mới. WSL2 thực sự là một máy ảo nhẹ dựa trên dịch vụ ảo hóa phần cứng Hyper-V của Microsoft. Có một người bản xứ hy người giám sát giúp việc triển khai WSL2 loại bỏ được bất kỳ nhược điểm nào mà WSL1 mắc phải khi mới ra mắt.</p>
+<p>WSL 2 Docker C ++ Node JS</p>
+<p>Ví dụ, sự sẵn có của một Linux Kernal cho phép người dùng thực thi các tác vụ với khả năng tương thích cuộc gọi toàn hệ thống. Vì vậy, nền tảng này trở nên mạnh mẽ hơn nhiều để xử lý các ứng dụng dựa trên Linux. Ngoài ra, các dịch vụ như Docker và fuse sẽ tương thích.</p>
+<p>Hiệu suất tệp I/O được cải thiện nhiều. Do đó, các thao tác như apt-installs, npm installs sẽ nhanh hơn. Hơn nữa, đây là trường hợp cho tất cả các dịch vụ đọc và ghi.</p>
+<p>(Ghi chú: Microsoft đã đề cập đến tốc độ tệp chéo hệ điều hành chậm hơn trong các bản dựng ban đầu.)</p>
+<p>Tốc độ hiệu suất tệp WSL 2</p>
+<p>Cuối cùng, phiên bản Chuyển mạch là một quá trình đơn giản. Cùng với đó, hiệu suất mạng và socket đã có những cải tiến đáng kể.</p>
+<p>WSL/WSL2 so với VirtualBox/Máy ảo?
+Vậy nó nổi bật như thế nào so với các Máy ảo truyền thống? Rốt cuộc, VM, chẳng hạn như Virtual BOX, vẫn là lựa chọn phổ biến nhất mà người dùng có để có trải nghiệm đa nền tảng tương tự.</p>
+<p>Máy ảo và WSL 2</p>
+<p>Máy ảo tạo ra một môi trường bên trong hệ thống của bạn hoạt động như một hệ thống ảo riêng biệt với tất cả các thành phần phần cứng như CPU, RAM, Bộ nhớ với sự trợ giúp của Hyper Visors. Một kiến ​​trúc như vậy cho phép người dùng có một hệ thống thích hợp và hoàn chỉnh trong hệ điều hành mà bạn đang chạy. Không giống như WSL/WSL2, Máy ảo có thể chạy giao diện đồ họa đầy đủ vì bản thân môi trường là một không gian làm việc Linux chính thức. Nhưng như thường lệ, có những cảnh báo.</p>
+<p>Máy ảo là Bị cô lập. Điều này có nghĩa là bạn sẽ không thể truy cập các tệp bên ngoài Hệ thống ảo (hay còn gọi là tệp hệ thống thực của bạn).</p>
+<p>Khởi động và hiệu suất chậm hơn: Máy ảo thường chạy bên trong hệ điều hành. Vì vậy, họ chỉ có thể truy cập vào phần cứng thực tế thông qua Hệ điều hành, do đó, dẫn đến các vấn đề về hiệu suất. Nói một cách đơn giản, Máy ảo chỉ mạnh khi phần cứng của bạn cho phép. Điều đó nói rằng, hầu hết phần cứng hiện đại đều đủ mạnh cho các tác vụ nặng như vậy.</p>
+<p>Sử dụng bộ nhớ: Bất cứ khi nào chúng ta yêu cầu máy ảo, một lượng lớn bộ nhớ luôn phải được dành riêng cho nó.</p>
+<p>Sự quản lý: Máy ảo có hệ điều hành yêu cầu quản lý.</p>
+<p>Bạn nên sử dụng cái nào?
+Bây giờ chúng ta đã tìm hiểu cách hoạt động của từng dịch vụ này, hãy xem xét các tình huống use case:</p>
+<p>Tại sao nên chọn Máy ảo?
+Bạn yêu cầu tất cả sức mạnh và tính năng của Linux.
+Đối với Quy mô lớn hơn, Mức sản xuất hoạt động.
+GUI (Giao diện người dùng đồ họa)
+Khối lượng công việc chuyên sâu về đồ họa hoặc mạng.
+Khi nào thì chọn WSL/WSL2?
+Để sử dụng các lệnh Linux cơ bản.
+Bạn có phần cứng kém mạnh mẽ hơn.
+Bạn cần bộ nhớ/hiệu quả lưu trữ.
+Khi bạn cần I/O nhanh hơn.
+Không muốn đối phó với những rắc rối của cài đặt/quản lý/chi phí của một máy ảo</p>
+</p>
+            </article>
+            <div class="border p-5 bg-lightblue">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 mb-2 mb-md-0">
+                        <h5 class="font-weight-bold secondfont">Become a member</h5>
+                        Get the latest news right in your inbox. We never spam!
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    <div class="col-lg-12">
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/categories>categories</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/tags>tags</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/popular>popular</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustlang>rustlang</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustseries>rustseries</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/studyenglish>studyenglish</a>
+        
+    </div>
+    <div class="col-lg-12">
+        
+        
+        
+        
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;ban-tai-can&#x2F;>Bàn tải cân</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;mieng-ngon-ha-noi&#x2F;>Miếng Ngon Hà nội</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;thit-cho&#x2F;>Thịt chó</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;viet-nam&#x2F;>Việt Nam</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;vu-bang&#x2F;>Vũ Bằng</a>
+        
+    </div>
+</div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

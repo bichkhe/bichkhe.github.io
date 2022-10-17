@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MD4C4XX');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lập Trình Rust</title>
+    
+    
+<title>[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe | Lập Trình Rust - Rust là gì - Ngôn ngữ Lập Trình Rust - Chia sẻ kiến
+thức về ngôn ngữ lập trình Rust</title>
+
+
+
+<meta property="og:title" content="[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe">
+
+
+
+<meta name="author" content="bichkhe">
+
+
+<meta property="og:locale" content=" en-US">
+
+
+<meta name="description" content="Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows - Khắc phục lỗi not found linke.exe khi dùng toolchain msvc">
+<meta property="og:description" content="Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows - Khắc phục lỗi not found linke.exe khi dùng toolchain msvc">
+
+
+
+<link rel="canonical" href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/">
+<meta property="og:url" content="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/">
+
+
+
+
+
+<meta property="og:image" content="https://bichkhe.github.io/assets/img/rust/2022-09-21_rust-in-window.png">
+
+
+
+
+
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content=" 2022-09-21T00:00:00+00:00">
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"">
+  <meta property=" twitter:image" content="https://bichkhe.github.io/assets/img/rust/2022-09-21_rust-in-window.png">
+
+
+
+<meta property="twitter:title" content="[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe">
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Organization",
+	  "name":"bichkhe",
+  },
+  "description": "Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows - Khắc phục lỗi not found linke.exe khi dùng toolchain msvc",
+  "url": "https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/",
+  "@context":"https://schema.org",
+  "@type": "WebPage",
+  "headline": "[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe"
+  
+    
+    
+      "datePublished":"2022-09-21T00:00:00+00:00",
+    
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/"
+    },
+  
+}
+</script>
+
+
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link href="https://bichkhe.github.io/main.css" rel="stylesheet" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZSRX2E9ZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZSRX2E9ZJ');
+</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD4C4XX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--------------------------------------
+NAVBAR
+--------------------------------------->
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <img class="rounded-circle"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2ZRsT-shcy45BsTsjUzWavuKxUdwZbAByQ&usqp=CAU"
+                width="70">
+            <a class="navbar-brand" href="https://bichkhe.github.io"><strong>Lập
+                    Trình Rust</strong></a>
+
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io">Intro <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/rust">Rust <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blogs">Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/technology">Technology <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/blockchain">Blockchain <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/collections">Collections <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bichkhe.github.io/me">Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <img class="navbar-rust-logo rounded-circle"
+                src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/09/rust-logo-512x512-blk.png?fit=300%2C300&ssl=1"
+                width="70">
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <main>
+        
+
+<!--------------------------------------
+HEADER
+--------------------------------------->
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+        <div class="h-100 tofront">
+            <div class="row justify-content-between">
+                <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+                    <p class="text-uppercase font-weight-bold">
+                        <a class="text-danger" href="/">Stories</a>
+                    </p>
+                    <h1 class="display-4 secondfont mb-3 font-weight-bold">[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe</h1>
+                    <p class="mb-3">
+                        Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows - Khắc phục lỗi not found linke.exe khi dùng toolchain msvc
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle"
+                            src="https://raw.githubusercontent.com/The-DevX-Initiative/RCIG_Coordination_Repo/main/RCIG_Mascot3.png"
+                            width="70">
+                        <small class="ml-2">bichkhe <span class="text-muted d-block">A few hours ago &middot; 5
+                                min. read</span>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-0">
+                    
+                    
+                    
+                    <img src="https:&#x2F;&#x2F;bichkhe.github.io/assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window.png">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Header -->
+
+<!--------------------------------------
+MAIN
+--------------------------------------->
+<div class="container pt-4 pb-4">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-2 pr-4 mb-4 col-md-12">
+            <div class="sticky-top text-center">
+                <div class="text-muted">
+                    Share this
+                </div>
+                <div class="share d-inline-block">
+                    <!-- AddToAny BEGIN -->
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                    </div>
+                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    <!-- AddToAny END -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <div class="border p-5 bg-lightblue text-dark">
+                <h3 class="font-weight-bold secondfont">Mục lục</h3>
+                
+                <ul>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/#cai-dat-rust-toolchain-tren">Cài đặt Rust Toolchain trên</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/#cai-dat-golang-va-download-rust-plugin">Cài đặt Golang và download Rust plugin</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/#khac-phuc-loi-not-found-link-exe">Khắc phục lỗi not found link.exe</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/#cach-kiem-tra-dang-dung-toolchain-gi">Cách kiểm tra đang dùng toolchain gì</a>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            <article class="article-post">
+                <p><p>Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows</p>
+<h1 id="cai-dat-rust-toolchain-tren">Cài đặt Rust Toolchain trên</h1>
+<p>Đầu tiên bạn vào trang chủ và download</p>
+<img src="/assets/img/rust/2022-09-21_rust-in-window1.png" alt="download rust">
+<p>Nhấn vào file exe và chọn 1 để cài đặt mặc định</p>
+<h1 id="cai-dat-golang-va-download-rust-plugin">Cài đặt Golang và download Rust plugin</h1>
+<p>Các bước:</p>
+<ul>
+<li>Cài đặt golang</li>
+<li>Dowload rust plugin</li>
+<li>Import vào Goland</li>
+</ul>
+<p>Bước 1.
+Bạn lên trang <a href="https://www.jetbrains.com/go/download/#section=windows">Download Goland Editor</a> và tiến hành cài đặt như bình thường</p>
+<p>Bước 2. Download Rust plugin</p>
+<p><a href="https://plugins.jetbrains.com/plugin/8182-rust/versions#tabs">Rust plugin</a>
+Chúng ta được 1 file dạng: <code>intellij-rust-xxx.zip</code>. Của mình là</p>
+<pre style="background-color:#1e1e1e;color:#dcdcdc;"><code><span>intellij-rust-0.4.178.4873-222.zip
+</span></code></pre>
+<p>Bước 3: Import vào Goland</p>
+<img src="/assets/img/rust/2022-09-21_rust-in-window2.png" alt="download rust">
+<p>Làm theo các bước mình note ở trong ảnh nhé</p>
+<h1 id="khac-phuc-loi-not-found-link-exe">Khắc phục lỗi not found link.exe</h1>
+<p>Nguyên nhân lỗi này là bạn lập trình trên windows đang dùng toolchain là
+<code>stable-x86_64-pc-windows-msvc (default)</code>
+mà lại chưa cài bộ Vs studio Build Tool nên thiếu mất chương trình <code>link.exe</code></p>
+<p>Có 2 cách</p>
+<ol>
+<li>Download vsToolBuild
+Đào mộ cài ảnh cũ
+<img src="/assets/img/rust/2022-09-21_rust-in-window4.png" alt="download rust"></li>
+</ol>
+<p>Giao diện khi cài đặt
+<img src="/assets/img/rust/2022-09-21_rust-in-window3.png" alt="download rust"></p>
+<ol start="2">
+<li>Cài toolchain gnu
+<code>stable-x86_64-pc-windows-gnu (default)</code></li>
+</ol>
+<h1 id="cach-kiem-tra-dang-dung-toolchain-gi">Cách kiểm tra đang dùng toolchain gì</h1>
+<img src="/assets/img/rust/2022-09-21_rust-in-window5.png" alt="download rust">
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>rustup show
+</span></code></pre>
+<p>Thay đổi toolchain bằng câu lệnh sau</p>
+<pre data-lang="shell" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-shell "><code class="language-shell" data-lang="shell"><span>rustup default stable-x86_64-pc-windows-gnu
+</span></code></pre>
+<p>Giờ bạn có thể chạy chương trình mà không bị lỗi <code>&quot;not found link.exe&quot;</code></p>
+<pre data-lang="rust" style="background-color:#1e1e1e;color:#dcdcdc;" class="language-rust "><code class="language-rust" data-lang="rust"><span>C:/Users/Admin/.cargo/bin/cargo.exe run --color=always --package tauri-app --bin tauri-app
+</span><span>   Compiling tauri-app v0.</span><span style="color:#b5cea8;">1.0 </span><span>(D:\</span><span style="color:#b5cea8;">2022</span><span>\TuanPA\RustProjs\tauri-app)
+</span><span>    Finished dev [unoptimized + debuginfo] target(s) </span><span style="color:#569cd6;">in </span><span style="color:#b5cea8;">0.36</span><span>s
+</span><span>     Running `target\debug\tauri-app.exe`
+</span><span>Hello, world</span><span style="color:#569cd6;">!
+</span></code></pre>
+</p>
+            </article>
+            <div class="border p-5 bg-lightblue">
+                <div class="row justify-content-between">
+                    <div class="col-md-5 mb-2 mb-md-0">
+                        <h5 class="font-weight-bold secondfont">Become a member</h5>
+                        Get the latest news right in your inbox. We never spam!
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button type="submit" class="btn btn-success btn-block">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-4 pb-4">
+    <h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+    <div class="col-lg-12">
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/categories>categories</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/tags>tags</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/popular>popular</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustlang>rustlang</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/rustseries>rustseries</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io/studyenglish>studyenglish</a>
+        
+    </div>
+    <div class="col-lg-12">
+        
+        
+        
+        
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;ban-tai-can&#x2F;>Bàn tải cân</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;mieng-ngon-ha-noi&#x2F;>Miếng Ngon Hà nội</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;thit-cho&#x2F;>Thịt chó</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;viet-nam&#x2F;>Việt Nam</a>
+        
+        <a class="ml-2" href=https:&#x2F;&#x2F;bichkhe.github.io&#x2F;tags&#x2F;vu-bang&#x2F;>Vũ Bằng</a>
+        
+    </div>
+</div>
+</div>
+<!-- End Main -->
+
+
+    </main>
+    
+    <!--------------------------------------
+FOOTER
+--------------------------------------->
+    <div class="container mt-5">
+        <footer class="bg-white border-top p-3 text-muted small">
+            <div class="row align-items-center justify-content-between">
+                <div>
+                    <span class="navbar-brand mr-2"><strong>Lập Trình Rust</strong></span> Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    . All rights reserved.
+                </div>
+                <div>
+                    Visit <a target="_blank" class="text-secondary font-weight-bold"
+                        href="https://www.facebook.com/groups/546307380433651">Cộng đồng Rust Việt Nam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- End Footer -->
+    
+
+    <!--------------------------------------
+JAVASCRIPTS
+--------------------------------------->
+    <script src="./assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/functions.js" type="text/javascript"></script>
+</body>
+
+</html>

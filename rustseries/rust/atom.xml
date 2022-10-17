@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Rust</title>
+	<link href="https://bichkhe.github.io/rustseries/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-09-21T00:00:00+00:00</updated>
+	<id>https://bichkhe.github.io/rustseries/rust/atom.xml</id>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 4] Cargo - Công cụ quản lý dự án và package tuyệt vời của Rust</title>
+		<published>2022-09-21T00:00:00+00:00</published>
+		<updated>2022-09-21T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-cargo-2/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-cargo-2/</id>
+		<content type="html">&lt;p&gt;Ngày hôm nay, chúng ta sẽ học:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cấu trúc một chương trình “Hello world!” trên Rust.&lt;&#x2F;li&gt;
+&lt;li&gt;Làm quen với dòng lệnh: trình biên dịch rustc và công cụ quản lý dự án và thư viện &lt;code&gt;cargo&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Yêu cầu:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Biết sử dụng dòng lệnh cơ bản: &lt;code&gt;bash&lt;&#x2F;code&gt; hoặc &lt;code&gt;cmd&lt;&#x2F;code&gt; (như setup biến môi trường, sử dụng lệnh &lt;code&gt;cd&lt;&#x2F;code&gt;, … vì sẽ rất mất thời gian nếu mình phải đào tạo cách sử dụng).&lt;&#x2F;li&gt;
+&lt;li&gt;Đã cài đặt thành công Rust (stable) 1.28 trên máy. Kiểm tra bằng cách gõ rustc --version vào cửa sổ dòng lệnh.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;bichkhe@LAPTOP-P79QMGMA:~&#x2F;2022&#x2F;workspace&#x2F;rust-a-z$ rustc --version
+&lt;&#x2F;span&gt;&lt;span&gt;rustc 1.64.0-nightly (830880640 2022-06-28)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;hello-world-bang-rust&quot;&gt;“Hello world!” bằng Rust?&lt;&#x2F;h2&gt;
+&lt;p&gt;Một file mã nguồn của Rust có phần mở rộng là .rs. Gõ lại đoạn mã sau là lưu lại với tên bất kỳ cùng với .rs (helloworld.rs chẳng hạn). Rust có hỗ trợ trên vim, Sublime Text, VS Code,… Nếu bạn muốn mình chọn dùm, mình chọn Sublime Text với package Rust Enhanced (giúp bạn kiểm tra code khi save).
+Nếu bạn chưa cài đặt Rust vào máy thì bạn cũng có thể truy cập play.rust-lang.org 9 gõ lại đoạn mã sau vào.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Đây là dòng comment
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Hello world!&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Nếu bạn sử dụng Rust Playground thì chỉ cần nhấn Run thì chương trình sẽ được compile online và in dòng “Hello world!” ra màn hình. Rất đơn giản phải không nào?&lt;&#x2F;p&gt;
+&lt;p&gt;Nếu bạn muốn compile offline (sẽ nói chi tiết hơn ở mục sau), mở cửa sổ dòng lệnh, hãy chắc ăn là thư mục làm việc hiện hành (current working directory) đang chứa file cần compile, rồi gõ rustc helloworld.rs (nếu bạn đã đặt tên nó là helloworld.rs). Sau đó chạy .&#x2F;helloworld (Linux) hoặc .\helloworld.exe (Windows). Kết quả cũng tương tự với cách trên.&lt;&#x2F;p&gt;
+&lt;p&gt;Ta xét từng chi tiết của chương trình trên:&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;comment&quot;&gt;Comment&lt;&#x2F;h3&gt;
+&lt;p&gt;Với comment, không còn gì rõ ràng hơn:
+Các cú pháp comment có dạng &#x2F;&#x2F;&#x2F; hay &#x2F;&#x2F;! sẽ có thêm chức năng: dùng nội dung comments để tạo ra tài liệu cho thư viện&#x2F;ứng dụng đó.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;chuong-trinh-thuc-thi&quot;&gt;Chương trình thực thi&lt;&#x2F;h3&gt;
+&lt;p&gt;Một chương trình thực thi viết bằng Rust sẽ phải có hàm main (nếu là thư viện, hàm main là không cần thiết). Trong hàm main này:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fn&lt;&#x2F;code&gt;: là từ khóa bắt buộc (viết tắt: “function”).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;main&lt;&#x2F;code&gt;: là định danh, trường hợp này, cụ thể là tên hàm, được phép dùng các ký tự từ: a—z, A—Z, 0—9, &lt;em&gt;. Nhưng: không được bắt đầu bằng số, không sử dụng các ký tự non—ascii (không thuộc bảng mã ASCII, vì Rust chưa hỗ trợ hoàn thiện) hay chỉ dùng ‘&lt;&#x2F;em&gt;’ (đây được gọi là định danh đặc biệt (‘reserved identifier’). Những trường hợp định danh khác (tên biến,…) cũng tuân theo quy luật này.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Tên hợp lệ: SmileSweet, _sister_sadistic, sUrPrIsE69,…&lt;&#x2F;p&gt;
+&lt;p&gt;Tên không hợp lệ: 0service, _, skrâtâ…&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;()&lt;&#x2F;code&gt;: sau khi khai báo tên hàm, phần trong cặp ngoặc này sẽ chứa tên biến truyền vào. Hàm main luôn không có bất kỳ biến nào. Sau cặp ngoặc này sẽ khai báo kiểu trả về của hàm (chúng ta sẽ đi sâu vào ở các ngày tiếp theo).
+Kiểu trả về: Nếu không chỉ định kiểu trả về, Rust mặc định trả về kiểu Unit () (không giống void trong C&#x2F;C++). Hàm main có thể trả về kiểu khác: Result&amp;lt;()&amp;gt; nhưng chúng ta chưa đề cập phần này ở đây.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;{}&lt;&#x2F;code&gt;: khối lệnh sẽ được đặt trong cặp ngoặc nhọn. Các biến được khởi tạo phạm vi (scope) này sẽ được tự động hủy khi ra khỏi scope.
+;: ký tự đánh dấu kết thúc lệnh. Lưu ý: trường hợp duy nhất không dùng ; là khi rút ngắn cho lệnh return (sẽ đề cập sau).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;println!&lt;&#x2F;code&gt;: là một macro (vì theo sau là dấu !), không nên nhầm lẫn với hàm (không được kết thúc với !). Hệ thống macro trong Rust cực kỳ mạnh mẽ và cũng khá khó (hơn nhiều so với C&#x2F;C++), nên mình sẽ hướng dẫn sử dụng chứ không hướng dẫn cách viết macros.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;...&amp;quot;&lt;&#x2F;code&gt;: Rust sử dụng dấu ngoặc kép để đánh dấu chuỗi. Một chuỗi trong Rust luôn luôn là một chuỗi Unicode hợp lệ. Nâng cao: vì lẽ đó, Rust không cho phép bạn đánh chỉ số của chuỗi như các ngôn ngữ lập trình phổ biến khác! Nhưng sẽ có cách khác để làm việc này. Sẽ đề cập sau :stuck_out_tongue:&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Kết luận: Viết nhiều như thế nhưng có lẽ đa số các bạn đều đã biết hết rồi (vì phần này cũng không khác C&#x2F;C++ gì cho lắm).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Lập trình&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt; : Hãy thử thay chuỗi “Hello world!” bằng một chuỗi khác xem. Chẳng hạn một chuỗi “trái tim lấp lánh :sparkling_heart:” chẳng hạn?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lam-viec-voi-giao-dien-dong-lenh&quot;&gt;Làm việc với giao diện dòng lệnh&lt;&#x2F;h2&gt;
+&lt;p&gt;Như yêu cầu của mình ở trên, các bạn cần phải biết một số thao tác cơ bản với dòng lệnh để có thể dễ dàng theo dõi hướng dẫn này. Nếu còn băn khoăn, đừng ngần ngại dùng Google nhé!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;trinh-bien-dich-rust&quot;&gt;Trình biên dịch Rust&lt;&#x2F;h2&gt;
+&lt;p&gt;Nếu bạn đã cài đặt Rust thành công, thì:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;$ rustc --version
+&lt;&#x2F;span&gt;&lt;span&gt;rustc 1.64.0-nightly (830880640 2022-06-28)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Lệnh rustc cũng sẽ có options khác, gõ rustc --help để biết thêm thông tin chi tiết :D. Để compile 1 file .rs, chúng ta gõ (giả sử chúng ta đang compile một file helloworld.rs như ở trên)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;$ rustc helloworld.rs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Rust không hiện thông báo lỗi nào tức là compile thành công. Ta chạy thử chương trình này bằng cách gõ:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;$ .&#x2F;helloworld
+&lt;&#x2F;span&gt;&lt;span&gt;Hello world!
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Chương trình đã thực thi thành công và in ra màn hình dòng “Hello world!” (như chúng ta mong muốn). Đối với Windows, đổi &lt;code&gt;.&#x2F;helloword&lt;&#x2F;code&gt; thành &lt;code&gt;.\helloworld&lt;&#x2F;code&gt;.
+Ngoài ra, rustc còn có cách chế độ optimize khác nhau, nhưng mình sẽ không đề cập ở đây. Các bạn có thể tự tìm hiểu thêm thông qua Google hoặc &lt;code&gt;rustc --help&lt;&#x2F;code&gt;. Vì chúng ta sẽ sử dụng một công cụ thay chúng ta làm các việc này.
+Đối với một chương trình lớn, nhiều thư viện ngoài, compile bằng cách này không hay và mất thời gian. Mình sẽ hướng dẫn các bạn dùng CMake để tạo ra &lt;code&gt;Makefile&lt;&#x2F;code&gt; rồi dùng &lt;code&gt;Makefilesss&lt;&#x2F;code&gt; này compile cả dự án của bạn. Nói chứ đùa thôi, &lt;code&gt;Rust toolchains&lt;&#x2F;code&gt; đi kèm công cụ tên &lt;code&gt;Cargo&lt;&#x2F;code&gt; (như phần mở đầu có đề cập), giúp quản lý dự án của bạn khá hiệu quả.&lt;&#x2F;p&gt;
+&lt;p&gt;Cargo là công cụ rất hiệu quả, giúp tiết kiệm công sức của bạn. Cargo cuả Rust tương tự như nodejs có &lt;code&gt;npm&lt;&#x2F;code&gt; … vậy.
+Phiên bản cargo mình dùng trong bài viết này là: rustc 1.64.0-nightly
+Cargo có các subcommands (lệnh nhỏ hơn):&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;$ cargo --help
+&lt;&#x2F;span&gt;&lt;span&gt;Rust&amp;#39;s package manager
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;USAGE:
+&lt;&#x2F;span&gt;&lt;span&gt;cargo [OPTIONS] [SUBCOMMAND]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;See &amp;#39;cargo help &amp;lt;command&amp;gt;&amp;#39; for more information on a specific command.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;$ cargo help run
+&lt;&#x2F;span&gt;&lt;span&gt;cargo—build
+&lt;&#x2F;span&gt;&lt;span&gt;Compile a local package and all of its dependencies
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;USAGE:
+&lt;&#x2F;span&gt;&lt;span&gt;cargo build [OPTIONS]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;OPTIONS:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Các subcommands mà các bạn mới học sẽ hay dùng:
+new: dùng để tạo 1 project mới. Có 2 options cơ bản:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--bin&lt;&#x2F;code&gt;: tạo project là 1 ứng dụng thực thi (mặc định nếu bạn không dùng options nào cả). File src&#x2F;main.rs là file chính chứa hàm main, Cargo.toml là dùng để thêm các thư viện cần thiết, thay đổi version, thêm các options dành cho việc build, … (Xem hình [1])&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--lib&lt;&#x2F;code&gt;: tạo project là 1 thư viện, file chính là lib.rs thay vì main.rs như ví dụ trên, hàm main không bắt buộc. Thư viện tạo ra có thể là thư viện Rust (.rlib) hay .dll&#x2F;.so, …
+Ngoài ra, cargo còn ‘init’ git dùm mình. Nếu bạn không dùng git thì có thể bỏ qua.
+build: dùng để … build project. Mặc định Rust sẽ build ở mode debug và không optimize. Mode này hữu ích với bạn khi cần debug nhưng nó sẽ không nhanh.&lt;&#x2F;li&gt;
+&lt;li&gt;--release: để optimize.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-v hoặc --verbose&lt;&#x2F;code&gt;: có thể trong lúc build, cargo bị sản, hãy dùng option này để xem cargo đang làm gì project của mình khi build (nói chính xác là option này chỉ định cargo hiện ra chi tiết tiến trình làm việc).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Sau khi build, một thư mục tên là target sẽ được tạo, tùy vào bạn có sử dụng &lt;code&gt;--release&lt;&#x2F;code&gt; hay không mà sẽ có thư mục debug hay release tương ứng.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;check&lt;&#x2F;code&gt;: như build (cũng có &lt;code&gt;--release&lt;&#x2F;code&gt; và &lt;code&gt;--verbose&lt;&#x2F;code&gt;) nhưng chỉ check lỗi trong project, không tạo ra bất kỳ file nào (nhưng cargo vẫn sẽ tải và ‘compile’ các thư viện còn thiếu). Lệnh hày hữu ích khi bạn chỉ muốn xem trong project còn lỗi cú pháp nào hay không (vì thời gian compile của rustc là hơi lâu).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;run&lt;&#x2F;code&gt;: như build (cũng có &lt;code&gt;--release&lt;&#x2F;code&gt; và &lt;code&gt;--verbose&lt;&#x2F;code&gt;) nhưng sau khi build, cargo sẽ gọi luôn file thực thi. Xem hình [2]&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Trong cây thư mục này, hãy quan tâm đến &lt;code&gt;.&#x2F;target&#x2F;debug&#x2F;d1rs&lt;&#x2F;code&gt; (.&#x2F;target&#x2F;release&#x2F;d1rs nếu đã bật option --release), những phần còn lại là những files cần thiết của cargo-rustc.
+Trên đây là các lệnh cơ bản. Hãy dùng option --help và subcommand help để tìm hiểu thêm.&lt;&#x2F;p&gt;
+&lt;p&gt;Một file &lt;code&gt;Cargo.lock&lt;&#x2F;code&gt; sẽ tạo sau lần check, build, run lần đầu tiên. Nó có nhiệm vụ cho phép duy nhất 1 tiến trình cargo làm việc trong 1 project, vì vậy bạn không thể 3 commandline rồi dùng 3 lệnh check, build, run cùng 1 lúc trên 1 project. Các tiến trình khác sẽ đợi tiến trình phía trước làm việc xong rồi mới thực thi.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 2] Giới thiệu lập trình Rust</title>
+		<published>2022-09-20T00:00:00+00:00</published>
+		<updated>2022-09-20T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro-1/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro-1/</id>
+		<content type="html">&lt;p&gt;Series này hướng đến mục tiêu là nắm được cơ bản về Rust.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tai-lieu-tham-khao&quot;&gt;Tài liệu tham khảo&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Rust by examples 54: Học Rust kết hợp với thực hành online. Nếu bạn học một mình và cảm thấy khá là chán khi chỉ ngồi đọc docs và (có thể) phải loay hoay với việc cài đặt đủ thứ thì học ở trang này nhanh, gọn, lẹ.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The Rust Official Docs – Second Edition 20: Trang chủ của ebook học Rust.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The Rust Standard Library 11: Tài liệu cho thư viện chuẩn.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Docs.rs 8: Trang tài liệu cho các thư viện (viết bằng Rust) khác.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;stackoverflow.com: Học cho đã cũng đừng quên chúng ta còn stackoverflow.com nhé :wink:&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Những trang khác:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Rust Playground 10: bạn có thể test nhanh code trên trình duyệt.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The Rustonomicon 6: Chuyên sâu về Rust (chắc là mình không viết bài về cái này đâu, ai thích thì có thể tham khảo, mình thấy nó cũng không khó hiểu gì lắm đâu).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Rust Sụbrédđít 6: the Rust Programming Language subreddit, nơi đây cập nhật tin tức đủ thứ về Rust :crab:&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;dac-tinh-noi-bat&quot;&gt;Đặc tính nổi bật&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust cũng có các điểm thuận lợi và bất lợi. Ngay từ trang chủ, đập vào mắt là Rust:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nhanh, Rust là ngôn ngữ biên dịch và không có GC (garbage collector: bộ dọn rác) như các ngôn ngữ thông dịch hay biên dịch (như Go) khác. Tốc độ thực tiệm cận với C&#x2F;C++. Tham khảo chỉ mang tính tham khảo the benchmarksgame 16.&lt;&#x2F;li&gt;
+&lt;li&gt;Move semantics (không biết dịch sao cho vừa lòng) và Guaranteed Memory Safety (đảm bảo an toàn bộ nhớ): nghĩa là khi một biến gán giá trị cho một biến khác thì cũng sẽ chuyển quyền sở hữu của nó cho biến đó, dĩ nhiên là nó không thể nào đọc&#x2F;ghi được giá trị nữa. Thực tế: bạn không thể nào có quyển sách đó nếu bạn đã đưa nó cho người khác. Xét 2 ví dụ đơn giản giữa C++ và Rust (xem ở cuối section này).&lt;&#x2F;li&gt;
+&lt;li&gt;Type inference: Rust compiler có khả năng suy luận ra kiểu của biến. Như ví dụ bên dưới: mình hoàn toàn bỏ qua được &lt;code&gt;rust Vec&amp;lt;int&amp;gt;&lt;&#x2F;code&gt; trong let &lt;code&gt;v: Vec&amp;lt;int&amp;gt;&lt;&#x2F;code&gt; ..., Rust compiler vẫn biết được kiểu của v là Vec&lt;int&gt;.
+Prevent data races: Khi bạn sử dụng nhiều threads cùng đọc ghi đồng thời vào một vùng nhớ sẽ dẫn đến data races, Rust không cho phép điều này xảy ra. Ví dụ thực tế, cả lớp (các threads) cùng tự ý ghi vào bảng (vùng nhớ) thì sẽ dẫn đến một mớ hỗn độn, kết quả là dữ liệu bên trong vùng nhớ không còn chính xác nữa (bạn có thể tham khảo với từ khóa data races là gì với Google.
+R- ust hỗ trợ generics, pattern matching (powered by some functional programming languages). Rust code có thể gọi C code, có nghĩa là: bạn vẫn có thể dùng các thư viện có sẵn khác mà không cần phải đợi thư viện đó viết bằng Rust, và cũng như, bạn có thể viết các thư viện cho các ngôn ngữ khác như Python, Java, … với native code.&lt;&#x2F;li&gt;
+&lt;li&gt;Rust đi chung với toolchains rất hiệu quả. Chỉ với lệnh cargo, bạn chỉ cầm thêm tên thư viện vào file Cargo.toml của projet rồi chạy cargo build --release là nó sẽ làm từ A-Z cho bạn: tải thư viện, biên dịch, optimize luôn. Không có khó khăn gì ở đây hết!
+Trình biên dịch của Rust cho ra lỗi rất hữu ích (hầu hết các trường hợp). Hữu ích đến nỗi, bạn có thể nhắm mắt làm theo hướng dẫn của trình biên dịch mà không cần dùng não. (Đùa thôi, bạn phải dùng não, nhưng đó cũng là sự thật của mình lúc mới học Rust).
+Còn nữa … (chừng nào nhớ ra với dịch được thì update tiếp :joy: )&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; C++
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9b9b9b;&quot;&gt;#include &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;lt;iostream&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#9b9b9b;&quot;&gt;#include &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;lt;vector&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    std::vector&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; v = {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;    std::vector&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; v2 = v;
+&lt;&#x2F;span&gt;&lt;span&gt;    std::cout &amp;lt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;v[1]: &amp;quot; &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&amp;lt; v[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] &amp;lt;&amp;lt; std::endl;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; v: Vec&amp;lt;int&amp;gt; = vec![&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;];
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; v2 = v;
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;v[1]: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, v[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Trong 2 ví dụ trên, C++ hoàn toàn có thể compile và chạy được nhưng Rust không cho phép compile vì sau khi gán, v không còn quyền truy cập tới vùng nhớ đó nữa.
+Đây cũng là một trong các quy tắc nghiêm ngặt của Rust. Cũng vì các quy tắc đó làm cho chương trình của Rust xanh sạch đẹp và không có lỗi runtime.&lt;&#x2F;p&gt;
+&lt;p&gt;Rust cũng có nhiều điểm bất lợi, ý kiến riêng của mình:
+Phức tạp: Rust đã phức tạp và cả phức tạp dần theo thời gian. Team Rust làm việc rất tâm huyết :triumph: ngôn ngữ ngày có nhiều cập nhật và đổi mới, mình nghĩ đây cũng là điểm mạnh và cũng là điểm yếu. Vì thay đổi quá nhiều dẫn đến ngôn ngữ “không ổn định”, các thư viện cũ sẽ gặp nhiều rắc rối nếu không được update thường xuyên (mặc dù đã có các tools. Bạn nên học dần để dễ dàng bắt kịp :3 Mình không cho là Rust khó học, Rust chỉ “hơi” phức tạp một xíu, concepts hơi lạ so với bạn một chút xíu và sẽ mất thời gian hơn một xíu nhưng cũng đáng mà :smiley:
+Mọi thứ cần rõ ràng: vì lý do rustc cũng chỉ là “cái máy” nên nó không thật sự linh hoạt. Code bạn viết ra cần rõ ràng, đôi khi thứ tự khai báo biến cũng là nguyên nhân dẫn đến lỗi.
+Có thể còn nhiều điểm yếu khác nữa mà mình chưa biết …
+Chi tiết và sinh động hơn, các bạn hãy đọc bài của chú thefullsnack tại đây 21 (chú trả tiền cho con vì pr dùm chú đi :stuck_out_tongue: ).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cai-dat&quot;&gt;Cài đặt&lt;&#x2F;h2&gt;
+&lt;p&gt;Đối với các bạn sử dụng *nix thì vẫn có các package riêng lẻ như &lt;code&gt;rustc&lt;&#x2F;code&gt;, &lt;code&gt;cargo&lt;&#x2F;code&gt;, … mình thấy nó sẽ khá rối và update thì phải đợi mirror. Mình muốn đơn giản thì chỉ cần theo hướng dẫn là đủ. Nếu trong quá trình cài đặt xuất hiện lỗi thì bạn có thể reply post này, mình sẽ cố gắng hỗ trợ. (Mình không có lưu ý gì vì mình chưa cài lỗi bao giờ :smile:)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;q-a&quot;&gt;Q&amp;amp;A&lt;&#x2F;h2&gt;
+&lt;p&gt;Q: Kinh nghiệm kiểu abc, xyz,… như tui thì có học được không?&lt;&#x2F;p&gt;
+&lt;p&gt;A: Muốn thì được hết. Nhưng có thể sẽ phức tạp hơn các ngôn ngữ bạn từng học nên cần thời gian. Vì phức tạp nên cũng dễ nản, chuyện đương nhiên mà! Nhưng đừng lo, nó sẽ đáng công sức bạn bỏ ra. Lý do?&lt;&#x2F;p&gt;
+&lt;p&gt;Q: Khoảng bao lâu thì tui sẽ nắm vững cơ bản như cú pháp?&lt;&#x2F;p&gt;
+&lt;p&gt;A: Tùy vào mỗi người, một vài tuần gì đấy, mình đoán vậy. Chưa bao gồm thời gian học sử dụng macros (cái này nâng cao rồi :3 )&lt;&#x2F;p&gt;
+&lt;p&gt;Q: Học Rust thì làm được gì?&lt;&#x2F;p&gt;
+&lt;p&gt;A: Ừhm, C&#x2F;C++ làm được gì thì Rust làm được cái đó! Như: games, browsers, OSes, websites, wasm apps, … và hệ thống nhúng (Rust làm được nhưng chắc chưa bằng C được, mình không rõ mảng này cho lắm).&lt;&#x2F;p&gt;
+&lt;p&gt;Q: So sánh Rust với ngôn ngữ X, Y, Z,… đi?&lt;&#x2F;p&gt;
+&lt;p&gt;A: Bạn có thể tham khảo Google, cũng khá nhiều. Bản thân Rust phức tạp hơn (và phức tạp dần theo thời gian) so với hầu hết các ngôn ngữ phổ biến khác nên sẽ khó khăn cho nhiều người kể cả người có kinh nghiệm lập trình lâu năm. Nếu bạn chưa học lập trình bao giờ, hoàn toàn ổn nếu bạn chọn Rust là ngôn ngữ đầu tiên, nhưng nếu Rust là ngôn ngữ thứ 2 thì có vẻ căng đấy vì những khái niệm của Rust sẽ làm cho bạn rối với ngôn ngữ bạn vừa học (nếu bạn không bị rối thì quá tốt rồi :smiley: ).&lt;&#x2F;p&gt;
+&lt;p&gt;Q: Nói quá trời nói rồi công ty nào xài Rust?&lt;&#x2F;p&gt;
+&lt;p&gt;A:&lt;&#x2F;p&gt;
+&lt;p&gt;Q: Muốn coi thử một chương trình viết bằng Rust thì trông nó như thế nào?&lt;&#x2F;p&gt;
+&lt;p&gt;A:&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 0] Chuỗi bài học về lập trình Rust</title>
+		<published>2022-09-19T00:00:00+00:00</published>
+		<updated>2022-09-19T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-series/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-series/</id>
+		<content type="html">&lt;h1 id=&quot;mot-vong-trai-dat-ve-ngon-ngu-rust&quot;&gt;Một vòng trái đất về ngôn ngữ Rust&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cai-dat-he-dieu-hanh-linux-de-lap-trinh-rust&quot;&gt;Cài đặt hệ điều hành *linux để lập trình Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;cai-dat-vscode-va-cong-cu-de-lap-trinh-rust&quot;&gt;Cài đặt VSCode và công cụ để lập trình Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;cai-dat-rust-toolchain-su-dung-rustup&quot;&gt;Cài đặt Rust ToolChain sử dụng Rustup&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;mot-tour-ve-cu-phap-syntax-trong-rust&quot;&gt;Một tour về cú pháp - syntax trong Rust&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;cargo-cong-cu-quan-ly-du-an-va-package&quot;&gt;Cargo - Công cụ quản lý dự án và package&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cargo-la-gi&quot;&gt;Cargo là gì&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;lap-trinh-rust-co-ban&quot;&gt;Lập trình Rust cơ bản&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cau-truc-du-lieu-built-in&quot;&gt;Cấu trúc dữ liệu built-in&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;cac-macro-va-thu-vien&quot;&gt;Các macro và thư viện&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;lap-trinh-rust-nang-cao&quot;&gt;Lập trình Rust nâng cao&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;thuat-toan-sap-xep-trong-ngon-ngu-rust&quot;&gt;Thuật toán sắp xếp trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-tim-kiem-trong-ngon-ngu-rust&quot;&gt;Thuật toán tìm kiếm trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-ve-cay-trong-ngon-ngu-rust&quot;&gt;Thuật toán về cây trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-ve-hashmap&quot;&gt;Thuật toán về HashMap&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tao-ra-mot-macro&quot;&gt;Tạo ra một macro&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;lap-trinh-networking-trong-rust&quot;&gt;Lập trình networking trong Rust&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;rust-trong-blockchain&quot;&gt;Rust Trong Blockchain&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-nearcore&quot;&gt;Tìm hiểu về thư viện NearCore&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-subtrate&quot;&gt;Tìm hiểu về thư viện subtrate&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-diem&quot;&gt;Tìm hiểu về thư viện diem&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;lap-trinh-smart-contract-su-dung-anchor&quot;&gt;Lập trình smart contract sử dụng anchor&lt;&#x2F;h2&gt;
+</content>
+	</entry>
+</feed>

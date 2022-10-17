@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Rust</title>
+	<link href="https://bichkhe.github.io/rustlang/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://bichkhe.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-10-18T00:00:00+00:00</updated>
+	<id>https://bichkhe.github.io/rustlang/rust/atom.xml</id>
+	<entry xml:lang="en">
+		<title>[Rust] Chuyển đổi giữ String, Vec&lt;u8&gt; và &amp;str</title>
+		<published>2022-10-18T00:00:00+00:00</published>
+		<updated>2022-10-18T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/convert-between-string-vector-str/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/convert-between-string-vector-str/</id>
+		<content type="html">&lt;p&gt;Hôm nay chúng ta sẽ học cách biến đổi qua lại giữa chúng. Bài này sẽ khá hữu ích &lt;&#x2F;p&gt;
+&lt;h3 id=&quot;bien-doi-tu-vec-toi-string-va-str&quot;&gt;Biến đổi từ Vec&lt;char&gt; tới String và  &amp;amp;str&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; src1: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = vec![&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;j&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;{&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;i&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;m&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;m&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;y&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;}&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;]; 
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to String
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; string1: String = src1.iter().collect::&amp;lt;String&amp;gt;();  
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to str
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;src1.iter().collect::&amp;lt;String&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to vec of byte
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; byte1: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src1.iter().map(|c| *c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;as u8&lt;&#x2F;span&gt;&lt;span&gt;).collect::&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;  println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Vec&amp;lt;char&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; | String:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, str:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;u8&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, src1, string1, str1, byte1);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ở dòng &lt;code&gt;let string1: String = src1.iter().collect::&amp;lt;String&amp;gt;();&lt;&#x2F;code&gt;
+&#x2F;&#x2F; Duyệt qua và gọi hàm collect(). Vì kiểu trả về là T nên ta dùng cú pháp tuborfish ::&amp;lt;&amp;gt; để chỉ rõ kiểu T trả về là gì&lt;&#x2F;p&gt;
+&lt;p&gt;Hoặc có thể dùng map để chuyển đổi tới Vec của các bytes&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;khoi-tao-tu-mang-bytes&quot;&gt;Khởi tạo từ mảng bytes&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; -- FROM: vec of bytes --
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; in rust, this is a slice
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; b - byte, r - raw string, br - byte of raw string
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; src2: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;br&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;#&amp;quot;e{&amp;quot;ddie&amp;quot;}&amp;quot;#&lt;&#x2F;span&gt;&lt;span&gt;.to_vec();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to String
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; from_utf8 consume the vector of bytes
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; string2: String = String::from_utf8(src2.clone()).unwrap();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to str
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;str&lt;&#x2F;span&gt;&lt;span&gt;::from_utf8(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;src2).unwrap();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; to vec of chars
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; char2: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src2.iter().map(|b| *b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;as char&lt;&#x2F;span&gt;&lt;span&gt;).collect::&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;  println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Vec&amp;lt;u8&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; | String:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, str:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;char&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, src2, string2, str2, char2);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Giải thích: &lt;code&gt;br#&lt;&#x2F;code&gt; là bắt đầu mảng raw byte, gọi hàm &lt;code&gt;to_vec()&lt;&#x2F;code&gt; để chuyển đổi sang kiểu Vec&lt;u8&gt;
+Kiểu String có hàm &lt;code&gt;from_utf8&lt;&#x2F;code&gt; --&amp;gt; trả về String
+Một số giải thích ở đây &lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot;&gt;&lt;code&gt;&lt;span&gt;pub fn from_utf8(vec: Vec&amp;lt;u8, Global&amp;gt;) -&amp;gt; Result&amp;lt;String, FromUtf8Error&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Converts a vector of bytes to a String.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;A string (String) is made of bytes (u8), and a vector of bytes (Vec&amp;lt;u8&amp;gt;) is made of bytes, so this function converts between the two. Not all byte slices are valid Strings, however: String requires that it is valid UTF-8. from_utf8() checks to ensure that the bytes are valid UTF-8, and then does the conversion.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;If you are sure that the byte slice is valid UTF-8, and you don’t want to incur the overhead of the validity check, there is an unsafe version of this function, from_utf8_unchecked, which has the same behavior but skips the check.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;This method will take care to not copy the vector, for efficiency’s sake.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;If you need a &amp;amp;str instead of a String, consider str::from_utf8.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The inverse of this method is into_bytes.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Tương tự với kiểu &amp;amp;str&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;str&lt;&#x2F;span&gt;&lt;span&gt;::from_utf8(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;src2).unwrap();
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;tu-string&quot;&gt;Từ String&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; -- FROM: String --
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; src3: String = String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;#&amp;quot;o{&amp;quot;livia&amp;quot;}&amp;quot;#&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str3: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;src3;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; char3: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src3.chars().collect::&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; byte3: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src3.as_bytes().to_vec();
+&lt;&#x2F;span&gt;&lt;span&gt;  println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;String:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; | str:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;char&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;u8&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, src3, str3, char3, byte3);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;String gọi hàm as_bytes() hoặc chars() &lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tu-str&quot;&gt;Từ &amp;amp;str&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; -- FROM: str --
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; src4: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;#&amp;quot;g{&amp;#39;race&amp;#39;}&amp;quot;#&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; string4 = String::from(src4);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; char4: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src4.chars().collect();
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; byte4: Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; = src4.as_bytes().to_vec();
+&lt;&#x2F;span&gt;&lt;span&gt;  println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;str:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; | String:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;char&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, Vec&amp;lt;u8&amp;gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, src4, string4, char4, byte4);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Tương tự ta cũng có 2 hàm giống như String: &lt;code&gt;as_bytes&lt;&#x2F;code&gt; và &lt;code&gt;chars&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Hi vọng là biến đổi qua lại như thế này bạn sẽ không gặp khó khăn khi gặp kiểu này&lt;&#x2F;p&gt;
+&lt;p&gt;Còn về ý nghĩa của từng kiểu, cần học và cân nhắc khi sử dụng.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series] [Bài 5] [P1]  A tour of rust - Kiểu dữ liệu</title>
+		<published>2022-09-23T00:00:00+00:00</published>
+		<updated>2022-09-23T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/a-tour-of-rust/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/a-tour-of-rust/</id>
+		<content type="html">&lt;h1 id=&quot;kieu-du-lieu&quot;&gt;Kiểu dữ liệu&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;kieu-du-lieu-nguyen-thuy-primitives-data-types&quot;&gt;Kiểu dữ liệu nguyên thủy - Primitives Data Types&lt;&#x2F;h2&gt;
+&lt;p&gt;Xem xét đoạn code khi khai báo kiểu dữ liệu thông thường: interger, float, bool, pointer&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;kieu-so-nguyen&quot;&gt;Kiểu số nguyên&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;23&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1024&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Có dấu 32 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i3 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u32&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; số  10 kiểu không dấu 32 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i4: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0x11&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;hexa 16 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i5: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0o12&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; dạng octa
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i6: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0b101011&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; dạng binary chỉ toàn số 0 1
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i7: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 1 triệu
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kieu-so-float&quot;&gt;Kiểu số float&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;191.32&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;float32
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;102.13&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f3: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;102.13&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f4 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.000_001&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 0.0000001
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kieu-bool&quot;&gt;Kiểu bool&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kieu-slice-string-string&quot;&gt;Kiểu slice string, String&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu &amp;amp;str: Tham chiếu đến String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu std::String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_string();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str3 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_owned();
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str4 =  String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;test&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str5 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;str4; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;Kiểu &amp;amp;String
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kieu-tupple&quot;&gt;Kiểu tupple&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Tupple
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; empty_tupple = ();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; long_tuple = (
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u16&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i8&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i16&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f64&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;a&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kieu-mut-gia-tri-co-the-thay-doi-duoc&quot;&gt;Kiểu mut - Giá trị có thể thay đổi được&lt;&#x2F;h3&gt;
+&lt;p&gt;Kiểu này bao trùm mọi dữ liệu. Cứ đặt &lt;code&gt;mut&lt;&#x2F;code&gt; trước các kiểu báo hiệu là mình có thể thay đổi giá trị của nó&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu mut có thể thay đổi giá trị được
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span&gt; i1_mut: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 1 triệu
+&lt;&#x2F;span&gt;&lt;span&gt;    i1_mut = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Gán lại được
+&lt;&#x2F;span&gt;&lt;span&gt;                        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; i1 trên không thể gán lại : i1 = 2_000_000 là không được , báo lỗi
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;tom-tat&quot;&gt;Tóm tắt&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;  Primitive types
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu integer có thể biểu thị dạng 0x, 0o, 0b
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Có thể dùng _ để biểu thị
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;23&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1024&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Có dấu 32 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i3 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u32&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; số  10 kiểu không dấu 32 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i4: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0x11&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;hexa 16 bit
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i5: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0o12&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; dạng octa
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i6: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0b101011&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; dạng binary chỉ toàn số 0 1
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; i7: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 1 triệu
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;191.32&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;float32
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f2: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;102.13&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f3: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;102.13&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; f4 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.000_001&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 0.0000001
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; b2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu &amp;amp;str: Tham chiếu đến String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu std::String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_string();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str3 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;hello world2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_owned();
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str4 =  String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;test&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str5 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;str4; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;Kiểu &amp;amp;String
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Tupple
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; empty_tupple = ();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; long_tuple = (
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u16&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i8&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i16&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;, -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f32&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;f64&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;a&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    );
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Kiểu mut có thể thay đổi giá trị được
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span&gt; i1_mut: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;i64 &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; 1 triệu
+&lt;&#x2F;span&gt;&lt;span&gt;    i1_mut = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2_000_000&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Gán lại được
+&lt;&#x2F;span&gt;&lt;span&gt;                        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; i1 trên không thể gán lại : i1 = 2_000_000 là không được , báo lỗi
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vài điểm chú ý:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Các kiểu số: i32, i64, u32,u64, bool, f32, f64&lt;&#x2F;li&gt;
+&lt;li&gt;kiểu dữ liệu slice string: &amp;amp;str&lt;&#x2F;li&gt;
+&lt;li&gt;Mặc định là biến này không thể thay đổi giá trị. Nếu muốn thay đổi giá trị khai báo thêm &lt;code&gt;mut&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Hiểu &lt;code&gt;mut i32&lt;&#x2F;code&gt;, &lt;code&gt;mut &amp;amp;str&lt;&#x2F;code&gt;... nó là một kiểu dữ liệu và nó khác với &lt;code&gt;i32&lt;&#x2F;code&gt;, &lt;code&gt;i64&lt;&#x2F;code&gt; cho nhẹ đầu.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;kiem-du-lieu-phuc-hop-compound&quot;&gt;Kiểm dữ liệu phức hợp - Compound&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;strings&quot;&gt;Strings&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; question = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;How are you ?&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; a &amp;amp;str type
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; person: String = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Bob&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_string();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; namaste = String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;नमते&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;); &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; unicodes yay!
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;! &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{} {}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, namaste, question, person);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Kiểu &lt;code&gt;String&lt;&#x2F;code&gt; này cũng khá đặc biệt. Nó có thể chứa giá trị unicode được. Chúng ta hay thao tác với String và với số rất nhiều.
+Cũng cần 1 bài để mô tả kỹ và cách dùng nó với unicode.
+Dòng &lt;code&gt;println!(&amp;quot;{}! {} {}&amp;quot;, namaste, question, person);&lt;&#x2F;code&gt; để in ra các biến. Nó không phải là hàm mà được gọi là &lt;code&gt;macro function&lt;&#x2F;code&gt;
+Tất cả các hàm mà có cái đuôi &lt;code&gt;!&lt;&#x2F;code&gt; ở cuối là như vậy. Khi nghiên cứu macro sẽ nói về vấn đề này kỹ, còn hiện tại thì cứ hiểu để in ra mấy biến kia.&lt;&#x2F;p&gt;
+&lt;p&gt;PS:Rust có mỗi cái in ra biến mà không có cái hàm nào tử tế mà lại đi dùng macro function loằng nhoằng nhỉ. Nhưng có vẻ những người tạo ra ngôn ngữ này có triết lý riêng.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;structs&quot;&gt;Structs&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span&gt;Player {
+&lt;&#x2F;span&gt;&lt;span&gt;    name: String,
+&lt;&#x2F;span&gt;&lt;span&gt;    iq: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    friends: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    score: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u16&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;bump_player_score(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;mut &lt;&#x2F;span&gt;&lt;span&gt;player: Player, score: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u16&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    player.score += &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;120&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Updated player stats:&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Name: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, player.name);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;IQ: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, player.iq);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Friends: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, player.friends);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Score: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, player.score);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; name = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Alice&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;.to_string();
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; player = Player {
+&lt;&#x2F;span&gt;&lt;span&gt;        name,
+&lt;&#x2F;span&gt;&lt;span&gt;        iq: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;171&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        friends: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;134&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        score: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1129&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    };
+&lt;&#x2F;span&gt;&lt;span&gt;    bump_player_score(player, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;120&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;struct-voi-phuong-thuc&quot;&gt;Struct với phương thức&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span&gt;Player {
+&lt;&#x2F;span&gt;&lt;span&gt;    name: String,
+&lt;&#x2F;span&gt;&lt;span&gt;    iq: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    friends: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;Player {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;with_name(name: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;str&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; Player {
+&lt;&#x2F;span&gt;&lt;span&gt;        Player {
+&lt;&#x2F;span&gt;&lt;span&gt;            name: name.to_string(),
+&lt;&#x2F;span&gt;&lt;span&gt;            iq: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;            friends: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;get_friends(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;self) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8 &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        self.friends
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;set_friends(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;mut &lt;&#x2F;span&gt;&lt;span&gt;self, count: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        self.friends = count;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span&gt; player = Player::with_name(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Dave&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    player.set_friends(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;23&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;#39;s friends count: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, player.name, player.get_friends());
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; another way to call instance methods.
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let _ &lt;&#x2F;span&gt;&lt;span&gt;= Player::get_friends(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;player);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Các phương thức này luôn có trường đầu tiên khai báo là &lt;code&gt;&amp;amp;self&lt;&#x2F;code&gt;, hoặc &lt;code&gt;self&lt;&#x2F;code&gt; hoặc &lt;code&gt;&amp;amp;mut self&lt;&#x2F;code&gt;
+thể hiển chính instance của struct đang thao tác(nghĩa là 1 đối tượng tạo ra). Có hơi hướng giống python khi các hàm thuộc struct đều có trường &lt;code&gt;self&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Đối với hàm không có &lt;code&gt;self&lt;&#x2F;code&gt; thì nó thuộc struct nghĩa là dùng struct để gọi. Bạn hay gặp hàm &lt;code&gt;new&lt;&#x2F;code&gt; mà trở về chính đối tượng.
+Trong &lt;code&gt;Go&lt;&#x2F;code&gt; thì nó cũng có &lt;code&gt;pattern&lt;&#x2F;code&gt; như này, gọi là &lt;code&gt;contructor&lt;&#x2F;code&gt; giả.
+Dùng toán tử(?) &lt;code&gt;::&lt;&#x2F;code&gt; để truy xuất đến hàm nhé&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;Player::with_name(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Dave&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;struct-dang-tupple&quot;&gt;Struct dạng tupple&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;struct &lt;&#x2F;span&gt;&lt;span&gt;Color(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Cách sử dụng có vẻ đơn giản.
+Truy xuất đến phần tử theo dạng &lt;code&gt;.0&lt;&#x2F;code&gt;, &lt;code&gt;.1&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; white = Color(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;251&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;250&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; red = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; truy xuất đến 251
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; green = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;250
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; blue = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;255
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Destructure giống cha nọi javascript&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; orange = Color(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;165&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; Color(r, g, b) = orange; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;desctrutor
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ví dụ đầy đủ&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; white = Color(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; You can pull them out by index
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; red = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; green = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; blue = white.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Red value: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, red);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Green value: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, green);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Blue value: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e3bbab;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, blue);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; orange = Color(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;165&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; You can also destructure the fields directly
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; Color(r, g, b) = orange;
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;R: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, G: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;, B: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; (orange)&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, r, g, b);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Can also ignore fields while destructuring
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; Color(r, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span&gt;, b) = orange;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;enums&quot;&gt;Enums&lt;&#x2F;h3&gt;
+&lt;p&gt;Enums trong Rust đặc biệt hơn các ngôn ngữ khác vì nó có thể chứa struct&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;enums-voi-du-lieu&quot;&gt;Enums với dữ liệu&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span&gt;Direction {
+&lt;&#x2F;span&gt;&lt;span&gt;    N,
+&lt;&#x2F;span&gt;&lt;span&gt;    E,
+&lt;&#x2F;span&gt;&lt;span&gt;    S,
+&lt;&#x2F;span&gt;&lt;span&gt;    W,
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span&gt;PlayerAction {
+&lt;&#x2F;span&gt;&lt;span&gt;    Move { direction: Direction, speed: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u8 &lt;&#x2F;span&gt;&lt;span&gt;},
+&lt;&#x2F;span&gt;&lt;span&gt;    Wait,
+&lt;&#x2F;span&gt;&lt;span&gt;    Attack(Direction),
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; simulated_player_action = PlayerAction::Move {
+&lt;&#x2F;span&gt;&lt;span&gt;        direction: Direction::N,
+&lt;&#x2F;span&gt;&lt;span&gt;        speed: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;    };
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;match&lt;&#x2F;span&gt;&lt;span&gt; simulated_player_action {
+&lt;&#x2F;span&gt;&lt;span&gt;        PlayerAction::Wait &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Player wants to wait&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;),
+&lt;&#x2F;span&gt;&lt;span&gt;        PlayerAction::Move { direction, speed } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            println!(
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Player wants to move in direction &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; with speed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;                direction, speed
+&lt;&#x2F;span&gt;&lt;span&gt;            )
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;        PlayerAction::Attack(direction) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;            println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Player wants to attack direction &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{:?}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, direction)
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    };
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ví dụ &lt;code&gt;Move { direction: Direction, speed: u8 }&lt;&#x2F;code&gt; có thể bao gồm cả &lt;code&gt;enum&lt;&#x2F;code&gt; với &lt;code&gt;speed&lt;&#x2F;code&gt; dang u8&lt;&#x2F;p&gt;
+&lt;p&gt;Kỳ diệu thật
+&lt;code&gt;Move{N, 2}&lt;&#x2F;code&gt;, &lt;code&gt;Move{E,4}&lt;&#x2F;code&gt;... Là những giá trị của nó&lt;&#x2F;p&gt;
+&lt;p&gt;Enums sẽ cần được nghiên cứu kỹ ở bài sau. Trong Rust thì dùng điều này rất nhiều và nó còn giúp cả tăng tốc chương trình nữa&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;enums-voi-phuong-thuc&quot;&gt;Enums với phương thức&lt;&#x2F;h3&gt;
+&lt;p&gt;Ngoài ra &lt;code&gt;Enum&lt;&#x2F;code&gt; có thể tạo hàm.
+Hàm &lt;code&gt;fn pay(&amp;amp;self, amount: u64)&lt;&#x2F;code&gt; dưới đây. self đại diện cho chính giá trị của nó.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;enum &lt;&#x2F;span&gt;&lt;span&gt;PaymentMode {
+&lt;&#x2F;span&gt;&lt;span&gt;    Debit,
+&lt;&#x2F;span&gt;&lt;span&gt;    Credit,
+&lt;&#x2F;span&gt;&lt;span&gt;    Paypal,
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Bunch of dummy payment handlers
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;pay_by_credit(amt: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Processing credit payment of &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, amt);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;pay_by_debit(amt: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Processing debit payment of &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, amt);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;paypal_redirect(amt: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Redirecting to paypal for amount: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, amt);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;PaymentMode {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;pay(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;self, amount: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;u64&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;match &lt;&#x2F;span&gt;&lt;span&gt;self {
+&lt;&#x2F;span&gt;&lt;span&gt;            PaymentMode::Debit &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;pay_by_debit(amount),
+&lt;&#x2F;span&gt;&lt;span&gt;            PaymentMode::Credit &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;pay_by_credit(amount),
+&lt;&#x2F;span&gt;&lt;span&gt;            PaymentMode::Paypal &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;=&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;paypal_redirect(amount),
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;get_saved_payment_mode() -&amp;gt; PaymentMode {
+&lt;&#x2F;span&gt;&lt;span&gt;    PaymentMode::Debit
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; payment_mode = get_saved_payment_mode();
+&lt;&#x2F;span&gt;&lt;span&gt;    payment_mode.pay(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;512&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;closures&quot;&gt;Closures&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot;&gt;&lt;code&gt;&lt;span&gt; let doubler = |x| x * 2;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Một số ngôn ngữ thì gọi là lambda.&lt;&#x2F;p&gt;
+&lt;p&gt;Cú pháp &lt;code&gt;|các-biến| { câu lệnh}&lt;&#x2F;code&gt; hoặc &lt;code&gt;|các-biến| câu lệnh&lt;&#x2F;code&gt; (nếu có 1 dòng lệnh)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;doubler &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;|x| x * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;big_closure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;|b, c| {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; z = b + c;
+&lt;&#x2F;span&gt;&lt;span&gt;        z * twice
+&lt;&#x2F;span&gt;&lt;span&gt;      };
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Khai báo xong nó giống một hàm. Cứ gọi thôi&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F;Goi closure 1
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; value = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; twice = doubler(value);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; Gọi closure 2
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; some_number = big_closure(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ví dụ đầy đủ ỏ đây&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;doubler &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;|x| x * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; value = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; twice = doubler(value);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt; doubled is &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, value, twice);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span&gt;big_closure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;|b, c| {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; z = b + c;
+&lt;&#x2F;span&gt;&lt;span&gt;        z * twice
+&lt;&#x2F;span&gt;&lt;span&gt;    };
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; some_number = big_closure(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Result from closure: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b4cea8;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, some_number);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Chúng ta đã điểm qua tương đối đầy đủ các cú kiểu dữ liệu. Bạn hoàn toàn có thể đọc được 1 số lượng code Rust rồi.
+Còn 1 số vấn đề phức tạp của Struct, Enums, sẽ viết 1 bài riêng khi có lifetimes đi cùng khiến cho code trở nên rối.
+Nhưng giữ đầu óc của bạn clear đi đã.&lt;&#x2F;p&gt;
+&lt;p&gt;Bài tiếp theo chúng ta điểm qua về các cú pháp điều khiển. Như &lt;code&gt;if, loop, for, match...&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Hẹn gặp lại.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust] Lập trình Rust trên Window sử dụng Goland-plugin Rust và sửa lỗi not found link.exe</title>
+		<published>2022-09-21T00:00:00+00:00</published>
+		<updated>2022-09-21T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/use-goland-rust-plugin-and-fix-error-link-not-found-windows/</id>
+		<content type="html">&lt;p&gt;Trong bài này mình sẽ hướng dẫn các bạn cài đặt và lập trình Rust trên Windows&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;cai-dat-rust-toolchain-tren&quot;&gt;Cài đặt Rust Toolchain trên&lt;&#x2F;h1&gt;
+&lt;p&gt;Đầu tiên bạn vào trang chủ và download&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window1.png&quot; alt=&quot;download rust&quot;&gt;
+&lt;p&gt;Nhấn vào file exe và chọn 1 để cài đặt mặc định&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;cai-dat-golang-va-download-rust-plugin&quot;&gt;Cài đặt Golang và download Rust plugin&lt;&#x2F;h1&gt;
+&lt;p&gt;Các bước:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cài đặt golang&lt;&#x2F;li&gt;
+&lt;li&gt;Dowload rust plugin&lt;&#x2F;li&gt;
+&lt;li&gt;Import vào Goland&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Bước 1.
+Bạn lên trang &lt;a href=&quot;https:&#x2F;&#x2F;www.jetbrains.com&#x2F;go&#x2F;download&#x2F;#section=windows&quot;&gt;Download Goland Editor&lt;&#x2F;a&gt; và tiến hành cài đặt như bình thường&lt;&#x2F;p&gt;
+&lt;p&gt;Bước 2. Download Rust plugin&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;plugins.jetbrains.com&#x2F;plugin&#x2F;8182-rust&#x2F;versions#tabs&quot;&gt;Rust plugin&lt;&#x2F;a&gt;
+Chúng ta được 1 file dạng: &lt;code&gt;intellij-rust-xxx.zip&lt;&#x2F;code&gt;. Của mình là&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot;&gt;&lt;code&gt;&lt;span&gt;intellij-rust-0.4.178.4873-222.zip
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Bước 3: Import vào Goland&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window2.png&quot; alt=&quot;download rust&quot;&gt;
+&lt;p&gt;Làm theo các bước mình note ở trong ảnh nhé&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;khac-phuc-loi-not-found-link-exe&quot;&gt;Khắc phục lỗi not found link.exe&lt;&#x2F;h1&gt;
+&lt;p&gt;Nguyên nhân lỗi này là bạn lập trình trên windows đang dùng toolchain là
+&lt;code&gt;stable-x86_64-pc-windows-msvc (default)&lt;&#x2F;code&gt;
+mà lại chưa cài bộ Vs studio Build Tool nên thiếu mất chương trình &lt;code&gt;link.exe&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Có 2 cách&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download vsToolBuild
+Đào mộ cài ảnh cũ
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window4.png&quot; alt=&quot;download rust&quot;&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Giao diện khi cài đặt
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window3.png&quot; alt=&quot;download rust&quot;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Cài toolchain gnu
+&lt;code&gt;stable-x86_64-pc-windows-gnu (default)&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h1 id=&quot;cach-kiem-tra-dang-dung-toolchain-gi&quot;&gt;Cách kiểm tra đang dùng toolchain gì&lt;&#x2F;h1&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;2022-09-21_rust-in-window5.png&quot; alt=&quot;download rust&quot;&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;rustup show
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Thay đổi toolchain bằng câu lệnh sau&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;rustup default stable-x86_64-pc-windows-gnu
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Giờ bạn có thể chạy chương trình mà không bị lỗi &lt;code&gt;&amp;quot;not found link.exe&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;C:&#x2F;Users&#x2F;Admin&#x2F;.cargo&#x2F;bin&#x2F;cargo.exe run --color=always --package tauri-app --bin tauri-app
+&lt;&#x2F;span&gt;&lt;span&gt;   Compiling tauri-app v0.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;1.0 &lt;&#x2F;span&gt;&lt;span&gt;(D:\&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;2022&lt;&#x2F;span&gt;&lt;span&gt;\TuanPA\RustProjs\tauri-app)
+&lt;&#x2F;span&gt;&lt;span&gt;    Finished dev [unoptimized + debuginfo] target(s) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b5cea8;&quot;&gt;0.36&lt;&#x2F;span&gt;&lt;span&gt;s
+&lt;&#x2F;span&gt;&lt;span&gt;     Running `target\debug\tauri-app.exe`
+&lt;&#x2F;span&gt;&lt;span&gt;Hello, world&lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;!
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 3] Cài đặt VSCode Editor lập trình Rust và các plugin cơ bản</title>
+		<published>2022-09-20T00:00:00+00:00</published>
+		<updated>2022-09-20T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/install-vs-code-editor-code-rust/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/install-vs-code-editor-code-rust/</id>
+		<content type="html">&lt;p&gt;Một số tools để lập trình &lt;strong&gt;Rust&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Inteliji Rust&lt;&#x2F;code&gt; cài đặt Rust plugin &lt;a href=&quot;https:&#x2F;&#x2F;www.jetbrains.com&#x2F;rust&#x2F;&quot;&gt;Link tại đây&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Vim hoặc Emacs&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;VSCode&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Atom&lt;&#x2F;code&gt;
+...&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Mình nghĩ quen tools nào sẽ dùng tool đó. Nếu code của bạn nằm cùng với hệ điều hành thì dùng bộ Jetbrains Intelijia Rust code sẽ được hỗ trợ tốt.
+Debug rất chi là bá đạo&lt;&#x2F;p&gt;
+&lt;p&gt;Vim với Emacs code nếu thạo thì code cũng khá bá đạo. Trước mình luyện Emacs màu mè một thời gian nhưng sau không nghịch nữa, tập trung vào code&lt;&#x2F;p&gt;
+&lt;p&gt;VSCode thì tools khá xịn nhưng thỉnh thoảng plugin vs debug không được nhậy. Nhưng vì code của mình nằm trong WSL Ubuntu nên mình chọn tool này
+VSCode có plugin Remote SSH nên khá ổn&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cai-dat-vscode-tren-windows&quot;&gt;Cài đặt VSCode trên Windows&lt;&#x2F;h2&gt;
+&lt;p&gt;Bạn vào đây download và next &lt;a href=&quot;https:&#x2F;&#x2F;code.visualstudio.com&#x2F;download&quot;&gt;Download VSCode&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;su-dung-vscode-remote-toi-wsl-ubuntu&quot;&gt;Sử dụng VScode remote tới WSL Ubuntu&lt;&#x2F;h2&gt;
+&lt;p&gt;Đầu tiên cài đặt plugin Remote - WSL&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;install-vscode-and-plugin1.png&quot; alt=&quot;Cài đặt VSCode và Remote WSL&quot;&gt;
+&lt;p&gt;Sau khi cài đặt xong ta &lt;code&gt;Ctrl + Shift + P&lt;&#x2F;code&gt; Gõ &lt;code&gt;WSL&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;install-vscode-and-plugin2.png&quot; alt=&quot;Cài đặt VSCode và Remote WSL&quot;&gt;
+&lt;p&gt;Chúng ta mở projects và&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cai-dat-cac-plugin&quot;&gt;Cài đặt các plugin&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Remote WSL&lt;&#x2F;code&gt; : Đã cài ở trên&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;rust-analyzer&lt;&#x2F;code&gt;: Gợi nhắc và support ngôn ngữ Rust&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Better TOML&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;crates&lt;&#x2F;code&gt;: Quản lý các version của dependencies&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Error Lens&lt;&#x2F;code&gt;: Hiển thị error ngay khi gõ câu lệnh sai&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Tạm đủ lập trình Rust&lt;&#x2F;p&gt;
+&lt;p&gt;Dưới đây là 1 số hình ảnh
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;install-vscode-and-plugin3.png&quot; alt=&quot;Cài đặt VSCode và Remote WSL&quot;&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;install-vscode-and-plugin4.png&quot; alt=&quot;Cài đặt VSCode và Remote WSL&quot;&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;install-vscode-and-plugin5.png&quot; alt=&quot;Dò lỗi ngay khi gõ lệnh Error Lens&quot;&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 1] Cài đặt môi trường WSL để lập trình Rust</title>
+		<published>2022-09-20T00:00:00+00:00</published>
+		<updated>2022-09-20T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/install-wsl-for-run-rust/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/install-wsl-for-run-rust/</id>
+		<content type="html">&lt;p&gt;Chúng ta nên sử dụng Linux để có thể lập trình Rust. Bạn đang dùng windows mà muốn có môi trường linux nhưng lại không muốn cài đặt máy ảo&lt;&#x2F;p&gt;
+&lt;p&gt;WSL là thứ mà bạn cần&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;wsl-la-gi&quot;&gt;WSL là gì?&lt;&#x2F;h1&gt;
+&lt;p&gt;Windows Subsytem Linux: Hiểu đơn giản là Linux trên nền windows&lt;&#x2F;p&gt;
+&lt;p&gt;WSL (Windows Subsystem for Linux) là một tính năng có trên Windows x64 (từ Windows 10, bản 1607 và trên Windows Server 2019), nó cho phép chạy hệ điều hành Linux (GNU&#x2F;Linux) trên Windows. Với WSL bạn có thể chạy các lệnh, các ứng dụng trực tiếp từ dòng lệnh Windows mà không phải bận tâm về việc tạo &#x2F; quản lý máy ảo như trước đây. Cụ thể, một số lưu ý mà Microsoft liệt kê có thể làm với WSL:&lt;&#x2F;p&gt;
+&lt;p&gt;Chọn sử dụng distro Linux từ Microsoft Store: Hiện giờ đang có các Distro Linux rất gọn nhẹ trên Store sử dụng được ngày như Ubuntu, Debian ...
+Chạy được từ dòng lệnh các lệnh linux như ls, grep, sed ... hoặc bất kỳ chương trình nhị phân 64 bit (ELF-64) nào của Linux
+Chạy được các công cụ như: vim, emacs ...; các ngôn ngữ lập trình như NodeJS, JavaScript, C&#x2F;C++, C# ..., các dịch vụ như MySQL, Apache, lighthttpd ...
+Có thể thực hiện cài đặt các gói từ trình quản lý gói của Distro đó (như lệnh apt trên Ubuntu)
+Từ Windows có thể chạy các ứng dụng Linux (dòng lệnh)
+Từ Linux có thể gọi ứng dụng của Windows&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;moi-truong&quot;&gt;Môi trường&lt;&#x2F;h2&gt;
+&lt;p&gt;Đảm bảo windows của bạn phiên bản &amp;gt;= 16.07&lt;&#x2F;p&gt;
+&lt;p&gt;Kiểm tra bằng dòng lệnh&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;PS C:\Users\ASUS&amp;gt; [System.Environment]::OSVersion.Version
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Major  Minor  Build  Revision
+&lt;&#x2F;span&gt;&lt;span&gt;-----  -----  -----  --------
+&lt;&#x2F;span&gt;&lt;span&gt;10     0      22000  0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Như máy mình là bản 22000 nên okie&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kich-hoat-tinh-nang-subsystem&quot;&gt;Kích hoạt tính năng Subsystem&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dism.exe &#x2F;online &#x2F;enable-feature &#x2F;featurename:Microsoft-Windows-Subsystem-Linux &#x2F;all
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;kiem-tra-distro-linux-nao-da-cai-dat&quot;&gt;Kiểm tra distro linux nào đã cài đặt&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;wsl -l --all
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Hiện tại chưa bản nào cài đặt&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cai-dat-ubuntu-20-04&quot;&gt;Cài đặt ubuntu 20.04&lt;&#x2F;h2&gt;
+&lt;p&gt;Truy cập vào Store theo link trên, trong danh sách Distro Linux tùy chọn cài đặt cái nào muốn dùng, ví dụng nếu chọn Ubuntu thì chọn biểu tượng Ubuntu&lt;&#x2F;p&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;xuanthulabnet&#x2F;windows&#x2F;master&#x2F;docs&#x2F;windows-005.png&quot; alt=&quot;Cài đặt Ubuntu Subsystem Linux&quot;&gt;
+&lt;h2 id=&quot;kiem-tra-sau-khi-cai-dat&quot;&gt;Kiểm tra sau khi cài đặt&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;wsl -l -all
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;wsl -l --running
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;wsl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Sau khi gõ &lt;code&gt;wsl&lt;&#x2F;code&gt; chung ta sẽ vào được màn hình như sau là thành công&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;wsl-1.png&quot; alt=&quot;Môi trường Ubuntu Subsystem Linux - Lập trình Rust&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Kiểm tra version&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;shell&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span&gt;wsl --set-default-version 2
+&lt;&#x2F;span&gt;&lt;span&gt;PS C:\Users\ASUS&amp;gt;  wsl --list --verbose
+&lt;&#x2F;span&gt;&lt;span&gt;  NAME      STATE           VERSION
+&lt;&#x2F;span&gt;&lt;span&gt;* Ubuntu    Running         2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Chúng ta đang dùng WSL2&lt;&#x2F;p&gt;
+&lt;p&gt;Giờ bạn đã có môi trường Linux trên windows rồi. Không cần phải cài máy ảo&lt;&#x2F;p&gt;
+&lt;p&gt;Cùng bắt đầu cài đặt Rust và Editor để code Rust thôi!&lt;&#x2F;p&gt;
+&lt;p&gt;Đón đọc bài tiếp: &lt;code&gt;Cài đặt môi trường Rust và Editor để lập trình Rust&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust] Sự khác nhau giữa String vs &amp;str trong ngôn ngữ lập trình Rust</title>
+		<published>2022-09-20T00:00:00+00:00</published>
+		<updated>2022-09-20T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/string-vs-str-in-rust/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/string-vs-str-in-rust/</id>
+		<content type="html">&lt;p&gt;Hôm nay chúng ta sẽ phân biệt kiểu dữ liệu String và kiểu dữ liệu &amp;amp;str&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;muc-dich&quot;&gt;Mục đích&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;String: Kiểu dữ liệu cấu trúc dữ liệu dạng String&lt;&#x2F;li&gt;
+&lt;li&gt;&amp;amp;str: Kiểu dữ liệu một con trỏ đến một chuỗi&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;giai-thich&quot;&gt;Giải thích&lt;&#x2F;h1&gt;
+&lt;p&gt;Giả sử chúng ta có đoạn&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1 = String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Lập trình sư: Rót Gia Văn&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;str1;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str3 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Rót Gia Văn&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Kiểu dữ liệu String luôn tạo dữ liệu trên vùng nhớ heap và sử dụng str1 để trỏ dữ liệu đến vùng này&lt;&#x2F;p&gt;
+&lt;p&gt;Dòng &lt;code&gt;let str3 = &amp;quot;Rót Gia Văn&amp;quot;;&lt;&#x2F;code&gt; thì &lt;code&gt;&amp;quot;Rót Gia Văn&amp;quot;&lt;&#x2F;code&gt; sẽ được tạo trong vùng nhớ global (lưu trữ biến tĩnh trong bộ nhớ - giống kiểu mấy biến static bên C++) và con trỏ &lt;code&gt;str3&lt;&#x2F;code&gt; kiểu &amp;amp;str sẽ trỏ đến nó&lt;&#x2F;p&gt;
+&lt;p&gt;Dòng &lt;code&gt;let str2 = &amp;amp;str1;&lt;&#x2F;code&gt; con trỏ str2 lưu giữ địa chỉ của str1.
+Kiểu dữ liệu là &amp;amp;String
+Việc in ra *str2 với str1 là như nhau&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;rust-string-vs-str-in-rust5.png&quot;&gt;
+&lt;h1 id=&quot;nhin-vao-bo-nho&quot;&gt;Nhìn vào bộ nhớ&lt;&#x2F;h1&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;rust-string-vs-str-in-rust3.png&quot;&gt;
+&lt;p&gt;Chúng ta có thể thấy String thực chất là một vector có địa chỉ
+&lt;code&gt;$4 = (*mut alloc::string::String) 0x7fffffffd3c0&lt;&#x2F;code&gt;
+và có con trỏ trở tới địa chỉ &lt;code&gt;0x5555555a9ad0 &amp;quot;hello world\000&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Thử in ra giá trị tại ô nhớ này
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;rust-string-vs-str-in-rust4.png&quot;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Kết quả là: &lt;code&gt;Hello world&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;bien-doi-tu-string-toi-str-va-nguoc-lai&quot;&gt;Biến đổi từ String tới &amp;amp;str và ngược lại&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;tu-string-toi-str&quot;&gt;Từ String tới &amp;amp;str&lt;&#x2F;h2&gt;
+&lt;p&gt;Chúng ta sử dụng &lt;code&gt;as_str()&lt;&#x2F;code&gt; hoặc &lt;code&gt;as_mut_str()&lt;&#x2F;code&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;rust-string-vs-str-in-rust2.png&quot;&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main(){
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str0 = String::from(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Rót Gia Văn&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1 = str0.as_str();
+&lt;&#x2F;span&gt;&lt;span&gt;    String str1 = str0.as_mut_str();
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;tu-str-toi-string&quot;&gt;Từ &amp;amp;str tới String&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#1e1e1e;color:#dcdcdc;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span&gt;main(){
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str0 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d69d85;&quot;&gt;&amp;quot;Rót Gia Văn lập trình Rust&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str1 = str0.to_string();&lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str2 = str0.to_owned(); &lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; String
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#569cd6;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; str3 = str0.into();&lt;&#x2F;span&gt;&lt;span style=&quot;color:#608b4e;&quot;&gt;&#x2F;&#x2F; String
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Sử dụng 2 hàm &lt;code&gt;to_string()&lt;&#x2F;code&gt; và &lt;code&gt;to_owned()&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;img src=&quot;&#x2F;assets&#x2F;img&#x2F;rust&#x2F;rust-string-vs-str-in-rust1.png&quot;&gt;
+&lt;p&gt;Sự khác nhau là to_string() là hàm biến đổi tất cả các kiểu thực hiện trait
+&lt;code&gt;trait ToString&lt;&#x2F;code&gt; còn &lt;code&gt;to_owned()&lt;&#x2F;code&gt; cấp phát buffer và copy các bytes vào trong buffer này.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tom-lai&quot;&gt;Tóm lại&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Cùng là con trỏ nhưng trỏ đến vùng nhớ khác nhau&lt;&#x2F;li&gt;
+&lt;li&gt;String luôn cấp phát trong vùng heap bộ nhớ&lt;&#x2F;li&gt;
+&lt;li&gt;&amp;amp;str cấp phá trên stack và có thể trỏ đến heap hoặc stack&lt;&#x2F;li&gt;
+&lt;li&gt;Các hàm để biến đổi qua nhau&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust Series][Bài 0] Chuỗi bài học về lập trình Rust</title>
+		<published>2022-09-19T00:00:00+00:00</published>
+		<updated>2022-09-19T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-series/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-series/</id>
+		<content type="html">&lt;h1 id=&quot;mot-vong-trai-dat-ve-ngon-ngu-rust&quot;&gt;Một vòng trái đất về ngôn ngữ Rust&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cai-dat-he-dieu-hanh-linux-de-lap-trinh-rust&quot;&gt;Cài đặt hệ điều hành *linux để lập trình Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;cai-dat-vscode-va-cong-cu-de-lap-trinh-rust&quot;&gt;Cài đặt VSCode và công cụ để lập trình Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;cai-dat-rust-toolchain-su-dung-rustup&quot;&gt;Cài đặt Rust ToolChain sử dụng Rustup&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;mot-tour-ve-cu-phap-syntax-trong-rust&quot;&gt;Một tour về cú pháp - syntax trong Rust&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;cargo-cong-cu-quan-ly-du-an-va-package&quot;&gt;Cargo - Công cụ quản lý dự án và package&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cargo-la-gi&quot;&gt;Cargo là gì&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;lap-trinh-rust-co-ban&quot;&gt;Lập trình Rust cơ bản&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cau-truc-du-lieu-built-in&quot;&gt;Cấu trúc dữ liệu built-in&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;cac-macro-va-thu-vien&quot;&gt;Các macro và thư viện&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;lap-trinh-rust-nang-cao&quot;&gt;Lập trình Rust nâng cao&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;thuat-toan-sap-xep-trong-ngon-ngu-rust&quot;&gt;Thuật toán sắp xếp trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-tim-kiem-trong-ngon-ngu-rust&quot;&gt;Thuật toán tìm kiếm trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-ve-cay-trong-ngon-ngu-rust&quot;&gt;Thuật toán về cây trong ngôn ngữ Rust&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;thuat-toan-ve-hashmap&quot;&gt;Thuật toán về HashMap&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tao-ra-mot-macro&quot;&gt;Tạo ra một macro&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;lap-trinh-networking-trong-rust&quot;&gt;Lập trình networking trong Rust&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;rust-trong-blockchain&quot;&gt;Rust Trong Blockchain&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-nearcore&quot;&gt;Tìm hiểu về thư viện NearCore&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-subtrate&quot;&gt;Tìm hiểu về thư viện subtrate&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;tim-hieu-ve-thu-vien-diem&quot;&gt;Tìm hiểu về thư viện diem&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;lap-trinh-smart-contract-su-dung-anchor&quot;&gt;Lập trình smart contract sử dụng anchor&lt;&#x2F;h2&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust] Rust là gì?</title>
+		<published>2022-09-16T00:00:00+00:00</published>
+		<updated>2022-09-16T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/rust-intro/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/rust-intro/</id>
+		<content type="html">&lt;p&gt;Và tại sao Rust lại được yêu thích đến thế không? Ok, trước tiên, hãy cùng mình tìm hiểu về…&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;rust-la-gi&quot;&gt;Rust là gì?&lt;&#x2F;h1&gt;
+&lt;p&gt;Trước hết, Rust là một ngôn ngữ lập trình rất mạnh mẽ, nó hỗ trợ các lập trình viên viết mã để tương tác trực tiếp với hệ thống, bên cạnh đó nó còn có tốc độ rất nhanh, sự ổn định và không bao giờ bị crash. Ngôn ngữ lập trình này do Mozilla Foundation phát triển.&lt;&#x2F;p&gt;
+&lt;p&gt;Học ngôn ngữ lập trình Rust có khó không?
+Mỗi ngôn ngữ lập trình sẽ có mã hóa khác nhau, phù hợp với từng yêu cầu khác nhau. Hiện nay ngôn ngữ lập trình Rust được sử dụng rộng rãi ở nhiều đối tượng, như các lập trình viên, công ty phần mềm, sinh viên.&lt;&#x2F;p&gt;
+&lt;p&gt;Ngôn ngữ lập trình này được cho là tương đối khó học và là một ngôn ngữ lập trình phức tạp.&lt;&#x2F;p&gt;
+&lt;p&gt;Cụ thể là ngôn ngữ lập trình ngày thường xuyên được cập nhật, thậm chí đổi mới, chính vì vậy khiến cho nó đã phức tạp lại càng trở nên phức tạp hơn nếu như bạn không kịp thời update.&lt;&#x2F;p&gt;
+&lt;p&gt;Bên cạnh đó, khi viết code lập trình viên cần phải viết rõ ràng, chỉ cần lỗi nhỏ như thứ tự khai báo của biến cũng có thể gây ra lỗi. Tuy nhiên, ngôn ngữ lập trình rust có những ưu điểm mà chỉ có nó mới có, như:&lt;&#x2F;p&gt;
+&lt;p&gt;Ngôn ngữ lập trình đặc biệt, Rust có khả năng điều chỉnh bộ nhớ, cùng với các công cụ thì Rust có thể kiểm soát ngôn ngữ cấp thấp. Bên cạnh đó đối với các ngôn ngữ cấp cao như Python, Ruby,… thì Rust có khả năng gỡ lỗi từ các ngôn ngữ lập trình này. Khi sử dụng ngôn ngữ lập trình Rust Người lập trình có thể quy định chính xác các giá trị lưu trong bộ nhớ. Chính điều đó khiến cho các ứng dụng chạy với tốc độ cao, nhưng vẫn nằm trong vùng an toàn.
+Ngôn ngữ lập trình rust có khả năng xử lý nhanh. Nói đến thực thi nhanh thì C++ có tốc độ khá nổi bật. Nhưng do việc cấp phát, sử dụng và thu hồi bộ nhớ phức tạp nên sẽ làm tăng khả năng crash khi sử dụng ngôn ngữ lập trình C++. Đối với ngôn ngữ lập trình rust thì khác, với tính năng quản lý bộ nhớ khéo léo, nó cũng không cần phải kiểm tra trong khi chạy chương trình vì trong quá trình xây dựng các code xấu sẽ bị ngăn chặn bởi trình biên dịch. Nhờ vào trình quản lý bộ nhớ thông minh mà rust còn được tích hợp trong phần cứng nhúng, và còn có thể tích hợp đối với Raspberry Pi.
+Rust là sức mạnh của sự kết hợp ngôn ngữ lập trình bậc cao với ngôn ngữ lập trình bậc thấp.
+Rust là sức mạnh của sự kết hợp ngôn ngữ lập trình bậc cao với ngôn ngữ lập trình bậc thấp.&lt;&#x2F;p&gt;
+&lt;p&gt;Trong phát triển web, khi sử dụng ngôn ngữ Rust trên web thì tính an toàn và tốc độ vẫn được đảm bảo. Framework như Rocket sẽ giúp cho các nhà phát triển web xây dựng trang web bằng ngôn ngữ này.
+Giúp bạn dễ dàng thực hành và trở thành lập trình viên tốt hơn. Khi sử dụng ngôn ngữ này người lập trình không cần phải biết tất cả khi mới bắt đầu thực hiện, nhưng chắc chắn bắt buộc phải có kỹ năng lập trình tốt. Khi chương trình gặp lỗi, hoặc có vấn đề trình biên dịch của rust sẽ thông báo cho bạn, bên cạnh đó sẽ đề xuất phương án khắc phục. Ngoài ra đối với các ngôn ngữ lập trình khác có thể chạy mã nhanh hơn, và dễ học hơn, tuy nhiên bạn sẽ nắm được cách quản lý hoạt động chính xác của bộ nhớ.&lt;&#x2F;p&gt;
+&lt;p&gt;Làm sao để học ngôn ngữ lập trình Rust hiệu quả&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cach-hoc-rust-hieu-qua&quot;&gt;Cách học Rust hiệu quả&lt;&#x2F;h2&gt;
+&lt;p&gt;Để học một cách có hiệu quả ngôn ngữ lập trình Rust, đầu tiên bạn nên có trong tay một số tài liệu tốt. Gần như tất cả tài liệu về các ngôn ngữ lập trình đều có phần bắt đầu nhằm giúp người mới học dễ nắm bắt cách dùng và các cú pháp. Một số tài liệu để các bạn mới học ngôn ngữ này tham khảo như:&lt;&#x2F;p&gt;
+&lt;p&gt;The Rust Programming Language hay còn được gọi tắt là The Book, cuốn sách thông qua các ví dụ cụ thể sẽ giúp các bạn dễ hiểu, dễ nắm bắt hơn. Đây cũng là tài liệu chính thức đầy đủ nhất về ngôn ngữ lập trình rust gồm 12 chương.
+Rust by Example đây là một trang web giới thiệu những kiến thức cơ bản và tổng hợp về ngôn ngữ lập trình rust, gồm 24 mục lớn, hướng dẫn chi tiết từ cơ bản đến nâng cao như khái niệm cho đến chuyển đổi, luồng kiểm soát, cách xử lý lỗi, ….
+Hoặc đọc doc của Rust tại đây: https:&#x2F;&#x2F;www.rust-lang.org&#x2F;learn
+Bên cạnh nghiên cứu tài liệu thì bạn cũng nên tham gia hoạt động trong các cộng đồng lập trình ngôn ngữ rust như các diễn đàn, bản tin rust, trang web, trang facebook,…&lt;&#x2F;p&gt;
+&lt;p&gt;Và bạn nên học qua ít nhất một ngôn ngữ lập trình bậc cao như Java và một ngôn ngữ lập trình bậc thấp như C &#x2F; C++ để hiểu ngọn ngành hơn các vấn đề trước khi học Rust.&lt;&#x2F;p&gt;
+&lt;p&gt;Quan trọng là luôn học kết hợp với thực hành, thực hành thật nhiều bạn nhé.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ket-bai&quot;&gt;Kết bài&lt;&#x2F;h2&gt;
+&lt;p&gt;Có thể thấy tuy Rust là ngôn ngữ lập trình khá phức tạp đối với người mới bắt đầu, nhưng với những ưu điểm mà nó mang lại thì đây là một ngôn ngữ lập trình thú vị và đáng để bạn dành thời gian học hỏi. Nếu như bạn yêu thích và mong muốn làm việc với ngôn ngữ lập trình Rust, vậy thì còn chần chờ gì nữa, hãy bắt đầu thôi nào. Chúc các bạn thành công.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>[Rust] Macro function - Công cụ hấp dẫn</title>
+		<published>2019-11-28T00:00:00+00:00</published>
+		<updated>2019-11-28T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://bichkhe.github.io/rust/macro-function/" type="text/html"/>
+		<id>https://bichkhe.github.io/rust/macro-function/</id>
+		<content type="html"></content>
+	</entry>
+</feed>
