@@ -28,7 +28,9 @@ Bạn có thể thắc mắc là sao ko dùng chung 1 key thì lúc xác thực 
 # Solution
 
 Chúng ta sử dung includeIf trong file .gitconfig
-## Tạo 2 files .gitconfig-bichkhe1 trong /home/bichkhe/project1/.gitconfig-bichkhe1 và file
+## Cấu hình 2 accounts
+
+Tạo 2 files .gitconfig-bichkhe1 trong /home/bichkhe/project1/.gitconfig-bichkhe1 và file
 .gitconfig-bichkhe1  trong /home/bichkhe/project2/.gitconfig-bichkhe2
 
 Nội dung 2 files như sau:
