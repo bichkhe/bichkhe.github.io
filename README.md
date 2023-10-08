@@ -1,3 +1,3 @@
-# RUST TIẾNG VIÊT
+# RUST BLOG
 
-https://rust-tieng-viet.com
+https://bichkhet.github.io
