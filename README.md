@@ -1,3 +1,3 @@
 # RUST BLOG
 
-https://bichkhet.github.io
+https://bichkhe.github.io
